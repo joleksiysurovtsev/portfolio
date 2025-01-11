@@ -66,28 +66,19 @@ class MainLayout(
 
     private fun createNavButtons(): HorizontalLayout {
         val navButton1 = Anchor("/home", "Home").apply {
-            style.set("margin-right", "10px")
-            style.set("color", "#ffffff")
-            style.set("text-decoration", "none")
+            addClassName("nav-button")
         }
         val navButton2 = Anchor("/about", "About").apply {
-            style.set("margin-right", "10px")
-            style.set("color", "#ffffff")
-            style.set("text-decoration", "none")
+            addClassName("nav-button")
         }
         val navButton3 = Anchor("/tech-stack", "Tech Stack").apply {
-            style.set("margin-right", "10px")
-            style.set("color", "#ffffff")
-            style.set("text-decoration", "none")
+            addClassName("nav-button")
         }
         val navButton4 = Anchor("/projects", "My Projects").apply {
-            style.set("margin-right", "10px")
-            style.set("color", "#ffffff")
-            style.set("text-decoration", "none")
+            addClassName("nav-button")
         }
         val navButton5 = Anchor("/contact", "Contact").apply {
-            style.set("color", "#ffffff")
-            style.set("text-decoration", "none")
+            addClassName("nav-button")
         }
 
         return HorizontalLayout(navButton1, navButton2, navButton3, navButton4, navButton5).apply {
@@ -142,14 +133,19 @@ class MainLayout(
     private fun addThemeToggle(): Button {
         return Button("Switch to Dark Theme").apply {
             addClickListener {
-                val isDarkTheme = ui.get().element.getAttribute("theme")?.contains("dark") ?: false
-                if (isDarkTheme) {
-                    ui.get().element.setAttribute("theme", "mytheme")
-                    text = "Switch to Dark Theme"
+                val page = ui.get().page
+                page.executeJs(
+                    """
+                const body = document.body;
+                if (body.hasAttribute('theme')) {
+                    body.removeAttribute('theme');
+                    this.textContent = 'Switch to Dark Theme';
                 } else {
-                    ui.get().element.setAttribute("theme", "mytheme dark")
-                    text = "Switch to Light Theme"
+                    body.setAttribute('theme', 'dark');
+                    this.textContent = 'Switch to Light Theme';
                 }
+                """.trimIndent()
+                )
             }
             style.set("margin-left", "auto")
             style.set("padding", "5px 15px")

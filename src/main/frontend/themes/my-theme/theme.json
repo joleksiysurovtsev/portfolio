@@ -1,0 +1,4 @@
+{
+  "version": 3,
+  "lumoImports" : [ "typography", "color", "spacing", "badge", "utility" ]
+}
