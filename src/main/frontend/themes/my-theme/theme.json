@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "parent": "lumo",
+  "lumoImports": [
+    "color",
+    "typography",
+    "spacing",
+    "badge"
+  ]
+}

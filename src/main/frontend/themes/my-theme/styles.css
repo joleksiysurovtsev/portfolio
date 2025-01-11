@@ -1,0 +1,27 @@
+/* Светлая тема */
+:host {
+    --header-background-color: rgba(211, 9, 113, 0.51);
+    --header-text-color: #000000;
+}
+
+/* Тёмная тема */
+:host([theme~="dark"]) {
+    --header-background-color: #ff0055;
+    --header-text-color: #ffffff;
+}
+
+/* Стили для хедера */
+.my-header {
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    cursor: pointer;
+}

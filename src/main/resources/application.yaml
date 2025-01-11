@@ -1,0 +1,31 @@
+server:
+  port: ${PORT:8091}
+
+logging:
+  level:
+    org.atmosphere: WARN
+
+spring:
+  mustache:
+    check-template-location: false
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: mcadmin
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+
+vaadin:
+  launch-browser: true
+  theme:
+    name: my-theme
+
+web:
+  link:
+    github: ${WEB_LINK_GIT_HUB:https://github.com/joleksiysurovtsev}
+    linkedin: ${WEB_LINK_LINKEDIN:https://www.linkedin.com/in/oleksiy-surovtsev/}
+    facebook: ${WEB_LINK_FACEBOOK:https://www.facebook.com/oleksiysurovtsev}
