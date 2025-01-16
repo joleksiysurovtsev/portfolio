@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" id="apple-ibooks" x="0" y="0" version="1.1" viewBox="0 0 100 100">
+  <g id="Symbols_5_">
+    <g id="Graphics-_x2F_-App-Icons-_x2F_-iBooks">
+      <g id="iBooks-Icon">
+        <linearGradient id="Background_13_" x1="-303.017" x2="-303.017" y1="748.267" y2="746.767" gradientTransform="matrix(60 0 0 -60 18231 44901)" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#FFA700"></stop>
+          <stop offset="1" stop-color="#F9661E"></stop>
+        </linearGradient>
+        <path id="Background_4_" d="M63.6 5c9 0 13.6 0 18.4 1.5 5.3 1.9 9.5 6.1 11.4 11.4C95 22.8 95 27.3 95 36.4v27.2c0 9 0 13.6-1.5 18.4-1.9 5.3-6.1 9.5-11.4 11.4C77.2 95 72.7 95 63.6 95H36.4c-9 0-13.6 0-18.4-1.5-5.3-2-9.5-6.2-11.5-11.5C5 77.2 5 72.7 5 63.6V36.4c0-9 0-13.6 1.5-18.4 2-5.3 6.2-9.5 11.5-11.5C22.8 5 27.3 5 36.4 5h27.2z" style="fill:url(#Background_13_)"></path>
+        <path id="Icon_3_" d="M20 32.8s2.9-7.5 14.6-7.5c11.6 0 14.7 9.8 14.7 9.8v42s-3.7-11.2-14.6-11.2c-7.9 0-13.5 5.1-13.5 5.1-.6.5-1.2.2-1.2-.6V32.8zm60 0v37.5c0 .8-.5 1.1-1.2.6 0 0-5.6-5.1-13.5-5.1C54.5 65.8 50.8 77 50.8 77V35s3-9.8 14.7-9.8c11.6 0 14.5 7.6 14.5 7.6z" style="fill:#fff"></path>
+      </g>
+    </g>
+  </g>
+</svg>

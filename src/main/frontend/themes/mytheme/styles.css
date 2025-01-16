@@ -1,0 +1,82 @@
+/* styles.css */
+@import url('header/nav-button-styles.css');
+@import url('header/theme-toggle-styles.css');
+@import url('header/social-licks-style.css');
+@import url('fade.css');
+@import url('skills-achievements-styles.css');
+@import url('skills-achievements-card-style.css');
+
+/*Recolor here*/
+html {
+  --lumo-base-color: #ffffff;
+  --lumo-header-text-color: #666666;
+}
+
+/*here we redefine for black theme*/
+[theme~="dark"] {
+  --lumo-base-color: #191919;
+  --lumo-header-text-color: #A7A7A7;
+}
+
+:root {
+  --transition-duration: 0.5s;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.my-header {
+  padding: 0 8%;
+}
+
+.my-footer {
+  margin-top: 20px;
+  margin-bottom: 20px; /* padding of the bottom */
+  padding: 0 8%; /* internal padding */
+  box-sizing: border-box;
+}
+
+.contact-link{
+  color: var(--lumo-header-text-color);
+  font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+  text-decoration: none !important; /* Removes the standard underline */
+  font-size: 18px;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+.contact-link:after {
+  color: var(--lumo-header-text-color);
+  font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+  text-decoration: none !important; /* Removes the standard underline */
+  font-size: 18px;
+  font-weight: normal;
+  margin-right: 10px;
+}
+
+.skills-achievements {
+  padding: 0 12.5%;
+}
+
+.greeting-layout-style{
+  padding: 0 12.5%;
+}
+
+.my-tech-icon-style{
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+.my-tech-icon-label-style{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.greeting-text-header {
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}

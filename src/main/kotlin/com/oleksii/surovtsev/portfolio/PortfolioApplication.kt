@@ -8,7 +8,7 @@ import org.springframework.boot.runApplication
 
 @SpringBootApplication
 @PWA(name = "Project Base for Vaadin with Spring", shortName = "Project Base")
-@Theme(value="my-theme")
+@Theme(value = "mytheme")
 class PortfolioApplication: AppShellConfigurator
 
 fun main(args: Array<String>) {

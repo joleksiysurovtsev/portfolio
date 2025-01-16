@@ -40,6 +40,7 @@ dependencies {
     implementation("com.vaadin:vaadin:24.6.1")
     implementation("com.vaadin:vaadin-core:24.6.1")
     implementation("org.parttio:line-awesome:2.1.0")
+    implementation("com.vaadin:vaadin-lumo-theme:24.6.1")
 
     implementation("io.netty:netty-resolver-dns-native-macos:4.1.68.Final:osx-aarch_64")
 
@@ -52,6 +53,7 @@ kotlin {
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict")
     }
+    jvmToolchain(17)
 }
 
 tasks.withType<Test> {

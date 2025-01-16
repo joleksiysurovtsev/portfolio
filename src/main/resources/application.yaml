@@ -22,7 +22,7 @@ spring:
 vaadin:
   launch-browser: true
   theme:
-    name: my-theme
+    name: mytheme
 
 web:
   link:
