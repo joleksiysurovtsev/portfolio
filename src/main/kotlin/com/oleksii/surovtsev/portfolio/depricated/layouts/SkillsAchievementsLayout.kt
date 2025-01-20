@@ -1,6 +1,5 @@
 package com.oleksii.surovtsev.portfolio.depricated.layouts
 
-//import com.oleksii.surovtsev.portfolio.depricated.builders.FooterBuilder
 import com.oleksii.surovtsev.portfolio.depricated.builders.HeaderBuilder
 import com.vaadin.flow.component.AttachEvent
 import com.vaadin.flow.component.html.Div

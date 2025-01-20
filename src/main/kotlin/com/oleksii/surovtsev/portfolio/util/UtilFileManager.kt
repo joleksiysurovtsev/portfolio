@@ -5,15 +5,14 @@ import com.fasterxml.jackson.module.kotlin.readValue
 import com.oleksii.surovtsev.portfolio.entity.TechCardData
 
 object UtilFileManager {
-    fun getTextFromFile(fileName: String): Pair<String, String> {
+    fun getTextFromFile(fileName: String): List<String> {
         val resource = javaClass.getResource("/static/text/$fileName")
             ?: throw IllegalArgumentException("File not found: $fileName")
         val lines = resource.readText().lines()
         if (lines.isEmpty()) throw IllegalArgumentException("File $fileName is empty")
 
-        val title = lines[0]
-        val description = lines.drop(1).joinToString("\n")
-        return Pair(title, description)
+
+        return lines
     }
 
     fun getTechStackFromJson(fileName: String): List<TechCardData> {
