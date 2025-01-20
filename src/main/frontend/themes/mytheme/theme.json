@@ -1,4 +1,5 @@
 {
   "version": 3,
-  "lumoImports" : [ "typography", "color", "spacing", "badge", "utility" ]
+  "lumoImports" : [ "typography", "color", "spacing", "badge", "utility" ],
+  "autoInjectComponents" : "false"
 }

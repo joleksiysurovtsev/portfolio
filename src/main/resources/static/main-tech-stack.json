@@ -1,0 +1,92 @@
+[
+  {
+    "cardName": "Kotlin",
+    "cardIcon": "icons/tech/kotlin.svg",
+    "description": "Kotlin is the main programming language I use for developing modern applications. Its concise and expressive syntax allows me to write clean and maintainable code. I primarily use Kotlin for building microservices, REST APIs, and backend systems. The strong integration with the Spring Framework and compatibility with Java make it an essential tool in my development process. Additionally, Kotlin's null-safety and coroutine support ensure high performance and reliability in concurrent applications.",
+    "link": "url"
+  },
+  {
+    "cardName": "Spring",
+    "cardIcon": "icons/tech/spring.svg",
+    "description": "Spring Framework is a powerful tool I use to build scalable, secure, and robust backend applications. It provides an extensive ecosystem for managing dependencies, creating REST APIs, and integrating with various services. With features like Spring Boot, it enables rapid application development while maintaining high configurability and performance.",
+    "link": "url"
+  },
+  {
+    "cardName": "Kafka",
+    "cardIcon": "icons/tech/kafka.svg",
+    "description": "Kafka is a distributed event-streaming platform I use for real-time data processing and reliable communication between services. Its ability to handle large volumes of data with low latency makes it an ideal choice for building event-driven architectures in my projects.",
+    "link": "url"
+  },
+  {
+    "cardName": "Gradle",
+    "cardIcon": "icons/tech/gradleLogo.svg",
+    "description": "Gradle is the build tool I rely on for managing dependencies, automating tasks, and ensuring consistent builds. Its flexibility allows me to customize build pipelines for complex projects, and its integration with Kotlin DSL makes it a natural fit for my workflows.",
+    "link": "url"
+  },
+  {
+    "cardName": "BitBucket",
+    "cardIcon": "icons/tech/BitBucket.svg",
+    "description": "BitBucket serves as my go-to platform for version control and team collaboration. Its integration with Jira and pipelines provides a seamless development workflow, making it easier to track progress and automate deployments.",
+    "link": "url"
+  },
+  {
+    "cardName": "Docker",
+    "cardIcon": "icons/tech/docker.svg",
+    "description": "Docker is essential in my workflow for containerizing applications. It allows me to create portable and consistent development environments, ensuring seamless deployment across various systems. With Docker Compose, I manage multi-container applications effortlessly.",
+    "link": "url"
+  },
+  {
+    "cardName": "Elasticsearch",
+    "cardIcon": "icons/tech/elasticsearch.svg",
+    "description": "Elasticsearch is my choice for implementing powerful search functionality and analyzing large datasets. Its speed and scalability make it ideal for log analytics and search-intensive applications in my projects.",
+    "link": "url"
+  },
+  {
+    "cardName": "Helm",
+    "cardIcon": "icons/tech/helm.svg",
+    "description": "Helm simplifies the deployment and management of Kubernetes applications in my work. Its templating capabilities allow me to maintain clean and reusable configurations for complex environments.",
+    "link": "url"
+  },
+  {
+    "cardName": "Jasper",
+    "cardIcon": "icons/tech/jasper.svg",
+    "description": "JasperReports enables me to generate dynamic and customizable reports for various business needs. Its robust features for formatting and data integration make it a valuable tool in creating high-quality visual representations of data.",
+    "link": "url"
+  },
+  {
+    "cardName": "Jenkins",
+    "cardIcon": "icons/tech/jenkins.svg",
+    "description": "Jenkins automates my CI/CD pipelines, ensuring fast and reliable delivery of applications. With its extensive plugin ecosystem, I integrate multiple tools and streamline the development lifecycle.",
+    "link": "url"
+  },
+  {
+    "cardName": "Jira",
+    "cardIcon": "icons/tech/Jira.svg",
+    "description": "Jira is the main tool I use for agile project management and issue tracking. It helps me plan, organize, and prioritize tasks effectively, ensuring smooth team collaboration.",
+    "link": "url"
+  },
+  {
+    "cardName": "Kubernetes",
+    "cardIcon": "icons/tech/kubernetes.svg",
+    "description": "Kubernetes orchestrates the containerized applications I build, providing scalability and high availability. It allows me to manage resources efficiently and deploy applications seamlessly in cloud-native environments.",
+    "link": "url"
+  },
+  {
+    "cardName": "Markdown",
+    "cardIcon": "icons/tech/Markdown.svg",
+    "description": "Markdown is the language I use for creating clean, structured, and easily readable documentation. Its simplicity and support across various platforms make it my preferred choice for writing technical documents.",
+    "link": "url"
+  },
+  {
+    "cardName": "PostgreSQL",
+    "cardIcon": "icons/tech/postgresSQL.svg",
+    "description": "PostgreSQL is the relational database I rely on for managing structured data securely and efficiently. Its advanced features, like JSON support and indexing, enable me to handle complex queries and large datasets.",
+    "link": "url"
+  },
+  {
+    "cardName": "Postman",
+    "cardIcon": "icons/tech/postman.svg",
+    "description": "Postman is my go-to tool for testing, debugging, and documenting APIs. Its intuitive interface and powerful features, like automated testing, make it invaluable in my development process.",
+    "link": "url"
+  }
+]

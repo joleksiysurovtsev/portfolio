@@ -1,8 +1,8 @@
-package com.oleksii.surovtsev.portfolio.layouts
+package com.oleksii.surovtsev.portfolio.depricated.layouts
 
-import com.oleksii.surovtsev.portfolio.builders.ContentMainPageBuilder
-import com.oleksii.surovtsev.portfolio.builders.FooterBuilder
-import com.oleksii.surovtsev.portfolio.builders.HeaderBuilder
+import com.oleksii.surovtsev.portfolio.depricated.builders.ContentMainPageBuilder
+//import com.oleksii.surovtsev.portfolio.depricated.builders.FooterBuilder
+import com.oleksii.surovtsev.portfolio.depricated.builders.HeaderBuilder
 import com.vaadin.flow.component.AttachEvent
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
@@ -14,7 +14,7 @@ class MainLayout(
 
     private val headerBuilder: HeaderBuilder by lazy { HeaderBuilder() }
     private val contentMainPageBuilder: ContentMainPageBuilder by lazy { ContentMainPageBuilder() }
-    private val footerBuilder: FooterBuilder by lazy { FooterBuilder() }
+//    private val footerBuilder: FooterBuilder by lazy { FooterBuilder() }
 
     init {
         width = "100%"
@@ -22,10 +22,10 @@ class MainLayout(
         defaultHorizontalComponentAlignment = Alignment.CENTER
         val header: VerticalLayout = headerBuilder.createHeader()
         val content: VerticalLayout = contentMainPageBuilder.createContent()
-        val footer: VerticalLayout = footerBuilder.createFooter()
+//        val footer: VerticalLayout = footerBuilder.createFooter()
         add(header)
         addAndExpand(content)
-        add(footer)
+//        add(footer)
     }
 
     override fun onAttach(attachEvent: AttachEvent) {

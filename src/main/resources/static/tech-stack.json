@@ -1,0 +1,34 @@
+[
+  {
+    "cardName": "CSS",
+    "cardIcon": "icons/tech/css.svg"
+  },
+  {
+    "cardName": "Git",
+    "cardIcon": "icons/tech/git.svg"
+  },
+  {
+    "cardName": "GitLab",
+    "cardIcon": "icons/tech/gitlab.svg"
+  },
+  {
+    "cardName": "HTML",
+    "cardIcon": "icons/tech/html.svg"
+  },
+  {
+    "cardName": "Java",
+    "cardIcon": "icons/tech/java.svg"
+  },
+  {
+    "cardName": "JavaScript",
+    "cardIcon": "icons/tech/js.svg"
+  },
+  {
+    "cardName": "PostgreSQL",
+    "cardIcon": "icons/tech/postgresSQL.svg"
+  },
+  {
+    "cardName": "Postman",
+    "cardIcon": "icons/tech/postman.svg"
+  }
+]

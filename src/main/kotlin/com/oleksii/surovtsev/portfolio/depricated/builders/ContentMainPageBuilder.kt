@@ -1,4 +1,4 @@
-package com.oleksii.surovtsev.portfolio.builders
+package com.oleksii.surovtsev.portfolio.depricated.builders
 
 import com.vaadin.flow.component.html.Div
 import com.vaadin.flow.component.html.Image
@@ -74,6 +74,7 @@ class ContentMainPageBuilder {
             add(textLayout, photoLayout)
         }
     }
+
     private fun getTechStackLayout(): VerticalLayout {
         return VerticalLayout().apply {
             width = "100%"
@@ -159,7 +160,7 @@ class ContentMainPageBuilder {
             style.set("padding", "20px")
             element.setAttribute("id", "projects") // Set ID for Projects section
 
-            // Заголовок секции
+            // Section Title
             val title = Div().apply {
                 text = "Projects"
                 style.set("font-size", "36px")
@@ -180,7 +181,7 @@ class ContentMainPageBuilder {
                 style.set("flex-wrap", "wrap")
                 isSpacing = true
 
-                // Пример плиток проектов
+                // Example of project tiles
                 add(createProjectTile(
                     "img/gedleVer2.png",
                     "Project Tile 1",
@@ -222,7 +223,7 @@ class ContentMainPageBuilder {
             style.set("background", "#fff")
             style.set("padding", "0") // Remove indentations
 
-            // Изображение в верхней части
+            // Image in the upper partи
             val image = Image(imagePath, title).apply {
                 style.set("width", "100%") // The image is full width
 //                style.set("height", "260px") // Fixed altitude

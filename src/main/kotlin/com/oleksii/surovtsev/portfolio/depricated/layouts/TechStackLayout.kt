@@ -1,7 +1,7 @@
-package com.oleksii.surovtsev.portfolio.layouts
+package com.oleksii.surovtsev.portfolio.depricated.layouts
 
-import com.oleksii.surovtsev.portfolio.builders.FooterBuilder
-import com.oleksii.surovtsev.portfolio.builders.HeaderBuilder
+//import com.oleksii.surovtsev.portfolio.depricated.builders.FooterBuilder
+import com.oleksii.surovtsev.portfolio.depricated.builders.HeaderBuilder
 import com.vaadin.flow.component.AttachEvent
 import com.vaadin.flow.component.html.Div
 import com.vaadin.flow.component.html.H3
@@ -14,7 +14,7 @@ import com.vaadin.flow.router.RouterLayout
 class TechStackLayout : VerticalLayout(), RouterLayout {
 
     private val headerBuilder: HeaderBuilder by lazy { HeaderBuilder() }
-    private val footerBuilder: FooterBuilder by lazy { FooterBuilder() }
+//    private val footerBuilder: FooterBuilder by lazy { FooterBuilder() }
 
     // Skill list with descriptions
     private val skills = listOf(
@@ -46,10 +46,10 @@ class TechStackLayout : VerticalLayout(), RouterLayout {
         defaultHorizontalComponentAlignment = Alignment.CENTER
         val header: VerticalLayout = headerBuilder.createHeader()
         val content: VerticalLayout = createContent()
-        val footer: VerticalLayout = footerBuilder.createFooter()
+//        val footer: VerticalLayout = footerBuilder.createFooter()
         add(header)
         addAndExpand(content)
-        add(footer)
+//        add(footer)
     }
 
     private fun createContent(): VerticalLayout {

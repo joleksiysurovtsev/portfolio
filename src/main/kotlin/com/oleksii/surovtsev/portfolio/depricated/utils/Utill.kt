@@ -1,4 +1,4 @@
-package com.oleksii.surovtsev.portfolio.utils
+package com.oleksii.surovtsev.portfolio.depricated.utils
 
 import com.vaadin.flow.component.UI
 

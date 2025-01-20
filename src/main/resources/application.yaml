@@ -23,9 +23,4 @@ vaadin:
   launch-browser: true
   theme:
     name: mytheme
-
-web:
-  link:
-    github: ${WEB_LINK_GIT_HUB:https://github.com/joleksiysurovtsev}
-    linkedin: ${WEB_LINK_LINKEDIN:https://www.linkedin.com/in/oleksiy-surovtsev/}
-    facebook: ${WEB_LINK_FACEBOOK:https://www.facebook.com/oleksiysurovtsev}
+  compatibilityMode: false

@@ -1,0 +1,57 @@
+
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.about-img {
+    flex: 1 1 250px;
+    display: flex;
+    justify-content: right;
+}
+
+.about-img img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%; /* Round image */
+}
+
+.about-text {
+    flex: 2 1 300px; /* Text takes up more space */
+    text-align: left;
+    margin-right: 5%;
+}
+
+.about-text h1 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--lumo-header-text-color);
+}
+
+.about-text div {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--lumo-menu-text-color);
+    font-family: "Roboto", sans-serif;
+}
+
+/* Adaptability for small screens */
+@media screen and (max-width: 768px) {
+    .about-container {
+        flex-direction: column; /* We set the elements vertically */
+        text-align: center;
+    }
+
+    .about-img{
+        justify-content: center;
+    }
+
+    .about-text {
+        text-align: center;
+        margin-right: 1.5%;
+    }
+}

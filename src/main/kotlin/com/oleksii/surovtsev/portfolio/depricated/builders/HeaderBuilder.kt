@@ -1,7 +1,7 @@
-package com.oleksii.surovtsev.portfolio.builders
+package com.oleksii.surovtsev.portfolio.depricated.builders
 
-import com.oleksii.surovtsev.portfolio.utils.NavButtonsBuilder
-import com.oleksii.surovtsev.portfolio.utils.SocialLinksIconBlockBuilder
+import com.oleksii.surovtsev.portfolio.depricated.utils.NavButtonsBuilder
+import com.oleksii.surovtsev.portfolio.depricated.utils.SocialLinksIconBlockBuilder
 import com.vaadin.flow.component.button.Button
 import com.vaadin.flow.component.html.Image
 import com.vaadin.flow.component.orderedlayout.FlexComponent
@@ -23,15 +23,15 @@ class HeaderBuilder {
             justifyContentMode = FlexComponent.JustifyContentMode.CENTER
         }
 
-        val socialLinks: HorizontalLayout = SocialLinksIconBlockBuilder.createSocialLinksIconBlock().apply {
-            justifyContentMode = FlexComponent.JustifyContentMode.END
-        }
+//        val socialLinks: HorizontalLayout = SocialLinksIconBlockBuilder.createSocialLinksIconBlock().apply {
+//            justifyContentMode = FlexComponent.JustifyContentMode.END
+//        }
 
         val themeToggle: Button = addThemeToggle().apply {
             addClassName("toggle-styles")
         }
 
-        val horizontalLayout = HorizontalLayout(navButtons, themeToggle, socialLinks).apply {
+        val horizontalLayout = HorizontalLayout(navButtons, themeToggle, /*socialLinks*/).apply {
             alignItems = Alignment.CENTER
             width = "100%"
             setJustifyContentMode(FlexComponent.JustifyContentMode.BETWEEN)
@@ -48,6 +48,9 @@ class HeaderBuilder {
             style.set("cursor", "pointer")
         }
     }
+
+
+
 
     private fun addThemeToggle(): Button {
         return Button().apply {
