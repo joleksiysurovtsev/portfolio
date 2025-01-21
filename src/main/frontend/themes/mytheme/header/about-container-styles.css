@@ -43,8 +43,13 @@
         text-align: center;
     }
 
-    .about-img{
+    .about-photo {
+        width: 250px;
+        height: 250px;
+        flex: 1 1 250px;
+        display: flex;
         justify-content: center;
+        border-radius: 50%;
     }
 
     .about-text {

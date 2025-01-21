@@ -14,7 +14,7 @@
 :root {
     --header-height: 3rem;
     --font-semi: 600;
-    --underlining-color: #ffb400; /* underlining */
+    --underlining-color: #5588FFCC; /* underlining */
     --lumo-header-text-color: #4a4a4a; /* Dark grey for text */
     --lumo-base-color: #ffffff; /* Background for light theme */
     --lumo-shadow-color: rgba(146, 161, 176, 0.15); /* Shade */
@@ -23,6 +23,7 @@
 }
 
 [theme~="dark"] {
+    --underlining-color: #FF714AFF; /* underlining */
     --lumo-base-color: #191919;
     --lumo-header-text-color: #a7a7a7;
     --lumo-shadow-color: rgba(0, 0, 0, 0.5);

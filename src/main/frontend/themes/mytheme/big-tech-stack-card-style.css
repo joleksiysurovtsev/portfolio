@@ -15,7 +15,7 @@ html[theme~="dark"] {
     --tech-card-bg: rgba(33, 33, 33, 1);
     --tech-card-content-bg: rgba(44, 44, 44, 1);
     --tech-card-text: #ffffff;
-    --tech-card-border-glow: rgba(255, 166, 0, 0.8);
+    --tech-card-border-glow: #FF714AFF;
 }
 
 

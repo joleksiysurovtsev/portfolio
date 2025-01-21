@@ -53,13 +53,17 @@
     transition: color 0.3s ease;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 /* Media Queries */
 @media screen and (max-width: 768px) {
     .nav-menu {
         position: fixed;
         top: var(--header-height);
         right: -100%;
-        width: 40%;
+        width: 50%;
         height: 100%;
         padding: 2rem;
         background-color: var(--lumo-menu-background-color); /* The color of the background depends on the theme. */

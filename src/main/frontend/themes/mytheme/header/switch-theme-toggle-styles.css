@@ -1,10 +1,5 @@
 :root {
-    --sun-moon-collor: #7b61ff;
-}
-
-/*here we redefine for black theme*/
-[theme~="dark"] {
-    --sun-moon-collor: #ffb400;
+    --sun-moon-collor: var(--underlining-color);
 }
 
 .sun-moon {
