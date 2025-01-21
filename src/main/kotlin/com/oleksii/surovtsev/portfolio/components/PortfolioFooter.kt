@@ -34,13 +34,13 @@ class PortfolioFooter : Footer() {
         val facebookIcon = createClickableImage("icons/facebook_icon.svg", "https://www.facebook.com/oleksiysurovtsev")
 
         return HorizontalLayout(githubIcon, linkedInIcon, facebookIcon).apply {
-            addClassName("social-links")
+            addClassName("footer-social-links")
         }
     }
 
     private fun createClickableImage(imagePath: String, url: String): Anchor {
         val image = Image(imagePath, "Custom Icon").apply {
-            addClassName("clickable-icon")
+            addClassName("footer-clickable-icon")
         }
 
         return Anchor(url, image)

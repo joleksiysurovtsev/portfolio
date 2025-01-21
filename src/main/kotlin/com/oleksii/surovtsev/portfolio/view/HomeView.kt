@@ -3,16 +3,13 @@ package com.oleksii.surovtsev.portfolio.view
 import com.oleksii.surovtsev.portfolio.components.AboutMeBlock
 import com.oleksii.surovtsev.portfolio.components.CurrentTechStackBlock
 import com.oleksii.surovtsev.portfolio.components.TechCard
-import com.oleksii.surovtsev.portfolio.entity.TechCardData
 import com.oleksii.surovtsev.portfolio.entity.TechCardType
 import com.oleksii.surovtsev.portfolio.layout.MainLayout
 import com.oleksii.surovtsev.portfolio.util.UtilFileManager
 import com.vaadin.flow.component.html.Div
 import com.vaadin.flow.component.html.H1
-import com.vaadin.flow.component.html.Image
 import com.vaadin.flow.component.orderedlayout.FlexComponent
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment
-import com.vaadin.flow.component.orderedlayout.FlexLayout
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 import com.vaadin.flow.router.Route

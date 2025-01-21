@@ -29,7 +29,7 @@
 }
 
 /* Container styles with icons */
-.social-links {
+.footer-social-links {
     display: flex;
     gap: 10px; /* Space between icons */
     align-items: center;
@@ -37,14 +37,14 @@
 }
 
 /* Styles for clickable icons */
-.clickable-icon {
+.footer-clickable-icon {
     cursor: pointer; /* Change cursor to pointer */
     width: 24px; /* Icon width */
     height: 24px; /* Icon height */
     transition: transform 0.2s ease; /* animation */
 }
 
-.clickable-icon:hover {
+.footer-clickable-icon:hover {
     color: var(--underlining-color); /* Color when pointing */
     transform: scale(1.1)
 }

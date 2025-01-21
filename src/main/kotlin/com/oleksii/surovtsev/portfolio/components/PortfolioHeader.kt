@@ -1,12 +1,14 @@
 package com.oleksii.surovtsev.portfolio.components
 
+import com.oleksii.surovtsev.portfolio.util.UtilFileManager
+import com.vaadin.flow.component.UI
+import com.vaadin.flow.component.button.Button
 import com.vaadin.flow.component.dependency.JsModule
 import com.vaadin.flow.component.html.*
+import com.vaadin.flow.component.icon.Icon
+import com.vaadin.flow.component.icon.VaadinIcon
 import com.vaadin.flow.component.orderedlayout.FlexComponent
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout
-import com.oleksii.surovtsev.portfolio.util.UtilFileManager
-import com.vaadin.flow.component.button.Button
-import com.vaadin.flow.component.html.Div
 
 
 @JsModule("./elements/menu-toggle.js")
@@ -31,20 +33,24 @@ class PortfolioHeader : Header() {
         menuDiv.setId("nav-menu")
         menuDiv.className = "nav-menu"
 
-        val navList = UnorderedList()
+        val navList = Div()
         navList.className = "nav-list"
 
-        val menuItems = listOf("Home", "About", "Stack", "Skills", "Work", "Contact")
-        menuItems.forEach { item ->
-            val listItem = ListItem()
-            listItem.className = "nav-item"
+        val listNavButton = listOf(
+            Button("Home", Icon(VaadinIcon.HOME)).apply { setId(" ") },
+            Button("About", Icon(VaadinIcon.USER)).apply { setId("about") },
+            Button("Projects", Icon(VaadinIcon.AUTOMATION)).apply { setId("projects") },
+            Button("Blog", Icon(VaadinIcon.PENCIL)).apply { setId("blog") },
+            Button("Contact", Icon(VaadinIcon.CONNECT)).apply { setId("contact") }
+        )
 
-            val link = Anchor("#${item.lowercase()}", item)
-            link.className = "nav-link"
-            if (item == "Home") link.addClassName("active")
-
-            listItem.add(link)
-            navList.add(listItem)
+        listNavButton.forEach { button ->
+            button.addClassName("nav-button")
+            button.isIconAfterText = true
+            button.addClickListener {
+                UI.getCurrent().navigate(button.id.get())
+            }
+            navList.add(button)
         }
         menuDiv.add(navList)
 

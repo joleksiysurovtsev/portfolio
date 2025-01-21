@@ -11,14 +11,14 @@ import com.vaadin.flow.component.orderedlayout.FlexLayout
 class AboutMeBlock : FlexLayout() {
 
     companion object {
-        const val ABOUT_ME_TEXT_FILE_NAME = "greeting.txt"
-        const val IMAGE_SRC = "img/my-photo-r.png"
-        const val IMAGE_ALT = "My Photo"
+        private const val ABOUT_ME_TEXT_FILE_NAME = "greeting.txt"
+        private const val IMAGE_SRC = "img/my-photo-r.png"
+        private const val IMAGE_ALT = "My Photo"
 
         //STYLES
-        const val ABOUT_CONTAINER_STYLE = "about-container"
-        const val ABOUT_PHOTO_STYLE = "about-photo"
-        const val ABOUT_TEXT_STYLE = "about-text"
+        private const val ABOUT_CONTAINER_STYLE = "about-container"
+        private const val ABOUT_PHOTO_STYLE = "about-photo"
+        private const val ABOUT_TEXT_STYLE = "about-text"
     }
 
     init {

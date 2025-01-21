@@ -99,3 +99,32 @@
         color: var(--lumo-header-text-color);
     }
 }
+
+.nav-button {
+    background-color: transparent;
+    border: none;
+    color: var(--lumo-header-text-color);
+    font-size: 1rem;
+    font-weight: var(--font-semi);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Расстояние между иконкой и текстом */
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-button:hover {
+    color: var(--underlining-color);
+}
+
+.nav-button:focus {
+    outline: none;
+}
+
+/* Адаптивность */
+@media screen and (max-width: 768px) {
+    .nav-button {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+}
