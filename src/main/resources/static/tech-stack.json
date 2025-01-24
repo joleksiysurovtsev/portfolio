@@ -22,13 +22,5 @@
   {
     "cardName": "JavaScript",
     "cardIcon": "icons/tech/js.svg"
-  },
-  {
-    "cardName": "PostgreSQL",
-    "cardIcon": "icons/tech/postgresSQL.svg"
-  },
-  {
-    "cardName": "Postman",
-    "cardIcon": "icons/tech/postman.svg"
   }
 ]

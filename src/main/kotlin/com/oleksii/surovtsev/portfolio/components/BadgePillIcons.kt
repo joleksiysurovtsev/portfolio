@@ -1,4 +1,4 @@
-package com.oleksii.surovtsev.portfolio.lab
+package com.oleksii.surovtsev.portfolio.components
 
 import com.vaadin.flow.component.html.Span
 import com.vaadin.flow.component.icon.Icon

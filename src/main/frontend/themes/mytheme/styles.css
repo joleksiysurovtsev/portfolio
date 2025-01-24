@@ -13,6 +13,8 @@
 @import url('skills-achievements-styles.css');
 @import url('badge.css');
 
+@import url('certification-slider-style.css');
+
 :root {
     --header-height: 3rem;
     --font-semi: 600;
@@ -43,14 +45,14 @@
 .experience-skills-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1rem;
     align-items: flex-start;
     justify-content: center;
-    padding: 20px;
+    padding: 5px;
 }
 
 .experience-section {
-    flex: 2 1 300px;
+    flex: 1 1 300px;
     text-align: left;
 }
 
@@ -70,22 +72,18 @@
     margin-top: 20px;
 }
 
-.skill-bar-element {
-    margin-bottom: 15px;
-}
-
-.skill-bar-text {
+.progress-bar-text {
     font-weight: bold;
 }
 
-.skill-bar-percentage {
+.progress-bar-percentage {
     opacity: 0.7;
     padding-right: 10px;
 }
 
 .progress-bar-container {
     width: 100%;
-    height: 8px;
+    height: 5px;
     background-color: #e0e0e0;
     border-radius: 5px;
     overflow: hidden;
@@ -113,12 +111,12 @@
 @media screen and (max-width: 768px) {
     .experience-skills-container {
         flex-direction: column;
-        text-align: center;
-        padding: 25px;
+        text-align: left;
+        padding: 0px;
     }
 
     .experience-section,
     .skills-section {
-        text-align: center;
+        text-align: left;
     }
 }

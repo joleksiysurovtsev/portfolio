@@ -1,0 +1,17 @@
+[
+  {
+    "title": "SPD-University",
+    "description": "Successfully completed a Java course with a total duration of 115 hours. The program included modules such as Java Core, Java EE, databases, multithreading, application engineering, and soft skills. Received a certificate for demonstrated experience, knowledge, and performance in team development of a web application from scratch to production using a modern Java stack (100 hours).",
+    "imageUrl": "img/spd-university.jpeg"
+  },
+  {
+    "title": "Liquibase Fundamentals Certification (LB101R)",
+    "description": "Successfully completed a 4-hour course covering Liquibase fundamentals. The course included installation, configuration, changelogs, changesets, tracking tables, common commands (e.g., update, rollback, generateChangeLog), best practices, and a certification exam. Certified for proficiency in managing and deploying database changes efficiently.",
+    "imageUrl": "img/certification-Liquibase-Fundamentals-Certification-oleksiysurovtsev.jpg"
+  },
+  {
+    "title": "Jenkins: Essentials",
+    "description": "A introductory course covering Jenkins and DevOps fundamentals. Topics include continuous integration, delivery, and deployment; Jenkins interaction with Source Code Management (SCM) systems; testing concepts; and contributing to the Jenkins open-source community. Ideal for software professionals with a basic understanding of the software development cycle.",
+    "imageUrl": "img/certificate-jenkince-twskrprhqdnx-1627543384.jpg"
+  }
+]

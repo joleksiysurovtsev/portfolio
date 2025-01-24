@@ -133,10 +133,10 @@ class ExperienceAndSkillsBlock : VerticalLayout() {
                 justifyContentMode = FlexComponent.JustifyContentMode.BETWEEN
                 add(
                     Span(skill).apply {
-                        addClassName("skill-bar-text")
+                        addClassName("progress-bar-text")
                     },
                     Span("$percentage%").apply {
-                        addClassName("skill-bar-percentage")
+                        addClassName("progress-bar-percentage")
                     }
                 )
             }
