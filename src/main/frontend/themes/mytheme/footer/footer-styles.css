@@ -7,57 +7,59 @@
     text-align: center;
     width: 100%;
     margin-top: auto;
-}
 
-.footer-links {
-    display: flex;
-    justify-content: center; /* We center the links horizontally */
-    flex-wrap: wrap; /* Term transfer for small screens */
-    gap: 1.5rem; /* Standing between the links */
-    margin-bottom: 1rem; /* Step down */
-}
+    .footer-copyright-disclaimer {
+        font-size: 0.875rem; /* Copytext size */
+        color: var(--lumo-header-text-color); /* Copyrights color */
+        margin-top: 1rem; /* Top indent */
+    }
 
-.footer-link {
-    color: var(--lumo-header-text-color); /* Link color */
-    font-weight: var(--font-semi); /* Alkaline text */
-    text-decoration: none; /* Removing the underhand */
-    transition: color 0.3s ease; /* Smooth change of color */
-}
+    .footer-links-div {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
 
-.footer-link:hover {
-    color: var(--underlining-color); /*Color when pointing*/
-}
+        .footer-link {
+            color: var(--lumo-header-text-color); /* Link color */
+            font-weight: var(--font-semi); /* Alkaline text */
+            text-decoration: none; /* Removing the underhand */
+            transition: color 0.3s ease; /* Smooth change of color */
+        }
 
-/* Container styles with icons */
-.footer-social-links {
-    display: flex;
-    gap: 10px; /* Space between icons */
-    align-items: center;
-    justify-content: center;
-}
+        .footer-link:hover {
+            color: var(--underlining-color); /*Color when pointing*/
+        }
+    }
 
-/* Styles for clickable icons */
-.footer-clickable-icon {
-    cursor: pointer; /* Change cursor to pointer */
-    width: 24px; /* Icon width */
-    height: 24px; /* Icon height */
-    transition: transform 0.2s ease; /* animation */
-}
+    /* Container styles with icons */
 
-.footer-clickable-icon:hover {
-    color: var(--underlining-color); /* Color when pointing */
-    transform: scale(1.1)
-}
+    .footer-social-links {
+        display: flex;
+        gap: 10px; /* Space between icons */
+        align-items: center;
+        justify-content: center;
 
-.footer-copy {
-    font-size: 0.875rem; /* Copytext size */
-    color: var(--lumo-header-text-color); /* Copyrights color */
-    margin-top: 1rem; /* Top indent */
+        /* Styles for clickable icons */
+
+        .footer-clickable-icon {
+            cursor: pointer; /* Change cursor to pointer */
+            width: 24px; /* Icon width */
+            height: 24px; /* Icon height */
+            transition: transform 0.2s ease; /* animation */
+        }
+
+        .footer-clickable-icon:hover {
+            color: var(--underlining-color); /* Color when pointing */
+            transform: scale(1.1)
+        }
+    }
 }
 
 /* Media Queries for the footer */
 @media screen and (max-width: 768px) {
-    .footer-links {
+    .footer-links-div {
         flex-direction: column; /* Vertical placement of links on small screens */
         gap: 1rem; /* Reduce the distance between links */
     }

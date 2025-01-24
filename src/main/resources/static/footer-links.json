@@ -1,0 +1,14 @@
+[
+  {
+    "href" : "#portfolio",
+    "text" : "Portfolio"
+  },
+  {
+    "href" : "#about",
+    "text" : "About Me"
+  },
+  {
+    "href" : "#contact",
+    "text" : "Contact"
+  }
+]

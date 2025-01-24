@@ -1,0 +1,17 @@
+[
+  {
+    "imagePath": "icons/github_mark.svg",
+    "url": "https://github.com/joleksiysurovtsev",
+    "name": "github"
+  },
+  {
+    "imagePath": "icons/linkedIn_icon.svg",
+    "url": "https://www.linkedin.com/in/oleksiy-surovtsev/",
+    "name": "LinkedIn"
+  },
+  {
+    "imagePath": "icons/facebook_icon.svg",
+    "url": "https://www.facebook.com/oleksiysurovtsev",
+    "name": "Facebook"
+  }
+]

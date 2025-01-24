@@ -43,16 +43,12 @@ class ExperienceAndSkillsBlock : VerticalLayout() {
 
             add(experienceSection, skillsSection)
         }
-
-
         add(textLayout, horizont)
     }
 
     private fun createExperienceSection(): VerticalLayout {
         val experienceParts: List<ExperiencePart> = UtilFileManager.getDataFromJson("experience-parts.json")
-        return createTimelineSection(experienceParts).apply {
-            addClassName("edu-ach-card")
-        }
+        return createTimelineSection(experienceParts)
     }
 
     private fun createTimelineSection(experienceItems: List<ExperiencePart>): VerticalLayout {
@@ -72,7 +68,6 @@ class ExperienceAndSkillsBlock : VerticalLayout() {
                     this.add(title)
                     val period = Div().apply {
                         text = "${experience.period.start} - ${experience.period.end}"
-                        addClassName("timeline-item-time")
                     }
                     add(period)
                     experience.experienceDescription.listDescription.forEach { line ->

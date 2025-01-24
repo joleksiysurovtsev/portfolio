@@ -8,3 +8,14 @@ data class ExperiencePart @JsonCreator constructor(
     @JsonProperty("period") val period: ExperiencePeriod,
     @JsonProperty("experienceDescription") val experienceDescription: ExperienceDescription,
 )
+
+data class FooterLink  @JsonCreator constructor(
+    @JsonProperty("href") val href: String,
+    @JsonProperty("text") val text: String,
+)
+
+data class SocialIcon  @JsonCreator constructor(
+    @JsonProperty("imagePath") val imagePath: String,
+    @JsonProperty("url") val url: String,
+    @JsonProperty("name") val name: String,
+)

@@ -14,6 +14,7 @@
 @import url('badge.css');
 
 @import url('certification-slider-style.css');
+@import url('fade.css');
 
 :root {
     --header-height: 3rem;
@@ -36,6 +37,13 @@
 }
 
 .edu-ach-card {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+.timeline-section {
     position: relative;
     z-index: 1;
     overflow: hidden;
