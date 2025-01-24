@@ -112,7 +112,7 @@
     font-weight: var(--font-semi);
     display: flex;
     align-items: center;
-    gap: 0.5rem; /* Расстояние между иконкой и текстом */
+    gap: 0.5rem;
     transition: color 0.3s ease;
     cursor: pointer;
 }
@@ -125,7 +125,6 @@
     outline: none;
 }
 
-/* Адаптивность */
 @media screen and (max-width: 768px) {
     .nav-button {
         font-size: 1.2rem;

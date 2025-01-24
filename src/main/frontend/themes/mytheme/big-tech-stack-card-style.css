@@ -2,7 +2,7 @@ html {
     --tech-card-bg: rgba(245, 245, 245, 1);
     --tech-card-content-bg: rgba(255, 255, 255, 1);
     --tech-card-text: #333333;
-    --tech-card-border-glow: rgba(85, 136, 255, 0.8);
+    --tech-card-border-glow: #4169E1;
     --tech-card-height: 140px;
     --description-max-height: 48px;
     --description-expanded-height: 500px;

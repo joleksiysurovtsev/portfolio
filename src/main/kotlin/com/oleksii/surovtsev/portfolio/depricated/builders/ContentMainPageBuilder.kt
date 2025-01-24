@@ -221,14 +221,13 @@ class ContentMainPageBuilder {
             style.set("overflow", "hidden")
             style.set("margin", "10px")
             style.set("background", "#fff")
-            style.set("padding", "0") // Remove indentations
+            style.set("padding", "0")
 
-            // Image in the upper partи
             val image = Image(imagePath, title).apply {
-                style.set("width", "100%") // The image is full width
+                style.set("width", "100%")
 //                style.set("height", "260px") // Fixed altitude
-                style.set("object-fit", "cover") // Image adjustment
-                style.set("margin", "0") // Remove indents
+                style.set("object-fit", "cover")
+                style.set("margin", "0")
             }
 
             // the title of draft
@@ -258,7 +257,6 @@ class ContentMainPageBuilder {
                 style.set("margin", "10px 0")
             }
 
-            // reference to draft
             val linksLayout = HorizontalLayout().apply {
                 justifyContentMode = FlexComponent.JustifyContentMode.START
                 alignItems = Alignment.CENTER

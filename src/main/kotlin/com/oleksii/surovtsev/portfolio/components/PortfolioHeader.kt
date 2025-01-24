@@ -38,7 +38,7 @@ class PortfolioHeader : Header() {
 
         val listNavButton = listOf(
             Button("Home", Icon(VaadinIcon.HOME)).apply { setId(" ") },
-            Button("About", Icon(VaadinIcon.USER)).apply { setId("about") },
+            Button("Experience", Icon(VaadinIcon.USER)).apply { setId("experience") },
             Button("Projects", Icon(VaadinIcon.AUTOMATION)).apply { setId("projects") },
             Button("Blog", Icon(VaadinIcon.PENCIL)).apply { setId("blog") },
             Button("Contact", Icon(VaadinIcon.CONNECT)).apply { setId("contact") }

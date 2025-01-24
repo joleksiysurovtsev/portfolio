@@ -1,10 +1,13 @@
-package com.oleksii.surovtsev.portfolio.components
+package com.oleksii.surovtsev.portfolio.view.home.element
 
 import com.oleksii.surovtsev.portfolio.entity.TechCardData
 import com.oleksii.surovtsev.portfolio.entity.TechCardType
 import com.vaadin.flow.component.button.Button
 import com.vaadin.flow.component.dependency.JsModule
-import com.vaadin.flow.component.html.*
+import com.vaadin.flow.component.html.Div
+import com.vaadin.flow.component.html.H3
+import com.vaadin.flow.component.html.Image
+import com.vaadin.flow.component.html.Span
 
 @JsModule("./elements/card-tech.js")
 class TechCard : Div {

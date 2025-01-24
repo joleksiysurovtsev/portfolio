@@ -107,6 +107,7 @@ html[theme~="dark"] {
     filter: brightness(1.4) contrast(.725);
     opacity: 0;
 }
+
 /*
 .small-tech-card::before {
     content: "";

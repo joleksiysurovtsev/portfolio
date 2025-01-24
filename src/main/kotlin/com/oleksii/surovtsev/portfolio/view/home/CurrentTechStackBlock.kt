@@ -1,8 +1,9 @@
-package com.oleksii.surovtsev.portfolio.components
+package com.oleksii.surovtsev.portfolio.view.home
 
 import com.oleksii.surovtsev.portfolio.entity.TechCardData
 import com.oleksii.surovtsev.portfolio.entity.TechCardType
 import com.oleksii.surovtsev.portfolio.util.UtilFileManager
+import com.oleksii.surovtsev.portfolio.view.home.element.TechCard
 import com.vaadin.flow.component.html.Div
 import com.vaadin.flow.component.html.H1
 import com.vaadin.flow.component.orderedlayout.FlexComponent
@@ -35,7 +36,7 @@ class CurrentTechStackBlock : VerticalLayout() {
             style.set("flex-wrap", "wrap")
             isSpacing = true
 
-            val techCards: List<TechCardData> = UtilFileManager.getTechStackFromJson("main-tech-stack.json")
+            val techCards: List<TechCardData> = UtilFileManager.getDataFromJson("main-tech-stack.json")
             techCards.map { TechCard.fromData(it, TechCardType.EXTENDED) }.forEach { add(it) }
         }
 

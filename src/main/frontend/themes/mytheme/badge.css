@@ -1,0 +1,9 @@
+.badge {
+    background-color: var(--underlining-color);
+    color: rgb(255, 255, 255);
+}
+
+[theme~="dark"] .badge {
+    background-color: var(--underlining-color);
+    color: #070606FF;
+}

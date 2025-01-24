@@ -1,4 +1,4 @@
-package com.oleksii.surovtsev.portfolio.components
+package com.oleksii.surovtsev.portfolio.view.home
 
 import com.oleksii.surovtsev.portfolio.util.UtilFileManager
 import com.vaadin.flow.component.html.Div

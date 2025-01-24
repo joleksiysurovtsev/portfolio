@@ -1,8 +1,11 @@
 package com.oleksii.surovtsev.portfolio.entity
 
-data class TechCardData(
-    val cardName: String,
-    val cardIcon: String,
-    val description: String? = null,
-    val link: String? = null,
+import com.fasterxml.jackson.annotation.JsonCreator
+import com.fasterxml.jackson.annotation.JsonProperty
+
+data class TechCardData @JsonCreator constructor(
+    @JsonProperty("cardName") val cardName: String,
+    @JsonProperty("cardIcon") val cardIcon: String,
+    @JsonProperty("description") val description: String? = null,
+    @JsonProperty("link") val link: String? = null,
 )

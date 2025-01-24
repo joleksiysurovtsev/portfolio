@@ -1,0 +1,132 @@
+/* --- Global variables for styles --- */
+:root {
+    --fs6: 15px; /* Font size */
+    --jet: hsl(0, 0%, 22%); /* Dark gray for lines */
+    --text-gradient-yellow: var(--underlining-color); /* Yellow gradient for text */
+    --light-gray: hsl(0, 0%, 84%); /* Light gray for text */
+    --fw300: 300; /* Light font weight */
+
+    --border-gradient-onyx: linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%); /* Border gradient */
+    --eerie-black1: hsl(240, 2%, 13%); /* Dark background color */
+    --orange-yellow-crayola: hsl(98, 100%, 72%); /* Icon color */
+    --shadow1: -4px 8px 24px hsla(0, 0%, 0%, 0.25); /* Shadow for icon tiles */
+}
+
+/* --- Styles for the divider --- */
+.custom-divider {
+    border: none; /* Remove the default border */
+    height: 2px; /* Divider height */
+    background-color: var(--underlining-color, #ff714a); /* Divider color */
+    margin: 10px 0; /* Top and bottom margin */
+}
+
+/* --- Styles for icon tiles --- */
+.icon-box {
+    position: relative; /* For positioning child elements */
+    width: 48px; /* Tile width */
+    height: 48px; /* Tile height */
+    display: flex; /* Center the content */
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px; /* Rounded corners */
+    background: var(--eerie-black1); /* Background color */
+    box-shadow: var(--shadow1); /* Shadow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+}
+
+/* --- Styles for light theme --- */
+html[theme~="light"] .icon-box {
+    background: var(--jet); /* Background color for tiles */
+}
+
+/* --- Styles for dark theme --- */
+html[theme~="dark"] .icon-box {
+    background: var(--light-gray); /* Background color for tiles */
+}
+
+/* --- Icon sizes in tiles --- */
+.svg-icon {
+    width: 48px; /* Icon size */
+    height: 48px; /* Icon size */
+    fill: var(--orange-yellow-crayola); /* Icon color */
+    display: flex; /* Center the content */
+    justify-content: center;
+    align-items: center;
+    transition: fill 0.3s ease; /* Smooth color change animation */
+}
+
+/* --- Icon colors for dark theme --- */
+html[theme~="dark"] .svg-icon {
+    fill: var(--eerie-black1); /* Color for dark theme */
+}
+
+/* --- Styles for the "Resume" section --- */
+.timeline {
+    margin-bottom: 30px; /* Bottom margin for the timeline */
+}
+
+.timeline .title-wrapper {
+    display: flex; /* Arrange elements in a row */
+    align-items: center; /* Vertical alignment */
+    gap: 15px; /* Space between elements */
+    margin-bottom: 25px; /* Bottom margin */
+}
+
+.timeline-list {
+    font-size: var(--fs6); /* Font size */
+    margin-left: 45px; /* Left margin for lists */
+}
+
+.timeline-item {
+    position: relative; /* For positioning markers */
+    padding-left: 60px; /* Text padding from the line */
+}
+
+/* --- Lines between timeline items --- */
+.timeline-item:not(:last-child)::before {
+    content: ''; /* Pseudo-element for the line */
+    position: absolute;
+    top: 0; /* Line start position */
+    left: 24px; /* Distance from the left edge */
+    width: 2px; /* Line width */
+    height: calc(100% + 20px); /* Line length */
+    background: var(--jet); /* Line color */
+}
+
+/* --- Circles (markers) on the timeline --- */
+.timeline-item::after {
+    content: ''; /* Pseudo-element for the circle */
+    position: absolute;
+    top: 0; /* Circle position */
+    left: 21px; /* Position relative to the line */
+    width: 8px; /* Circle diameter */
+    height: 8px; /* Circle diameter */
+    border-radius: 50%; /* Round shape */
+    background: var(--text-gradient-yellow); /* Circle color */
+    box-shadow: 0 0 0 4px var(--jet); /* Outer circle outline */
+}
+
+/* --- Styles for small screens --- */
+@media screen and (max-width: 768px) {
+    .timeline-item:not(:last-child)::before {
+        left: 7px; /* Move the line closer to the edge */
+    }
+
+    .timeline-item::after {
+        left: 4px; /* Move the circle closer to the edge */
+    }
+}
+
+/* --- Styles for text in the timeline --- */
+.timeline-item-title {
+    font-size: var(--fs6); /* Text size */
+    line-height: 1.3; /* Line spacing */
+    margin-bottom: 7px; /* Bottom margin */
+}
+
+.timeline-text {
+    color: var(--lumo-header-text-color); /* Text color */
+    font-weight: var(--fw300); /* Light font weight */
+    line-height: 1.6; /* Line spacing */
+    text-align: justify; /* Text alignment */
+}
