@@ -34,6 +34,8 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.2")
+
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
     implementation("com.vaadin:vaadin-spring-boot-starter:24.6.1")
@@ -41,6 +43,8 @@ dependencies {
     implementation("com.vaadin:vaadin-core:24.6.1")
     implementation("org.parttio:line-awesome:2.1.0")
     implementation("com.vaadin:vaadin-lumo-theme:24.6.1")
+
+    implementation("com.flowingcode.addons.carousel:carousel-addon:2.1.2")
 
     implementation("io.netty:netty-resolver-dns-native-macos:4.1.68.Final:osx-aarch_64")
 

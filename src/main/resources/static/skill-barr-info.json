@@ -1,0 +1,32 @@
+[
+  {
+    "skill": "Kotlin",
+    "percentage": 90,
+    "type": "CODING"
+  },
+  {
+    "skill": "Spring Boot",
+    "percentage": 85,
+    "type": "CODING"
+  },
+  {
+    "skill": "PostgreSQL",
+    "percentage": 80,
+    "type": "CODING"
+  },
+  {
+    "skill": "Teamwork",
+    "percentage": 90,
+    "type": "SOFT"
+  },
+  {
+    "skill": "Problem Solving",
+    "percentage": 85,
+    "type": "SOFT"
+  },
+  {
+    "skill": "Communication",
+    "percentage": 88,
+    "type": "SOFT"
+  }
+]

@@ -1,0 +1,119 @@
+[
+  {
+    "title": "SPD Technology Java Developer (Full-time)",
+    "period": {
+      "start": "2021-05-01",
+      "end": "2025-01-22"
+    },
+    "experienceDescription": {
+      "listDescription": [
+        "Develop and maintain scalable, high-performance Java-based applications.",
+        "Collaborate with cross-functional teams to design and implement solutions aligned with business goals.",
+        "Optimize and refactor existing codebases to improve maintainability and performance.",
+        "Actively participate in code reviews, ensuring high-quality standards and best practices."
+      ],
+      "badges": [
+        {
+          "text": "Kotlin",
+          "icon": null
+        },
+        {
+          "text": "Spring-boot",
+          "icon": null
+        },
+        {
+          "text": "Postgres",
+          "icon": null
+        },
+        {
+          "text": "Bit-Bucket",
+          "icon": null
+        }
+      ]
+    }
+  },
+  {
+    "title": "Java Internship at SPD",
+    "period": {
+      "start": "2021-02-01",
+      "end": "2021-04-15"
+    },
+    "experienceDescription": {
+      "listDescription": [
+        "Participated in an intensive Java Internship program at SPD.",
+        "Worked on real-world projects, enhancing coding and teamwork skills.",
+        "Learned best practices for software development in an Agile environment."
+      ],
+      "badges": [
+        {
+          "text": "Java",
+          "icon": null
+        },
+        {
+          "text": "Teamwork",
+          "icon": null
+        },
+        {
+          "text": "Agile",
+          "icon": null
+        }
+      ]
+    }
+  },
+  {
+    "title": "SPD-University",
+    "period": {
+      "start": "2020-10-01",
+      "end": "2021-01-31"
+    },
+    "experienceDescription": {
+      "listDescription": [
+        "Professional Programming Courses, specializing in Java for Web Development.",
+        "Gained practical experience in building scalable web applications.",
+        "Deepened knowledge of Java technologies."
+      ],
+      "badges": [
+        {
+          "text": "Java",
+          "icon": null
+        },
+        {
+          "text": "Web Development",
+          "icon": null
+        },
+        {
+          "text": "Scalable Applications",
+          "icon": null
+        }
+      ]
+    }
+  },
+  {
+    "title": "Kyiv National University of Technology and Design",
+    "period": {
+      "start": "2013-01-01",
+      "end": "2017-01-01"
+    },
+    "experienceDescription": {
+      "listDescription": [
+        "Pursued a Specialist degree in Computer System Programming.",
+        "Focused on advanced technologies and software development.",
+        "Gained foundational and advanced skills in programming and systems design."
+      ],
+      "badges": [
+        {
+          "text": "Computer Science",
+          "icon": null
+        },
+        {
+          "text": "Programming",
+          "icon": null
+        },
+        {
+          "text": "Software Development",
+          "icon": null
+        }
+      ]
+    }
+  }
+]
