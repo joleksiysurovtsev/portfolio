@@ -15,28 +15,36 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout
 class PortfolioHeader : Header() {
 
     init {
+        addClassName("header")
+        val nav = Navigation()
+        val headerLogoDiv = HeaderLogo()
 
-        className = "l-header"
-        val nav = Nav()
-        nav.className = "nav bd-grid"
-
-        val logoDiv = HorizontalLayout().apply {
-            alignItems = FlexComponent.Alignment.CENTER
-            val logoLink = Anchor("#", "Oleksii").apply {
-                className = "nav-logo"
-            }
-            add(SwitchThemeButton(), logoLink)
+        val menuDiv = Div().apply {
+            setId("nav-menu")
+            addClassName("nav-menu")
+            add(NavList())
         }
 
+        val toggleDiv = Div().apply {
+            setId("nav-toggle")
+            addClassName("nav-toggle")
+            val toggleIcon: Span = Span().apply { className = "bx bx-menu" }
+            add(toggleIcon)
+        }
 
-        val menuDiv = Div()
-        menuDiv.setId("nav-menu")
-        menuDiv.className = "nav-menu"
+        nav.add(headerLogoDiv, menuDiv, toggleDiv)
+        add(nav)
+    }
+}
 
-        val navList = Div()
-        navList.className = "nav-list"
+class NavList : Div() {
+    init {
+        className = "nav-list"
+        add(getNavButtons())
+    }
 
-        val listNavButton = listOf(
+    fun getNavButtons(): List<Button> {
+        val buttons = listOf(
             Button("Home", Icon(VaadinIcon.HOME)).apply { setId(" ") },
             Button("Experience", Icon(VaadinIcon.USER)).apply { setId("experience") },
             Button("Projects", Icon(VaadinIcon.AUTOMATION)).apply { setId("projects") },
@@ -44,40 +52,48 @@ class PortfolioHeader : Header() {
             Button("Contact", Icon(VaadinIcon.CONNECT)).apply { setId("contact") }
         )
 
-        listNavButton.forEach { button ->
-            button.addClassName("nav-button")
-            button.isIconAfterText = true
-            button.addClickListener {
-                UI.getCurrent().navigate(button.id.get())
+        buttons.forEach { button ->
+            button.apply {
+                button.addClassName("nav-button")
+                button.isIconAfterText = true
+                button.addClickListener {
+                    UI.getCurrent().navigate(button.id.get())
+                }
             }
-            navList.add(button)
         }
-        menuDiv.add(navList)
+        return buttons
+    }
+}
 
-        val toggleDiv = Div().apply {
-            setId("nav-toggle")
-            addClassName("nav-toggle")
-        }
-        val toggleIcon: Span = Span().apply { className = "bx bx-menu" }
-        toggleDiv.add(toggleIcon)
+class Navigation : Nav() {
+    init {
+        className = "nav bd-grid"
+    }
+}
 
+class HeaderLogo : HorizontalLayout() {
+    init {
+        alignItems = FlexComponent.Alignment.CENTER
+        add(SwitchThemeButton(), HeaderAnchor())
+    }
+}
 
-
-        nav.add(logoDiv, menuDiv, toggleDiv)
-        add(nav)
+class HeaderAnchor : Anchor() {
+    init {
+        href = "#"
+        text = "Oleksii"
+        addClassName("header-logo")
     }
 }
 
 
-
 @JsModule("./elements/switch-theme-toggle.js")
 class SwitchThemeButton : Div() {
-
     init {
-        val button =  Button().apply {
+        addClassName("theme-button-container")
+        val button = Button().apply {
             addClassName("sun-moon")
             element.setProperty("innerHTML", UtilFileManager.loadSvg("sun-icon.svg"))
-            element.style.set("flex-wrap", "nowrap")
             addClickListener {
                 ui.get().page.executeJs("return window.toggleTheme()").then { result ->
                     val newTheme = result.asString()
@@ -92,14 +108,6 @@ class SwitchThemeButton : Div() {
                 }
             }
         }
-
-        // We place the button in the container
-        val layout = Div(button).apply {
-            setWidthFull()
-            element.style.set("flex-wrap", "nowrap") // We prohibit the transfer of elements
-        }
-
-        add(layout)
+        add(button)
     }
-
 }

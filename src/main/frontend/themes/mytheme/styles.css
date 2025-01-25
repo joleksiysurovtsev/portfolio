@@ -1,7 +1,7 @@
-@import url('header/about-container-styles.css');
+@import url('about-container-styles.css');
 /* --Header-- */
 @import url('header/header-styles.css');
-@import url('header/switch-theme-toggle-styles.css');
+@import url('header/switch-theme-button.css');
 
 /* --Footer-- */
 @import url('footer/footer-styles.css');

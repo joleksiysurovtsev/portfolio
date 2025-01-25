@@ -1,5 +1,6 @@
-:root {
-    --sun-moon-collor: var(--underlining-color);
+.theme-button-container {
+    width: 100%;
+    flex-wrap: nowrap;
 }
 
 .sun-moon {
@@ -12,10 +13,11 @@
     justify-content: center; /* H centering */
     cursor: pointer; /* Cursor */
     background-color: transparent; /* transparent background */
-    color: var(--sun-moon-collor); /* Icon color */
+    color: var(--underlining-color); /* Icon color */
     transition: color 0.3s, background-color 0.3s, box-shadow 0.3s; /* Smooth transition of styles */
     box-shadow: none; /* Clear the shadow */
     flex-shrink: 0; /* Prevent the button from being compressed*/
+    flex-wrap: nowrap;
 }
 
 /* animation change theme button */
