@@ -3,54 +3,27 @@ package com.oleksii.surovtsev.portfolio.view.experience
 import com.vaadin.flow.component.html.H2
 import com.vaadin.flow.component.html.H3
 import com.vaadin.flow.component.html.Paragraph
-import com.vaadin.flow.component.orderedlayout.FlexComponent
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 
 class CareerGoalsAndPhilosophyBlock : VerticalLayout() {
     init {
-        justifyContentMode = FlexComponent.JustifyContentMode.CENTER
-        alignItems = FlexComponent.Alignment.START
-        style.set("padding", "20px")
-        setWidth("100%")
-        isSpacing = true
-        isPadding = true
+        addClassName("career-block")
 
-        add(H2("Career Goals and Philosophy").apply {
-            style.set("font-size", "28px")
-            style.set("font-weight", "bold")
-            style.set("margin-bottom", "20px")
-        })
+        add(H2("Career Goals and Philosophy"))
 
-        add(H3("My Goals:").apply {
-            style.set("font-size", "22px")
-            style.set("font-weight", "bold")
-            style.set("margin-bottom", "10px")
-        })
+        add(H3("My Goals:"))
 
         add(
             VerticalLayout().apply {
-                isSpacing = true
-                isPadding = false
-                style.set("margin-left", "20px")
+                addClassName("goals-list")
 
-                add(Paragraph("• Master new professional certifications, including AWS and other cloud technologies.").apply {
-                    style.set("margin", "0 0 5px 0")
-                })
-                add(Paragraph("• Develop public speaking skills and improve English communication.").apply {
-                    style.set("margin", "0 0 5px 0")
-                })
-                add(Paragraph("• Continue creating solutions that simplify users' lives and help businesses grow.").apply {
-                    style.set("margin", "0 0 5px 0")
-                })
+                add(Paragraph("• Master new professional certifications, including AWS and other cloud technologies."))
+                add(Paragraph("• Develop public speaking skills and improve English communication."))
+                add(Paragraph("• Continue creating solutions that simplify users' lives and help businesses grow."))
             }
         )
 
-        add(H3("Philosophy:").apply {
-            style.set("font-size", "22px")
-            style.set("font-weight", "bold")
-            style.set("margin-top", "20px")
-            style.set("margin-bottom", "10px")
-        })
+        add(H3("Philosophy:"))
 
         add(
             Paragraph(
@@ -60,9 +33,7 @@ class CareerGoalsAndPhilosophyBlock : VerticalLayout() {
                 connect technology and business, creating elegant and reliable products.
                 """.trimIndent()
             ).apply {
-                style.set("line-height", "1.5")
-                style.set("color", "gray")
-                style.set("margin", "0 20px 0 20px")
+                addClassName("philosophy-paragraph")
             }
         )
     }

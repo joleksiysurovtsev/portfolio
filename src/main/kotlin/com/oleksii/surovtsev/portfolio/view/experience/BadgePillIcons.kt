@@ -1,4 +1,4 @@
-package com.oleksii.surovtsev.portfolio.components
+package com.oleksii.surovtsev.portfolio.view.experience
 
 import com.vaadin.flow.component.html.Span
 import com.vaadin.flow.component.icon.Icon
@@ -14,9 +14,7 @@ class BadgePillIcons : Span() {
     }
 
     private fun createIcon(vaadinIcon: VaadinIcon): Icon {
-        return vaadinIcon.create().apply {
-            style["padding"] = "var(--lumo-space-xs)"
-        }
+        return vaadinIcon.create()
     }
 
     companion object {

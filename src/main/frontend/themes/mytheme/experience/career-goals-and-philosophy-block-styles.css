@@ -1,0 +1,38 @@
+.career-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    width: 100%;
+    gap: 20px;
+}
+
+.career-block h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.career-block h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.career-block .goals-list {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.career-block .goals-list p {
+    margin: 0;
+}
+
+.career-block .philosophy-paragraph {
+    line-height: 1.5;
+    color: gray;
+    margin: 0 20px;
+}

@@ -11,7 +11,7 @@ class MainLayout : VerticalLayout(), RouterLayout {
     private val contentWrapper = VerticalLayout()
 
     init {
-        setSizeFull()
+//        setSizeFull()
         isPadding = false
         isSpacing = false
 
@@ -20,10 +20,10 @@ class MainLayout : VerticalLayout(), RouterLayout {
 
         // Container for content
         contentWrapper.apply {
-            setWidthFull()
+//            setWidthFull()
             isPadding = false
             isSpacing = false
-            style["marginTop"] = "var(--header-height)"
+//            style["marginTop"] = "var(--header-height)"
         }
 
         // heder

@@ -7,7 +7,15 @@
     },
     "experienceDescription": {
       "listDescription": [
-        "Develop and maintain scalable, high-performance Java-based applications.",
+        "Develop and maintain scalable, high-performance Java-based applications using modern technologies.",
+        "Utilize a reactive programming approach with WebFlux to build efficient, non-blocking web services.",
+        "Leverage JPA for robust data persistence and management.",
+        "Design and implement custom libraries, including a Hibernate rollback SDK and a Gradle plugin, to streamline development processes.",
+        "Develop and integrate Jasper Reports and custom XML-based reports into a complex billing system.",
+        "Architect and implement microservices tailored to specific business needs, ensuring scalability and reliability.",
+        "Integrate seamlessly with third-party systems such as Jira API for automation and data synchronization.",
+        "Set up and manage Kubernetes environments, including the creation and configuration of Helm charts for deploying applications.",
+        "Conduct technical demos for client teams, showcasing progress, explaining features, and gathering feedback.",
         "Collaborate with cross-functional teams to design and implement solutions aligned with business goals.",
         "Optimize and refactor existing codebases to improve maintainability and performance.",
         "Actively participate in code reviews, ensuring high-quality standards and best practices."
@@ -18,7 +26,7 @@
           "icon": null
         },
         {
-          "text": "Spring-boot",
+          "text": "Spring Boot",
           "icon": null
         },
         {
@@ -26,7 +34,47 @@
           "icon": null
         },
         {
-          "text": "Bit-Bucket",
+          "text": "Hibernate",
+          "icon": null
+        },
+        {
+          "text": "WebFlux",
+          "icon": null
+        },
+        {
+          "text": "Gradle",
+          "icon": null
+        },
+        {
+          "text": "Jasper Reports",
+          "icon": null
+        },
+        {
+          "text": "Microservices",
+          "icon": null
+        },
+        {
+          "text": "JPA",
+          "icon": null
+        },
+        {
+          "text": "Jira API",
+          "icon": null
+        },
+        {
+          "text": "Bitbucket",
+          "icon": null
+        },
+        {
+          "text": "Reactive Programming",
+          "icon": null
+        },
+        {
+          "text": "Kubernetes",
+          "icon": null
+        },
+        {
+          "text": "Helm Charts",
           "icon": null
         }
       ]
@@ -41,8 +89,12 @@
     "experienceDescription": {
       "listDescription": [
         "Participated in an intensive Java Internship program at SPD.",
-        "Worked on real-world projects, enhancing coding and teamwork skills.",
-        "Learned best practices for software development in an Agile environment."
+        "Gained in-depth knowledge of Spring Boot, focusing on developing robust and scalable backends.",
+        "Worked on a real-world IoT project as part of a 6-member team, contributing to the backend architecture and functionality.",
+        "Collaborated closely with the QA team to ensure quality and reliability of the software through rigorous testing.",
+        "Engaged in tight coordination with the frontend team, ensuring seamless integration between backend services and UI components.",
+        "Applied Agile methodologies, learning best practices for software development, task management, and teamwork.",
+        "Enhanced coding, problem-solving, and communication skills while delivering value in a collaborative environment."
       ],
       "badges": [
         {
@@ -50,11 +102,23 @@
           "icon": null
         },
         {
+          "text": "Git-Lab",
+          "icon": null
+        },
+        {
+          "text": "Spring-Boot",
+          "icon": null
+        },
+        {
           "text": "Teamwork",
           "icon": null
         },
         {
-          "text": "Agile",
+          "text": "Web Development",
+          "icon": null
+        },
+        {
+          "text": "SCRUM",
           "icon": null
         }
       ]
@@ -68,17 +132,28 @@
     },
     "experienceDescription": {
       "listDescription": [
-        "Professional Programming Courses, specializing in Java for Web Development.",
-        "Gained practical experience in building scalable web applications.",
-        "Deepened knowledge of Java technologies."
+        "Professional Programming Courses, focused on Java for Web Development.",
+        "Studied Java Core, including streams, multithreading, and reflection, while mastering fundamental concepts.",
+        "Worked extensively with databases, gaining experience in designing schemas and performing migrations.",
+        "Learned to build and integrate REST APIs using servlets and modern Java technologies.",
+        "Practiced Test-Driven Development (TDD), enhancing skills in writing clean, maintainable, and testable code.",
+        "Acquired practical knowledge for developing scalable web applications with a focus on performance and reliability."
       ],
       "badges": [
         {
-          "text": "Java",
+          "text": "Java Core",
           "icon": null
         },
         {
-          "text": "Web Development",
+          "text": "Algorithms",
+          "icon": null
+        },
+        {
+          "text": "Testing",
+          "icon": null
+        },
+        {
+          "text": "Multithreading",
           "icon": null
         },
         {

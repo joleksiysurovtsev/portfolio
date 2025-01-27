@@ -1,9 +1,4 @@
 html {
-    --tech-card-bg: rgba(245, 245, 245, 1);
-    --tech-card-content-bg: rgba(255, 255, 255, 1);
-    --tech-card-text: #333333;
-    --tech-card-border-glow: #4169E1;
-    --tech-card-height: 140px;
     --description-max-height: 48px;
     --description-expanded-height: 500px;
     --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
@@ -12,10 +7,10 @@ html {
 }
 
 html[theme~="dark"] {
-    --tech-card-bg: rgba(33, 33, 33, 1);
-    --tech-card-content-bg: rgba(44, 44, 44, 1);
+    --tech-card-bg: linear-gradient(145deg, rgba(33, 33, 33, 1), rgba(44, 44, 44, 1));
     --tech-card-text: #ffffff;
     --tech-card-border-glow: #FF714AFF;
+    --tech-card-border-radius: 12px;
 }
 
 
@@ -26,12 +21,12 @@ html[theme~="dark"] {
     width: 100%;
     max-width: 400px;
     padding: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: flex-start;
     gap: 16px;
     z-index: 1;
     transition: all var(--transition-duration) var(--transition-timing);
+    box-shadow: var(--tech-card-shadow);
     overflow: hidden;
 }
 

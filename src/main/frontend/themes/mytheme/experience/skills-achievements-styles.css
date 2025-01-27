@@ -1,0 +1,95 @@
+/* --- Global variables for styles --- */
+:root {
+    --jet: hsl(0, 0%, 22%); /* Dark gray for lines */
+}
+
+.timeline-item {
+    position: relative; /* For positioning markers */
+    padding-left: 60px; /* Text padding from the line */
+}
+
+/* --- Lines between timeline items --- */
+.timeline-item:not(:last-child)::before {
+    margin-top: 5px;
+    content: ''; /* Pseudo-element for the line */
+    position: absolute;
+    top: 0; /* Line start position */
+    left: 24px; /* Distance from the left edge */
+    width: 2px; /* Line width */
+    height: calc(100% + 20px); /* Line length */
+    background: var(--jet); /* Line color */
+}
+
+/* --- Circles (markers) on the timeline --- */
+.timeline-item::after {
+    margin-top: 5px;
+    content: ''; /* Pseudo-element for the circle */
+    position: absolute;
+    top: 0; /* Circle position */
+    left: 21px; /* Position relative to the line */
+    width: 8px; /* Circle diameter */
+    height: 8px; /* Circle diameter */
+    border-radius: 50%; /* Round shape */
+    background: var(--underlining-color); /* Circle color */
+    box-shadow: 0 0 0 4px var(--jet); /* Outer circle outline */
+}
+
+.timeline-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0.5%;
+}
+
+.custom-carousel-style {
+    max-width: 100%;
+    margin: 0 auto;
+    height: auto;
+}
+
+.slide-image {
+    max-height: 350px;
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.slide-text {
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.5;
+    color: gray;
+    word-wrap: break-word;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.custom-carousel-style {
+    --paper-slide-dot-styles: {
+        margin: 3px;
+        width: 7px;
+        height: 7px;
+    };
+
+    --paper-slider-dot-container-styles: {
+        bottom: 0px;
+    };
+
+    --paper-slide-dot: rgba(108, 107, 107, 0.3);
+    --paper-slide-dot-selected: var(--underlining-color);
+}
+
+@media screen and (max-width: 768px) {
+    .custom-carousel-style {
+        width: 100%;
+    }
+
+    .slide-image {
+        max-height: 250px; /* Reduce the image height on small screens */
+    }
+
+    .slide-text {
+        font-size: 14px; /* Reduce text size */
+        width: 100%; /* Text takes the width of container */
+    }
+}

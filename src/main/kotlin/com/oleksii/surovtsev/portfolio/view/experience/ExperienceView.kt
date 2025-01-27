@@ -15,12 +15,9 @@ class ExperienceView : VerticalLayout() {
         setWidthFull()
         justifyContentMode = FlexComponent.JustifyContentMode.START
         alignItems = Alignment.CENTER
-        style.set("padding", "20px")
-
+        addClassName("experience")
         add(
             ExperienceAndSkillsBlock(),
-            CustomDivider(),
-            CertificationSliderBlock(),
             CustomDivider(),
             CareerGoalsAndPhilosophyBlock()
         )

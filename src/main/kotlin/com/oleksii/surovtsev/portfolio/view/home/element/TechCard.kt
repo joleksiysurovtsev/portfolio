@@ -1,7 +1,7 @@
 package com.oleksii.surovtsev.portfolio.view.home.element
 
 import com.oleksii.surovtsev.portfolio.entity.TechCardData
-import com.oleksii.surovtsev.portfolio.entity.TechCardType
+import com.oleksii.surovtsev.portfolio.entity.enums.TechCardType
 import com.vaadin.flow.component.button.Button
 import com.vaadin.flow.component.dependency.JsModule
 import com.vaadin.flow.component.html.Div
@@ -51,18 +51,14 @@ class TechCard : Div {
 
     private fun updateExpandedState() {
         if (expanded) {
-            // First change the state of the description
             descriptionElement?.apply {
                 removeClassName("truncated")
                 style.set("max-height", "var(--description-expanded-height)")
             }
-            // Then add the expanded class to the card
             addClassName("expanded")
             toggleButton?.text = "Show less"
         } else {
-            // When folding, we first remove the expanded class
             removeClassName("expanded")
-            // Then update the description
             descriptionElement?.apply {
                 addClassName("truncated")
                 style.set("max-height", "var(--description-max-height)")
@@ -70,6 +66,7 @@ class TechCard : Div {
             toggleButton?.text = "Show more"
         }
     }
+
     private fun initExtended() {
         addClassName(cardType.basicStyle)
 
@@ -80,7 +77,8 @@ class TechCard : Div {
         val textContainer = Div().apply {
             addClassName("extended-tech-card-text")
 
-            val name = H3(techName).apply { addClassName("tech-card-title")
+            val name = H3(techName).apply {
+                addClassName("tech-card-title")
             }
 
             descriptionElement = description?.let { desc ->

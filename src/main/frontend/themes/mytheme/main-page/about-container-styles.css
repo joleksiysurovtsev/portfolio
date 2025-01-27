@@ -5,7 +5,7 @@
     gap: 2rem;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 .about-photo {
@@ -18,7 +18,7 @@
 }
 
 .about-text {
-    flex: 2 1 300px; /* Text takes up more space */
+    flex: 2 1 300px;
     text-align: left;
     margin-right: 5%;
 }

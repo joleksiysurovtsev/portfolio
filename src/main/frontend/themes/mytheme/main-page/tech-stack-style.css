@@ -1,0 +1,40 @@
+.general-tech-stack-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.general-tech-stack-text {
+    flex: 1 1 120px;
+    text-align: left;
+    margin-right: 5%;
+}
+
+.general-tech-stack-text h1 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--lumo-header-text-color);
+}
+
+.general-tech-stack-text div {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--lumo-menu-text-color);
+    font-family: "Roboto", sans-serif;
+}
+
+/* Adaptivity for small screens */
+@media screen and (max-width: 768px) {
+    .general-tech-stack-container {
+        flex-direction: column; /* Place items vertically */
+        text-align: center;
+    }
+
+    .general-tech-stack-text {
+        text-align: center;
+        margin-right: 1.5%;
+    }
+}

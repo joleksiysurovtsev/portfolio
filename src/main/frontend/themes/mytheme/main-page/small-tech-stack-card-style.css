@@ -1,0 +1,101 @@
+html {
+    --tech-card-bg: linear-gradient(145deg, rgba(245, 245, 245, 1), rgba(230, 230, 230, 1));
+    --tech-card-content-bg: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(240, 240, 240, 1));
+    --tech-card-text: #2d2d2d;
+    --tech-card-gradient-overlay: rgba(255, 255, 255, 0.8);
+    --tech-card-gradient-base: linear-gradient(145deg, #ffffffcc, #f0f0f0cc);
+    --tech-card-gradient-end: #eaeaea;
+    --tech-card-border-glow: rgba(85, 136, 255, 0.9);
+    --tech-card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+    --tech-card-hover-shadow: 0 8px 15px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+html[theme~="dark"] {
+    --tech-card-bg: linear-gradient(145deg, rgba(33, 33, 33, 1), rgba(48, 48, 48, 1));
+    --tech-card-content-bg: linear-gradient(135deg, rgba(44, 44, 44, 1), rgba(60, 60, 60, 1));
+    --tech-card-text: #e0e0e0;
+    --tech-card-gradient-overlay: rgba(0, 0, 0, 0.8);
+    --tech-card-gradient-base: linear-gradient(145deg, #2a2a2acc, #1e1e1ecc);
+    --tech-card-gradient-end: #1a1a1a;
+    --tech-card-border-glow: #FF714A99;
+    --tech-card-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6), 0px 2px 4px rgba(255, 113, 74, 0.4); /* Shadow combination for volume */
+    --tech-card-hover-shadow: 0px 6px 20px rgba(255, 113, 74, 0.6), 0px 4px 8px rgba(0, 0, 0, 0.8); /* Magnification when pointing */
+}
+
+.small-tech-card {
+    position: relative;
+    background-color: var(--tech-card-bg);
+    border-radius: 12px;
+    cursor: pointer;
+    height: 150px;
+    width: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+    --ratio-x: 0.5;
+    --ratio-y: 0.75;
+    --light-size: 350px;
+    box-shadow: var(--tech-card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.small-tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--tech-card-hover-shadow);
+}
+
+.small-tech-card::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: 10px;
+    height: calc(100% - 2px);
+    width: calc(100% - 2px);
+    background-color: var(--tech-card-content-bg);
+    background-image:
+            radial-gradient(
+                    var(--light-size) circle at var(--mouse-x) var(--mouse-y),
+                    var(--tech-card-gradient-overlay), var(--tech-card-gradient-end)
+            ),
+            linear-gradient(
+                    to bottom right,
+                    var(--tech-card-gradient-base),
+                    var(--tech-card-gradient-end)
+            );
+    background-blend-mode: normal, overlay;
+    filter: brightness(1.2) contrast(0.9);
+    opacity: 0;
+    transition: opacity 0.4s ease, background-size 0.3s ease;
+}
+
+.small-tech-card:hover::after {
+    opacity: 1;
+    background-size: 400px 400px;
+    transition-delay: 0s;
+}
+
+.small-tech-card-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: var(--tech-card-text);
+    text-align: center;
+    padding: 10px;
+}
+
+.small-tech-card-content img {
+    width: 52px;
+    height: 52px;
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.2));
+}
+
+.small-tech-card-content span {
+    font-size: 1.1em;
+    font-weight: 600;
+    line-height: 1.4;
+}

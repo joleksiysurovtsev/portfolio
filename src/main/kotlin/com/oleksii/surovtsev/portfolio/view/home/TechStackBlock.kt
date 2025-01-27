@@ -1,7 +1,7 @@
 package com.oleksii.surovtsev.portfolio.view.home
 
 import com.oleksii.surovtsev.portfolio.entity.TechCardData
-import com.oleksii.surovtsev.portfolio.entity.TechCardType
+import com.oleksii.surovtsev.portfolio.entity.enums.TechCardType
 import com.oleksii.surovtsev.portfolio.util.UtilFileManager
 import com.oleksii.surovtsev.portfolio.view.home.element.TechCard
 import com.vaadin.flow.component.html.Div

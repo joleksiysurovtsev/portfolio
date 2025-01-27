@@ -1,9 +1,13 @@
 package com.oleksii.surovtsev.portfolio.view.experience
 
+import com.flowingcode.vaadin.addons.carousel.Carousel
+import com.flowingcode.vaadin.addons.carousel.Slide
 import com.oleksii.surovtsev.portfolio.components.CustomDivider
+import com.oleksii.surovtsev.portfolio.entity.Certification
 import com.oleksii.surovtsev.portfolio.entity.ExperiencePart
+import com.oleksii.surovtsev.portfolio.entity.ExperiencePeriod
 import com.oleksii.surovtsev.portfolio.entity.SkillBarInfo
-import com.oleksii.surovtsev.portfolio.entity.SkillType
+import com.oleksii.surovtsev.portfolio.entity.enums.SkillType
 import com.oleksii.surovtsev.portfolio.util.UtilFileManager
 import com.vaadin.flow.component.html.*
 import com.vaadin.flow.component.orderedlayout.FlexComponent
@@ -15,15 +19,10 @@ class ExperienceAndSkillsBlock : VerticalLayout() {
 
     init {
         val textLayout = VerticalLayout().apply {
-            add(H2("Experience"))
+            addClassName("experience-text")
+            add(H1("Experience"))
             add(CustomDivider("0%", "0%"))
-
-            add(H5("4 Years of Experience").apply {
-                style.set("margin", "0")
-                style.set("opacity", "0.7")
-                style.set("align-self", "flex-end")
-            })
-
+            add(H5("4 Years of Experience"))
         }
 
         val horizont = FlexLayout().apply {
@@ -47,44 +46,49 @@ class ExperienceAndSkillsBlock : VerticalLayout() {
     }
 
     private fun createExperienceSection(): VerticalLayout {
-        val experienceParts: List<ExperiencePart> = UtilFileManager.getDataFromJson("experience-parts.json")
-        return createTimelineSection(experienceParts)
-    }
-
-    private fun createTimelineSection(experienceItems: List<ExperiencePart>): VerticalLayout {
+        val experienceItems: List<ExperiencePart> = UtilFileManager.getDataFromJson("experience-parts.json")
         return VerticalLayout().apply {
             setId("timeline")
             addClassName("timeline-section")
             isSpacing = true
-            isPadding = true
+            isPadding = false
 
             experienceItems.forEach { experience: ExperiencePart ->
                 val itemLayout = VerticalLayout().apply {
                     addClassName("timeline-item")
                     isSpacing = false
                     isPadding = false
-
-                    val title = H4(experience.title).apply { addClassName("timeline-item-title") }
+                    val title = H3(experience.title)
                     this.add(title)
-                    val period = Div().apply {
-                        text = "${experience.period.start} - ${experience.period.end}"
-                    }
-                    add(period)
+                    add(TimeLinePeriod(experience.period))
                     experience.experienceDescription.listDescription.forEach { line ->
                         add(Paragraph("• $line").apply { addClassName("timeline-text") })
                     }
 
-                    val badges = experience.experienceDescription.badges.map { badge -> badge.toBadgePillIcon() }
-                    val badgesBlock = HorizontalLayout().apply {
-                        add(badges)
-                    }
-                    add(badgesBlock)
+                    val badges: List<BadgePillIcons> = experience.experienceDescription.badges.map { badge -> badge.toBadgePillIcon() }
+                    add(ExperienceBadges(badges))
                 }
                 add(itemLayout)
             }
         }
     }
 
+    class ExperienceBadges(badges: List<BadgePillIcons>) : HorizontalLayout() {
+        init {
+                isSpacing = false
+                isPadding = false
+                addClassName("badge-container")
+                add(badges)
+        }
+    }
+
+    class TimeLinePeriod(period: ExperiencePeriod): VerticalLayout() {
+        init {
+            isSpacing = false
+            isPadding = false
+            add(H5("${period.start} - ${period.end}"))
+        }
+    }
     private fun createSkillsSelection(): VerticalLayout {
         return VerticalLayout().apply {
             addClassName("skills-section")
@@ -112,9 +116,57 @@ class ExperienceAndSkillsBlock : VerticalLayout() {
             skills.filter { it.type == SkillType.SOFT }.forEach { (skill, percentage) ->
                 add(createSkillBar(skill, percentage))
             }
+
+            add(
+                H3("My certificates").apply {
+                    addClassName("soft-skills-section-header")
+                }
+            )
+
+            add(createCertificationSlider())
+
         }
     }
 
+    private fun createCertificationSlider(): VerticalLayout {
+        val certifications: List<Certification> = UtilFileManager.getDataFromJson("certification.json")
+
+        val slides = certifications.map { certification ->
+            Slide(
+                VerticalLayout().apply {
+                    alignItems = FlexComponent.Alignment.CENTER
+                    justifyContentMode = FlexComponent.JustifyContentMode.START
+                    isSpacing = true
+                    isPadding = false
+                    setWidthFull()
+
+                    add(
+                        Image(certification.imageUrl, certification.title).apply {
+                            alignItems = FlexComponent.Alignment.CENTER
+                            addClassName("slide-image")
+                        }
+                    )
+                }
+            )
+        }
+
+        return VerticalLayout().apply {
+            alignItems = FlexComponent.Alignment.CENTER
+            justifyContentMode = FlexComponent.JustifyContentMode.CENTER
+            isSpacing = false
+            isPadding = false
+            setWidthFull()
+
+            val carousel = Carousel(*slides.toTypedArray()).apply {
+                addClassName("custom-carousel-style")
+                setWidth("90%")
+                setHeight("400px")
+                isAutoProgress = true
+            }
+
+            add(carousel)
+        }
+    }
 
     private fun createSkillBar(skill: String, percentage: Int): VerticalLayout {
         return VerticalLayout().apply {

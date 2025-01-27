@@ -1,7 +1,7 @@
 package com.oleksii.surovtsev.portfolio.entity
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.oleksii.surovtsev.portfolio.components.BadgePillIcons
+import com.oleksii.surovtsev.portfolio.view.experience.BadgePillIcons
 
 data class BadgePillIconData(
     @JsonProperty("text") val text: String,
