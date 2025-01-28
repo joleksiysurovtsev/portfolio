@@ -1,5 +1,12 @@
-/* --- Styles for the divider --- */
 .custom-divider {
+    border: none;
+    height: 2px;
+    background-color: var(--underlining-color);
+}
+
+.contact-custom-divider{
+    flex-grow: 1;
+    margin: 10px;
     border: none;
     height: 2px;
     background-color: var(--underlining-color);

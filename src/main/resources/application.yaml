@@ -24,3 +24,8 @@ vaadin:
   theme:
     name: mytheme
   compatibilityMode: false
+
+email:
+  sender: "${EMAIL_SENDER:joleksiysurovtsev@gmail.com}"
+  recipient: "${EMAIL_RECIPIENT:o.surovtsev@spd-ukraine.com}"
+  api-key: "${SENDGRID_API_KEY:}"

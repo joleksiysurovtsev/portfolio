@@ -1,37 +1,34 @@
-/* --- Global variables for styles --- */
 :root {
-    --jet: hsl(0, 0%, 22%); /* Dark gray for lines */
+    --jet: hsl(0, 0%, 22%);
 }
 
 .timeline-item {
-    position: relative; /* For positioning markers */
-    padding-left: 60px; /* Text padding from the line */
+    position: relative;
+    padding-left: 60px;
 }
 
-/* --- Lines between timeline items --- */
 .timeline-item:not(:last-child)::before {
     margin-top: 5px;
-    content: ''; /* Pseudo-element for the line */
+    content: '';
     position: absolute;
-    top: 0; /* Line start position */
-    left: 24px; /* Distance from the left edge */
-    width: 2px; /* Line width */
-    height: calc(100% + 20px); /* Line length */
-    background: var(--jet); /* Line color */
+    top: 0;
+    left: 24px;
+    width: 2px;
+    height: calc(100% + 20px);
+    background: var(--jet);
 }
 
-/* --- Circles (markers) on the timeline --- */
 .timeline-item::after {
     margin-top: 5px;
-    content: ''; /* Pseudo-element for the circle */
+    content: '';
     position: absolute;
-    top: 0; /* Circle position */
-    left: 21px; /* Position relative to the line */
-    width: 8px; /* Circle diameter */
-    height: 8px; /* Circle diameter */
-    border-radius: 50%; /* Round shape */
-    background: var(--underlining-color); /* Circle color */
-    box-shadow: 0 0 0 4px var(--jet); /* Outer circle outline */
+    top: 0;
+    left: 21px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--underlining-color);
+    box-shadow: 0 0 0 4px var(--jet);
 }
 
 .timeline-text {
@@ -85,11 +82,11 @@
     }
 
     .slide-image {
-        max-height: 250px; /* Reduce the image height on small screens */
+        max-height: 250px;
     }
 
     .slide-text {
-        font-size: 14px; /* Reduce text size */
-        width: 100%; /* Text takes the width of container */
+        font-size: 14px;
+        width: 100%;
     }
 }

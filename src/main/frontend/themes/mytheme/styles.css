@@ -17,6 +17,10 @@
 @import url('experience/experience-and-skills-block-styles.css');
 @import url('common/custom-divider-styles.css');
 @import url('common/fade.css');
+@import url('contact/contact-page-styles.css');
+@import url('contact/mail-foarm-styles.css');
+
+@import url('projects/projects-view-styles.css');
 
 :root {
     --header-height: 3rem;
@@ -27,6 +31,9 @@
     --lumo-shadow-color: rgba(146, 161, 176, 0.15);
     --lumo-menu-background-color: #e0e0e0;
     --lumo-menu-text-color: #333333;
+    --contact-button-gradient: linear-gradient(135deg, #4169e1, #87CEEB);
+    --send-maill-button: #1ca0e4;
+    --contact-button-hover-gradient: linear-gradient(135deg, #87CEEB, #4169e1);
 }
 
 [theme~="dark"] {
@@ -36,6 +43,9 @@
     --lumo-shadow-color: rgba(0, 0, 0, 0.5);
     --lumo-menu-background-color: #292929;
     --lumo-menu-text-color: #ffffff;
+    --contact-button-gradient: linear-gradient(135deg, #FF714AFF, #FF947B);
+    --send-maill-button: #dd6f50;
+    --contact-button-hover-gradient: linear-gradient(135deg, #FF947B, #FF714AFF);
 }
 
 h3{

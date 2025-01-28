@@ -6,21 +6,20 @@
 .sun-moon {
     width: 48px;
     height: 48px;
-    border: 0; /* Clear the border */
-    border-radius: 50%; /* round shape */
-    display: flex; /* Flexbox for centering icons */
-    align-items: center; /* Vertical centering */
-    justify-content: center; /* H centering */
-    cursor: pointer; /* Cursor */
-    background-color: transparent; /* transparent background */
-    color: var(--underlining-color); /* Icon color */
-    transition: color 0.3s, background-color 0.3s, box-shadow 0.3s; /* Smooth transition of styles */
-    box-shadow: none; /* Clear the shadow */
-    flex-shrink: 0; /* Prevent the button from being compressed*/
+    border: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: transparent;
+    color: var(--underlining-color);
+    transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
+    box-shadow: none;
+    flex-shrink: 0;
     flex-wrap: nowrap;
 }
 
-/* animation change theme button */
 @keyframes wave {
     0% {
         transform: translateY(0);

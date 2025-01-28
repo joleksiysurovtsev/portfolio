@@ -26,10 +26,9 @@
     font-family: "Roboto", sans-serif;
 }
 
-/* Adaptivity for small screens */
 @media screen and (max-width: 768px) {
     .general-tech-stack-container {
-        flex-direction: column; /* Place items vertically */
+        flex-direction: column;    
         text-align: center;
     }
 

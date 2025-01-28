@@ -1,4 +1,3 @@
-/*Footer*/
 .footer {
     background-color: var(--lumo-base-color);
     color: var(--lumo-header-text-color);
@@ -9,9 +8,9 @@
     margin-top: auto;
 
     .footer-copyright-disclaimer {
-        font-size: 0.875rem; /* Copytext size */
-        color: var(--lumo-header-text-color); /* Copyrights color */
-        margin-top: 1rem; /* Top indent */
+        font-size: 0.875rem;
+        color: var(--lumo-header-text-color);
+        margin-top: 1rem;
     }
 
     .footer-links-div {
@@ -22,46 +21,41 @@
         margin-bottom: 1rem;
 
         .footer-link {
-            color: var(--lumo-header-text-color); /* Link color */
-            font-weight: var(--font-semi); /* Alkaline text */
-            text-decoration: none; /* Removing the underhand */
-            transition: color 0.3s ease; /* Smooth change of color */
+            color: var(--lumo-header-text-color);
+            font-weight: var(--font-semi);
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .footer-link:hover {
-            color: var(--underlining-color); /*Color when pointing*/
+            color: var(--underlining-color);
         }
     }
 
-    /* Container styles with icons */
-
     .footer-social-links {
         display: flex;
-        gap: 10px; /* Space between icons */
+        gap: 10px;
         align-items: center;
         justify-content: center;
 
-        /* Styles for clickable icons */
-
         .footer-clickable-icon {
-            cursor: pointer; /* Change cursor to pointer */
-            width: 24px; /* Icon width */
-            height: 24px; /* Icon height */
-            transition: transform 0.2s ease; /* animation */
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            transition: transform 0.2s ease;
         }
 
         .footer-clickable-icon:hover {
-            color: var(--underlining-color); /* Color when pointing */
+            color: var(--underlining-color);
             transform: scale(1.1)
         }
     }
 }
 
-/* Media Queries for the footer */
 @media screen and (max-width: 768px) {
     .footer-links-div {
-        flex-direction: column; /* Vertical placement of links on small screens */
-        gap: 1rem; /* Reduce the distance between links */
+        flex-direction: column;
+        gap: 1rem;
     }
 }
 
