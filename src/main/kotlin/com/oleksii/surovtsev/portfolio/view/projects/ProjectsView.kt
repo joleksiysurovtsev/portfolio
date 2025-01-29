@@ -15,7 +15,7 @@ import com.vaadin.flow.component.textfield.TextArea
 import com.vaadin.flow.router.Route
 
 
-@Route(value = "/projects", layout = MainLayout::class)
+@Route(value = "projects", layout = MainLayout::class)
 class ProjectsView : VerticalLayout() {
     init {
         setWidthFull()

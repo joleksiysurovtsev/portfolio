@@ -6,7 +6,7 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 import com.vaadin.flow.router.Route
 
-@Route(value = "/blog", layout = MainLayout::class)
+@Route(value = "blog", layout = MainLayout::class)
 class BlogView : VerticalLayout() {
 
     init {

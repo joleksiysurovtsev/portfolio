@@ -21,6 +21,8 @@ spring:
 
 vaadin:
   productionMode: true
+  servlet:
+    url-mapping: "/vaadin/*"
   theme:
     name: mytheme
 
