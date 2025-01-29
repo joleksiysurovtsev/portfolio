@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "build.gradle.kts",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build/libs"
+      }
+    }
+  ],
+  "routes": [
+    { "src": "/.*", "dest": "/app.jar" }
+  ]
+}
