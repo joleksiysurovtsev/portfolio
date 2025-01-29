@@ -17,7 +17,7 @@ import com.vaadin.flow.component.orderedlayout.FlexLayout
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 import com.vaadin.flow.router.Route
 
-@Route(value = "contact", layout = MainLayout::class)
+@Route(value = "/contact", layout = MainLayout::class)
 class ContactView(emailSender: EmailSender) : VerticalLayout() {
     init {
         setWidthFull()
