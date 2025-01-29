@@ -27,7 +27,7 @@ class TechStackBlock: VerticalLayout() {
 
         val techIconsLayout = HorizontalLayout().apply {
             justifyContentMode = FlexComponent.JustifyContentMode.CENTER
-            alignItems = FlexComponent.Alignment.CENTER
+            alignItems = FlexComponent. Alignment.CENTER
             style.set("flex-wrap", "wrap")
             isSpacing = true
 

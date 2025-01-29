@@ -1,8 +1,11 @@
 package com.oleksii.surovtsev.portfolio.view.contact
 
+import com.fasterxml.jackson.annotation.JsonCreator
+import com.fasterxml.jackson.annotation.JsonProperty
 import com.oleksii.surovtsev.portfolio.components.CustomDivider
 import com.oleksii.surovtsev.portfolio.components.CustomDividerH2
 import com.oleksii.surovtsev.portfolio.layout.MainLayout
+import com.oleksii.surovtsev.portfolio.util.UtilFileManager
 import com.vaadin.flow.component.button.Button
 import com.vaadin.flow.component.html.Div
 import com.vaadin.flow.component.html.Span
@@ -22,49 +25,48 @@ class ContactView(emailSender: EmailSender) : VerticalLayout() {
         alignItems = Alignment.CENTER
         addClassName("contact-view")
         add(
-            CustomDividerH2("CONTACT"),
-            ContactIconBlock(),
-            CustomDivider(),
-            SendMailForm(emailSender)
+                CustomDividerH2("CONTACT"),
+                ContactIconBlock(),
+                CustomDivider(),
+                SendMailForm(emailSender)
         )
     }
 }
+
+data class ContactIconData
+@JsonCreator
+constructor(
+        @JsonProperty("label") val label: String,
+        @JsonProperty("icon") val icon: VaadinIcon,
+        @JsonProperty("action") val action: String
+)
 
 class ContactIconBlock : FlexLayout() {
     init {
         setWidthFull()
         addClassName("contact-icon-container")
 
-        // Добавляем кнопки
-        add(createIconButton("joleksiysurovtsev@gmail.com", VaadinIcon.ENVELOPE) {
-            getUI().ifPresent { ui -> ui.page.executeJs("window.location.href='mailto:joleksiysurovtsev@gmail.com'") }
-        })
+        val contactIcons: List<ContactIconData> =
+                UtilFileManager.getDataFromJson("contact-icons.json")
 
-        add(createIconButton("Phone: +380674708802", VaadinIcon.PHONE) {
-            getUI().ifPresent { ui -> ui.page.executeJs("window.location.href='tel:+380674708802'") }
-        })
-
-        add(createIconButton("Location: Ukraine", VaadinIcon.MAP_MARKER) {
-            getUI().ifPresent { ui -> ui.page.executeJs("window.open('https://maps.app.goo.gl/Q39hez7Fr5P4uddD8', 'Cherkasy')") }
-        })
-
-        add(createIconButton("Telegram", VaadinIcon.PAPERPLANE) {
-            getUI().ifPresent { ui -> ui.page.executeJs("window.open('https://t.me/SurovtsevOleksii', 'SurovtsevOleksii')") }
-        })
+        contactIcons.forEach { iconData ->
+            add(
+                    createIconButton(iconData.label, iconData.icon) {
+                        getUI().ifPresent { ui -> ui.page.executeJs(iconData.action) }
+                    }
+            )
+        }
     }
 
     private fun createIconButton(label: String, icon: VaadinIcon, onClick: () -> Unit): Div {
-        val button = Button(Icon(icon)).apply {
-            addClickListener { onClick() }
-            addClassName("contact-icon-button")
-        }
+        val button =
+                Button(Icon(icon)).apply {
+                    addClickListener { onClick() }
+                    addClassName("contact-icon-button")
+                }
 
-        val caption = Span(label).apply {
-            addClassName("contact-icon-caption")
-        }
+        val caption = Span(label).apply { addClassName("contact-icon-caption") }
 
-        return Div(button, caption).apply {
-            addClassName("contact-icon-wrapper")
-        }
+        return Div(button, caption).apply { addClassName("contact-icon-wrapper") }
     }
 }

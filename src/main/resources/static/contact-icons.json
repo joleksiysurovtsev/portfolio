@@ -1,0 +1,22 @@
+        [
+            {
+                "label": "joleksiysurovtsev@gmail.com",
+                "icon": "ENVELOPE",
+                "action": "window.location.href='mailto:joleksiysurovtsev@gmail.com'"
+            },
+            {
+                "label": "Phone: +380674708802",
+                "icon": "PHONE",
+                "action": "window.location.href='tel:+380674708802'"
+            },
+            {
+                "label": "Location: Ukraine",
+                "icon": "MAP_MARKER",
+                "action": "window.open('https://maps.app.goo.gl/Q39hez7Fr5P4uddD8', 'Cherkasy')"
+            },
+            {
+                "label": "Telegram",
+                "icon": "PAPERPLANE",
+                "action": "window.open('https://t.me/SurovtsevOleksii', 'SurovtsevOleksii')"
+            }
+        ]
