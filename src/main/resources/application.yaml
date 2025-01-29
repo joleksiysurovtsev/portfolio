@@ -20,10 +20,9 @@ spring:
     defer-datasource-initialization: true
 
 vaadin:
-  launch-browser: true
+  productionMode: true
   theme:
     name: mytheme
-  compatibilityMode: false
 
 email:
   sender: "${EMAIL_SENDER:joleksiysurovtsev@gmail.com}"
