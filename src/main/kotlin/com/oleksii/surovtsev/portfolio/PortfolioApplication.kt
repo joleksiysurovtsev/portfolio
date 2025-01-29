@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-@PWA(name = "Project Base for Vaadin with Spring", shortName = "Project Base")
+@PWA(name = "Project Base for Vaadin with Spring", shortName = "Project Base", iconPath = "icons/icon.png")
 @Theme(value = "mytheme")
 class PortfolioApplication: AppShellConfigurator
 

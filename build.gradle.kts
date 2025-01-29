@@ -4,6 +4,13 @@ plugins {
     id("org.springframework.boot") version "3.4.1"
     id("com.github.node-gradle.node") version "3.6.0"
     id("io.spring.dependency-management") version "1.1.7"
+    id("com.vaadin") version "24.6.3"
+
+}
+
+
+vaadin {
+    productionMode = true
 }
 
 node {

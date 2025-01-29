@@ -7,11 +7,11 @@ import com.vaadin.flow.component.HasElement
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 import com.vaadin.flow.router.RouterLayout
 
+
 class MainLayout : VerticalLayout(), RouterLayout {
     private val contentWrapper = VerticalLayout()
 
     init {
-//        setSizeFull()
         isPadding = false
         isSpacing = false
 
