@@ -54,10 +54,13 @@ class NavList : Div() {
 
         buttons.forEach { button ->
             button.apply {
-                button.addClassName("nav-button")
-                button.isIconAfterText = true
-                button.addClickListener {
+                addClassName("nav-button")
+                isIconAfterText = true
+                addClickListener {
                     UI.getCurrent().navigate(button.id.get())
+                    UI.getCurrent().page.executeJs(
+                        "document.getElementById('nav-menu').classList.remove('show')"
+                    )
                 }
             }
         }
