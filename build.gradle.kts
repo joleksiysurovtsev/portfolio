@@ -4,7 +4,7 @@ plugins {
     id("org.springframework.boot") version "3.4.1"
     id("com.github.node-gradle.node") version "3.6.0"
     id("io.spring.dependency-management") version "1.1.7"
-    id("com.vaadin") version "24.6.3"
+    id("com.vaadin") version "24.5.10"
 
 }
 
@@ -45,10 +45,10 @@ dependencies {
 
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
-    implementation("com.vaadin:vaadin-spring-boot-starter:24.6.3")
-    implementation("com.vaadin:vaadin:24.6.3")
-    implementation("com.vaadin:vaadin-core:24.6.3")
-    implementation("com.vaadin:vaadin-lumo-theme:24.6.3")
+    implementation("com.vaadin:vaadin-spring-boot-starter:24.5.10")
+    implementation("com.vaadin:vaadin:24.5.10")
+    implementation("com.vaadin:vaadin-core:24.5.10")
+    implementation("com.vaadin:vaadin-lumo-theme:24.5.10")
 
     implementation("org.parttio:line-awesome:2.1.0")
 
