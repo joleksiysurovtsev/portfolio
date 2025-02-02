@@ -1,17 +1,22 @@
 [
   {
-    "imagePath": "icons/github_mark.svg",
+    "imagePath": "icons/social/github.svg",
     "url": "https://github.com/joleksiysurovtsev",
     "name": "github"
   },
   {
-    "imagePath": "icons/linkedIn_icon.svg",
+    "imagePath": "icons/social/linkedin.svg",
     "url": "https://www.linkedin.com/in/oleksiy-surovtsev/",
     "name": "LinkedIn"
   },
   {
-    "imagePath": "icons/facebook_icon.svg",
+    "imagePath": "icons/social/facebook.svg",
     "url": "https://www.facebook.com/oleksiysurovtsev",
     "name": "Facebook"
+  },
+  {
+    "imagePath": "icons/social/telegram.svg",
+    "url": "https://t.me/SurovtsevOleksii",
+    "name": "Telegram"
   }
 ]

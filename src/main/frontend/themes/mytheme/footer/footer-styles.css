@@ -6,57 +6,158 @@
     text-align: center;
     width: 100%;
     margin-top: auto;
+}
 
-    .footer-copyright-disclaimer {
-        font-size: 0.875rem;
-        color: var(--lumo-header-text-color);
-        margin-top: 1rem;
-    }
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-    .footer-links-div {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1.5rem;
-        margin-bottom: 1rem;
+.footer-center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-        .footer-link {
-            color: var(--lumo-header-text-color);
-            font-weight: var(--font-semi);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+.footer-links-div {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
 
-        .footer-link:hover {
-            color: var(--underlining-color);
-        }
-    }
+.footer-link {
+    color: var(--lumo-header-text-color);
+    font-weight: var(--font-semi);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
-    .footer-social-links {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        justify-content: center;
+.footer-link:hover {
+    color: var(--underlining-color);
+}
 
-        .footer-clickable-icon {
-            cursor: pointer;
-            width: 24px;
-            height: 24px;
-            transition: transform 0.2s ease;
-        }
+.footer-copyright-disclaimer {
+    font-size: 0.875rem;
+    color: var(--lumo-header-text-color);
+    margin-top: 1rem;
+}
 
-        .footer-clickable-icon:hover {
-            color: var(--underlining-color);
-            transform: scale(1.1)
-        }
-    }
+.social-buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
 }
 
 @media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .social-buttons-container {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
     .footer-links-div {
         flex-direction: column;
         gap: 1rem;
     }
 }
 
+.buttons {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    filter: url("#goo");
+}
 
+/* Animation of the appearance of buttons */
+.buttons.step-0 .social-btn {
+    transform: translate(-50px, -50px);
+}
+
+.buttons.step-1 .social-btn-1 {
+    transform: translate(-50px, -50px);
+}
+
+.buttons.step-1 .social-btn-2,
+.buttons.step-1 .social-btn-3,
+.buttons.step-1 .social-btn-4 {
+    transform: translate(-50px, 50px);
+}
+
+.buttons.step-2 .social-btn-1 {
+    transform: translate(-50px, -50px);
+}
+
+.buttons.step-2 .social-btn-2 {
+    transform: translate(-50px, 50px);
+}
+
+.buttons.step-2 .social-btn-3,
+.buttons.step-2 .social-btn-4 {
+    transform: translate(50px, 50px);
+}
+
+.buttons.step-3 .social-btn-1 {
+    transform: translate(-50px, -50px);
+}
+
+.buttons.step-3 .social-btn-2 {
+    transform: translate(-50px, 50px);
+}
+
+.buttons.step-3 .social-btn-3 {
+    transform: translate(50px, 50px);
+}
+
+.buttons.step-3 .social-btn-4 {
+    transform: translate(50px, -50px);
+}
+
+.social-btn {
+    position: absolute;
+    left: 65px;
+    top: 65px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 15px 4px var(--tech-card-border-glow);
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.open-btn {
+    position: absolute;
+    left: 65px;
+    top: 65px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 15px 4px var(--tech-card-border-glow);
+}

@@ -35,7 +35,6 @@ class ProjectsView : VerticalLayout() {
             isPadding = true
         }
 
-        // Пример данных о проектах
         val projects = listOf(
             Project(
                 title = "Gradle version catalog example",
@@ -55,7 +54,6 @@ class ProjectsView : VerticalLayout() {
             ),
         )
 
-        // Добавляем карточки проектов
         projects.forEach { project ->
             projectsLayout.add(ProjectCard(project))
         }
@@ -82,7 +80,6 @@ class ProjectCard(private val project: Project) : VerticalLayout() {
         isSpacing = true
         isPadding = true
 
-        // Изображение проекта (если есть)
         project.imageUrl?.let { url ->
             val image = Image(url, "Project Image").apply {
                 width = "100%"
@@ -92,7 +89,6 @@ class ProjectCard(private val project: Project) : VerticalLayout() {
             add(image)
         }
 
-        // Заголовок проекта
         val title = Span(project.title).apply {
             addClassName("project-title")
             style["font-size"] = "1.5em"
@@ -100,7 +96,6 @@ class ProjectCard(private val project: Project) : VerticalLayout() {
         }
         add(title)
 
-        // Описание проекта
         val description = TextArea().apply {
             value = project.description
             isReadOnly = true
@@ -110,7 +105,6 @@ class ProjectCard(private val project: Project) : VerticalLayout() {
         }
         add(description)
 
-        // Список технологий
         val technologies = Span("Technologies: ${project.technologies.joinToString(", ")}").apply {
             addClassName("project-technologies")
             style["font-size"] = "0.9em"
@@ -118,7 +112,6 @@ class ProjectCard(private val project: Project) : VerticalLayout() {
         }
         add(technologies)
 
-        // Кнопки для ссылок
         val buttonsLayout = HorizontalLayout().apply {
             isSpacing = true
             justifyContentMode = FlexComponent.JustifyContentMode.CENTER

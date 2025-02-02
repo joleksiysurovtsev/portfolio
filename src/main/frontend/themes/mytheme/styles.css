@@ -25,15 +25,15 @@
 :root {
     --header-height: 3rem;
     --font-semi: 600;
-    --underlining-color: #4169e1;
+    --underlining-color: #0f5780;
     --lumo-header-text-color: #4a4a4a;
     --lumo-base-color: #ffffff;
     --lumo-shadow-color: rgba(146, 161, 176, 0.15);
     --lumo-menu-background-color: #e0e0e0;
     --lumo-menu-text-color: #333333;
-    --contact-button-gradient: linear-gradient(135deg, #4169e1, #87CEEB);
-    --send-maill-button: #1ca0e4;
-    --contact-button-hover-gradient: linear-gradient(135deg, #87CEEB, #4169e1);
+    --contact-button-gradient: linear-gradient(135deg, #011c2a, #87CEEB);
+    --send-maill-button: #87ceeb;
+    --contact-button-hover-gradient: linear-gradient(135deg, #87ceeb, #011c2a);
 }
 
 [theme~="dark"] {
