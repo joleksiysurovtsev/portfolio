@@ -1,6 +1,5 @@
 package com.oleksii.surovtsev.portfolio.components
 
-import com.oleksii.surovtsev.portfolio.entity.FooterLink
 import com.oleksii.surovtsev.portfolio.entity.SocialIcon
 import com.oleksii.surovtsev.portfolio.util.UtilFileManager
 import com.vaadin.flow.component.dependency.JsModule
@@ -14,40 +13,63 @@ class PortfolioFooter : Footer() {
     init {
         addClassName("footer")
 
+        val vaadinLogo = VaadinLogo()
         val copyright = CopywriterDisclaimer()
-        val footerLinks = FooterLinks()
+        val portfolioDescription = PortfolioDescription()
         val socialButtons = SocialButtonsLayout()
 
         val footerContent = HorizontalLayout(
-            VerticalLayout(copyright, footerLinks).apply {
+            socialButtons,
+            VerticalLayout( portfolioDescription, copyright).apply {
                 addClassName("footer-center-content")
                 setAlignItems(FlexComponent.Alignment.CENTER)
             },
-            socialButtons
+            vaadinLogo
         ).apply {
             addClassName("footer-content")
             setWidthFull()
             isSpacing = true
+            isPadding = false
         }
 
         add(footerContent)
     }
 }
 
-class CopywriterDisclaimer : Div() {
+class VaadinLogo : HorizontalLayout() {
     init {
-        addClassName("footer-copyright-disclaimer")
-        add(Paragraph("© 2025 Oleksii Surovtsev. All Rights Reserved."))
+        addClassName("footer-logo")
+        val logoImage = Image("icons/vaadin-logo.svg", "Vaadin Logo")
+        val logoImage2 = Image("icons/tech/spring.svg", "Spring Logo")
+        val logoImage3 = Image("icons/tech/kotlin.svg", "Kotlin Logo")
+        isSpacing = true
+        add(logoImage, logoImage2, logoImage3)
     }
 }
 
-class FooterLinks : Div() {
+class PortfolioDescription : Div() {
     init {
-        addClassName("footer-links-div")
-        val links = UtilFileManager.getDataFromJson<FooterLink>("footer-links.json").map {
-            Anchor(it.href, it.text).apply { addClassName("footer-link") }
+        addClassName("footer-description")
+
+        val description = Span(
+            "This project showcases my personal portfolio, built using " +
+                    "modern technologies such as "
+        ).apply {
+            addClassName("footer-text")
         }
-        add(links)
+
+        val techStack = Span("Spring Boot, Kotlin, and Vaadin.").apply {
+            addClassName("footer-highlight")
+        }
+
+        val learningNote = Span(
+            " The main goal of this project is to explore the Vaadin framework " +
+                    "while developing an interactive and efficient UI."
+        ).apply {
+            addClassName("footer-text")
+        }
+
+        add( description, techStack, learningNote)
     }
 }
 
@@ -107,5 +129,12 @@ class SocialButtonsLayout : Div() {
         """.trimIndent()
             )
         }
+    }
+}
+
+class CopywriterDisclaimer : Div() {
+    init {
+        addClassName("footer-copyright-disclaimer")
+        add(Paragraph("© 2025 Oleksii Surovtsev. All Rights Reserved."))
     }
 }
