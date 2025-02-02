@@ -5,7 +5,7 @@ html {
     --tech-card-gradient-overlay: rgba(255, 255, 255, 0.8);
     --tech-card-gradient-base: linear-gradient(145deg, #ffffffcc, #f0f0f0cc);
     --tech-card-gradient-end: #eaeaea;
-    --tech-card-border-glow: rgba(85, 136, 255, 0.9);
+    --tech-card-border-glow: rgb(15, 87, 128);
     --tech-card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
     --tech-card-hover-shadow: 0 8px 15px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.1);
 }

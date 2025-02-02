@@ -4,6 +4,7 @@ html {
     --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
     --transition-duration: 0.4s;
     --transition-duration-expland: 2.4s;
+    --tech-card-border-glow: #0f5780;
 }
 
 html[theme~="dark"] {
