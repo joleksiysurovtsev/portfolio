@@ -43,6 +43,9 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.18.2")
 
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation("com.github.ben-manes.caffeine:caffeine:3.1.6")
+
     implementation("org.jetbrains.kotlin:kotlin-reflect")
 
     implementation("com.vaadin:vaadin-spring-boot-starter:24.5.10")
@@ -57,6 +60,11 @@ dependencies {
     implementation("io.netty:netty-resolver-dns-native-macos:4.1.68.Final:osx-aarch_64")
 
     implementation("com.sendgrid:sendgrid-java:5.0.0-rc.1")
+
+    implementation("net.sf.jasperreports:jasperreports:7.0.1")
+    implementation("net.sf.jasperreports:jasperreports-fonts:7.0.1")
+    implementation("net.sf.jasperreports:jasperreports-functions:7.0.1")
+    implementation("net.sf.jasperreports:jasperreports-pdf:7.0.1")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")

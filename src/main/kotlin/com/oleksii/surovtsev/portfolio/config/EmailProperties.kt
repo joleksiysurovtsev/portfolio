@@ -14,6 +14,13 @@ data class EmailProperties(
     var apiKey: String = ""
 )
 
+@Component
+@ConfigurationProperties(prefix = "github")
+data class GitProperties(
+    var githubToken: String = "",
+    var githubOwner: String = ""
+)
+
 @Configuration
 class EmailSenderConfig {
 

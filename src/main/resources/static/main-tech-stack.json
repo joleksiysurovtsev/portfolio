@@ -19,7 +19,7 @@
   },
   {
     "cardName": "Gradle",
-    "cardIcon": "icons/tech/gradleLogo.svg",
+    "cardIcon": "icons/tech/gradle.svg",
     "description": "Gradle is the build tool I rely on for managing dependencies, automating tasks, and ensuring consistent builds. Its flexibility allows me to customize build pipelines for complex projects, and its integration with Kotlin DSL makes it a natural fit for my workflows.",
     "link": "url"
   },
