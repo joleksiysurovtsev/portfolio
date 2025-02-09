@@ -28,3 +28,7 @@ email:
   sender: "${EMAIL_SENDER:joleksiysurovtsev@gmail.com}"
   recipient: "${EMAIL_RECIPIENT:o.surovtsev@spd-ukraine.com}"
   api-key: "${SENDGRID_API_KEY:}"
+
+github:
+  github-token: "${GITHUB_TOKEN:}"
+  github-owner: "${GITHUB_OWNER:joleksiysurovtsev}"

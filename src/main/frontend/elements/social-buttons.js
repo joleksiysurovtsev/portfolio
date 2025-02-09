@@ -1,8 +1,8 @@
 window.initializeSocialButtons = function (container) {
-    console.log("Инициализация social buttons");
+    console.log("Social buttons initialization");
 
     if (!container) {
-        console.error("Контейнер не найден!");
+        console.error("Container not found!");
         return;
     }
 
@@ -10,7 +10,7 @@ window.initializeSocialButtons = function (container) {
     const socialBtns = container.querySelectorAll(".social-btn");
 
     if (!toggle || socialBtns.length === 0) {
-        console.error("Кнопки соцсетей не найдены!");
+        console.error("Social Networking buttons not found!");
         return;
     }
 
@@ -38,7 +38,7 @@ window.initializeSocialButtons = function (container) {
     }
 
     toggle.addEventListener("click", function () {
-        console.log("Клик по кнопке, open = ", open);
+        console.log("click on the button, open = ", open);
         if (!open) {
             animate();
         } else {
@@ -49,5 +49,5 @@ window.initializeSocialButtons = function (container) {
         }
     });
 
-    console.log("Кнопки соцсетей успешно инициализированы!");
+    console.log("Social Network buttons initialized successfully!");
 };

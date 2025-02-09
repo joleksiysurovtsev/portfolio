@@ -1,0 +1,222 @@
+<!-- Created with Jaspersoft Studio version 7.0.0.final using JasperReports Library version 7.0.0-b478feaa9aab4375eba71de77b4ca138ad2f62aa  -->
+<jasperReport name="A4_cv" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f7314bd5-ab53-43a3-b5f5-0e0b0c916a38">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    <dataset name="Dataset4" uuid="034e35eb-ab12-4b06-8710-20878a153e71">
+        <query language="sql"><![CDATA[]]></query>
+    </dataset>
+    <dataset name="ExperienceDataset" uuid="418d4ca8-388e-45c7-86f8-2a3a8d6f77fd">
+        <field name="companyName" class="java.lang.String"/>
+        <field name="position" class="java.lang.String"/>
+        <field name="period" class="java.lang.String"/>
+        <field name="description" class="java.util.List"/>
+        <field name="technologiesList" class="java.util.List"/>
+    </dataset>
+    <dataset name="SkillsDataset" uuid="418d4ca8-388e-45c7-86f8-2a3a8d6f27fd">
+        <field name="skill" class="java.lang.String"/>
+    </dataset>
+    <dataset name="EducationDataset" uuid="418d4ca8-388e-45c7-86f8-2a3a8d6f37fd">
+        <field name="degree" class="java.lang.String"/>
+        <field name="institution" class="java.lang.String"/>
+        <field name="years" class="java.lang.String"/>
+    </dataset>
+    <dataset name="TechnologiesDataset" uuid="a21d4ca8-1234-5678-9abc-def012345678">
+        <field name="technology" class="java.lang.String"/>
+    </dataset>
+    <parameter name="fullName" class="java.lang.String"/>
+    <parameter name="position" class="java.lang.String"/>
+    <parameter name="location" class="java.lang.String"/>
+    <parameter name="phone" class="java.lang.String"/>
+    <parameter name="email" class="java.lang.String"/>
+    <parameter name="linkedin" class="java.lang.String"/>
+    <parameter name="gitHub" class="java.lang.String"/>
+    <parameter name="site" class="java.lang.String"/>
+    <parameter name="experienceList" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+    <parameter name="skillsList" class="java.util.List"/>
+    <parameter name="educationList" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+    <query language="sql"><![CDATA[]]></query>
+    <background splitType="Stretch"/>
+    <detail>
+        <band height="644" splitType="Stretch">
+            <element kind="image" uuid="c86195da-59fa-48b9-9ec1-72a18a30f08f" x="10" y="10" width="100" height="100">
+                <expression><![CDATA["my-photo-r.png"]]></expression>
+            </element>
+            <element kind="frame" uuid="853fe66b-6e61-4ec2-9171-839672265fb2" x="180" y="0" width="370" height="60">
+                <property name="com.jaspersoft.studio.element.name" value="Title"/>
+                <element kind="textField" uuid="eddae470-f3cc-45d0-9cd9-540d3b34874e" x="-50" y="0" width="300" height="30" forecolor="#374240" fontName="Tahoma" fontSize="20.0" evaluationTime="Page" blankWhenNull="true" hTextAlign="Left" vTextAlign="Middle">
+                    <expression><![CDATA[$P{fullName}]]></expression>
+                </element>
+                <element kind="textField" uuid="cc2fa3cd-a24b-4105-aa14-f4061ac7d7ee" x="-50" y="30" width="350" height="30" forecolor="#374240" fontName="Tahoma" fontSize="16.0" evaluationTime="Page" blankWhenNull="true" hTextAlign="Left" vTextAlign="Middle">
+                    <expression><![CDATA[$P{position}]]></expression>
+                </element>
+            </element>
+            <element kind="staticText" uuid="93d51f5b-f5cc-4370-ba64-c97b08ec58e2" x="10" y="170" width="90" height="20" forecolor="#374240" fontName="Tahoma" fontSize="13.0" bold="true" hTextAlign="Left" vTextAlign="Bottom">
+                <text><![CDATA[EXPERIENCE]]></text>
+            </element>
+            <element kind="line" uuid="7a4c3633-f591-4f8e-8f47-46d021de47b8" x="330" y="190" width="220" height="1">
+                <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                <pen lineWidth="1.0" lineStyle="Solid" lineColor="#FF714A"/>
+            </element>
+            <element kind="component" uuid="419c56fb-48c8-4dd0-b799-58713dacb2cb" key="experience_data" positionType="Float" stretchType="ContainerHeight" x="10" y="200" width="310" height="130">
+                <component kind="list">
+                    <datasetRun uuid="308eaaf2-2462-4a7f-b6f6-9733a88b1d02" subDataset="ExperienceDataset">
+                        <dataSourceExpression><![CDATA[$P{experienceList}]]></dataSourceExpression>
+                    </datasetRun>
+                    <contents height="130" width="310">
+                        <element kind="textField" uuid="004fe00e-d519-4ed3-a14c-39c95f029e3f" x="200" y="0" width="100" height="20" forecolor="#374240" fontName="Tahoma" fontSize="10.0" printWhenDetailOverflows="true" hTextAlign="Center" vTextAlign="Middle">
+                            <expression><![CDATA[$F{period}]]></expression>
+                        </element>
+                        <element kind="textField" uuid="72734765-0543-4934-b972-4a9b881dd6cf" x="20" y="0" width="180" height="20" fontName="Tahoma" fontSize="12.0" vTextAlign="Middle">
+                            <expression><![CDATA[$F{companyName}]]></expression>
+                        </element>
+                        <element kind="textField" uuid="0cafc123-7e1f-4c31-aa28-08abbd766309" x="20" y="20" width="280" height="20" fontName="Tahoma" vTextAlign="Middle">
+                            <expression><![CDATA[$F{position}]]></expression>
+                        </element>
+                        <element kind="textField" uuid="1e023df3-af30-4f8d-80c9-6fe391ec2c30" positionType="Float" stretchType="ContainerBottom" x="20" y="90" width="280" height="30" textAdjust="StretchHeight" vTextAlign="Top">
+                            <expression><![CDATA[$F{technologiesList} != null ? ((java.util.List)$F{technologiesList}).stream().collect(java.util.stream.Collectors.joining(", ")) : "" ]]></expression>
+                            <box topPadding="4"/>
+                        </element>
+                        <element kind="textField" uuid="e808567e-9143-4c8c-b97d-c97fd1fd9c49" stretchType="ContainerBottom" x="20" y="50" width="280" height="30" textAdjust="StretchHeight" linkType="None" linkTarget="Self">
+                            <expression><![CDATA[$F{description} != null ? ((java.util.List)$F{description}).stream().map(Object::toString).collect(java.util.stream.Collectors.joining("\n")) : ""]]></expression>
+                        </element>
+                        <element kind="line" uuid="35f5ddbc-c73d-46a8-aac4-964da6213cce" stretchType="ContainerBottom" x="8" y="10" width="1" height="120"/>
+                        <element kind="ellipse" uuid="18f9ec1a-993e-406a-8d3b-e837fd011e41" x="3" y="5" width="10" height="10" backcolor="#FF714A">
+                            <pen lineWidth="2.0" lineColor="#4A4A4A"/>
+                        </element>
+                    </contents>
+                </component>
+                <property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+                <property name="com.jaspersoft.studio.element.name" value="experience_data"/>
+            </element>
+            <element kind="staticText" uuid="0c22ebfd-916e-4394-8ac7-de5537b63bc9" positionType="Float" x="10" y="340" width="170" height="20" forecolor="#374240" fontName="Tahoma" fontSize="13.0" bold="true" hTextAlign="Left" vTextAlign="Bottom">
+                <paragraph lineSpacingSize="0.0"/>
+                <text><![CDATA[Education:]]></text>
+                <property name="com.jaspersoft.studio.unit.x" value="px"/>
+            </element>
+            <element kind="line" uuid="c1783b4d-7368-43bd-b5e7-7e4b3fd78ebb" positionType="Float" x="10" y="360" width="310" height="1">
+                <property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+                <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                <pen lineWidth="1.0" lineStyle="Solid" lineColor="#FF714A"/>
+            </element>
+            <element kind="component" uuid="515b4678-089e-4d1a-999f-d338c5ab4908" key="education_data" positionType="Float" x="10" y="370" width="310" height="73">
+                <component kind="list">
+                    <datasetRun uuid="b3454528-3ef1-463f-a584-f6e1ec8f8331" subDataset="Dataset4">
+                        <connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+                    </datasetRun>
+                    <contents height="73" width="310"/>
+                </component>
+                <property name="com.jaspersoft.studio.element.name" value="education_data"/>
+            </element>
+            <element kind="image" uuid="a96210a4-6aa9-4b0d-a14b-b3e6fd630e53" x="340" y="70" width="20" height="20" linkType="None" linkTarget="Self" hImageAlign="Center" vImageAlign="Middle">
+                <expression><![CDATA["phone.png"]]></expression>
+                <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                <property name="com.jaspersoft.studio.unit.y" value="px"/>
+            </element>
+            <element kind="textField" uuid="58bc713b-8612-4f40-af25-bcd1877a95ee" key="" x="370" y="70" width="180" height="20" forecolor="#374240" fontName="Tahoma" fontSize="10.0" linkType="None" linkTarget="Self" hTextAlign="Left" vTextAlign="Middle">
+                <expression><![CDATA[$P{phone}]]></expression>
+                <property name="com.jaspersoft.studio.unit.height" value="px"/>
+            </element>
+            <element kind="image" uuid="8da98b96-cdf2-4a8e-a2c8-1267b2298403" x="130" y="70" width="20" height="20" hImageAlign="Center" vImageAlign="Middle">
+                <expression><![CDATA["location.png"]]></expression>
+                <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                <property name="com.jaspersoft.studio.unit.width" value="px"/>
+            </element>
+            <element kind="image" uuid="55b866e6-bb5b-40a5-ba93-9bb2e2be7c7f" x="128" y="100" width="21" height="19" linkTarget="Self" hImageAlign="Center" vImageAlign="Middle">
+                <expression><![CDATA["mail.png"]]></expression>
+                <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                <property name="com.jaspersoft.studio.unit.y" value="px"/>
+            </element>
+            <element kind="textField" uuid="4c71a82c-e1ac-4f9b-99e4-fe56c1e68da5" x="160" y="100" width="160" height="20" forecolor="#374240" fontName="Tahoma" fontSize="10.0" linkTarget="Self" vTextAlign="Middle">
+                <expression><![CDATA[$P{email}]]></expression>
+                <property name="com.jaspersoft.studio.unit.height" value="px"/>
+            </element>
+            <element kind="image" uuid="a5f6589d-060b-44c1-929c-02067845340f" x="340" y="100" width="19" height="19">
+                <expression><![CDATA["link.png"]]></expression>
+                <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                <property name="com.jaspersoft.studio.unit.y" value="px"/>
+            </element>
+            <element kind="textField" uuid="8af6eebd-7bd0-4962-ac65-8255202fb4ed" x="370" y="100" width="180" height="20" forecolor="#374240" fontName="Tahoma" fontSize="10.0" linkTarget="Self" vTextAlign="Middle">
+                <expression><![CDATA[$P{linkedin}]]></expression>
+            </element>
+            <element kind="image" uuid="d3606dda-1b8e-4dec-be01-7a831ac17002" x="130" y="130" width="19" height="19">
+                <expression><![CDATA["git.png"]]></expression>
+                <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                <property name="com.jaspersoft.studio.unit.y" value="px"/>
+            </element>
+            <element kind="textField" uuid="dce3dd43-cd8f-444d-8565-7178b21cc359" x="160" y="130" width="160" height="19" forecolor="#374240" fontName="Tahoma" fontSize="10.0" linkTarget="Self" vTextAlign="Middle">
+                <expression><![CDATA[$P{gitHub}]]></expression>
+            </element>
+            <element kind="image" uuid="c2dd6f7f-15fb-41ab-9c32-271a2195069c" x="340" y="130" width="19" height="19">
+                <expression><![CDATA["web.png"]]></expression>
+                <property name="com.jaspersoft.studio.unit.width" value="px"/>
+                <property name="com.jaspersoft.studio.unit.height" value="px"/>
+            </element>
+            <element kind="textField" uuid="05a7554b-80e1-4c07-8b75-62f630844578" x="370" y="130" width="180" height="19" forecolor="#374240" fontName="Tahoma" fontSize="10.0" linkTarget="Self" vTextAlign="Middle">
+                <expression><![CDATA[$P{site}]]></expression>
+            </element>
+            <element kind="textField" uuid="3844fe15-7e5d-436d-9949-ead3f9f1b227" x="160" y="70" width="160" height="20" forecolor="#374240" fontName="Tahoma" fontSize="10.0" linkTarget="Self" vTextAlign="Middle">
+                <expression><![CDATA[$P{location}]]></expression>
+            </element>
+            <element kind="line" uuid="6961ee4c-cca8-4266-8595-31e281606c19" x="10" y="160" width="540" height="1">
+                <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                <pen lineWidth="1.0" lineStyle="Solid" lineColor="#FF714A"/>
+            </element>
+            <element kind="staticText" uuid="2affc8ce-c8f4-4989-b19f-9d1ff4f3fc84" x="330" y="170" width="170" height="20" forecolor="#374240" fontName="Tahoma" fontSize="13.0" bold="true" hTextAlign="Left" vTextAlign="Bottom">
+                <text><![CDATA[SKILLS]]></text>
+            </element>
+            <element kind="line" uuid="f6773265-2ae9-4906-b4a2-3f03271c7cd6" x="10" y="191" width="310" height="1">
+                <property name="com.jaspersoft.studio.unit.height" value="px"/>
+                <pen lineWidth="1.0" lineStyle="Solid" lineColor="#FF714A"/>
+            </element>
+            <element kind="textField" uuid="e73b6737-8f4f-4107-aee9-cb606f93ea7e" x="410" y="200" width="60" height="30" forecolor="#374240" textAdjust="StretchHeight" underline="true" bold="true" hTextAlign="Center" vTextAlign="Middle">
+                <printWhenExpression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 1 && $P{skillsList}.get(1) != null]]></printWhenExpression>
+                <expression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 1 ? $P{skillsList}.get(1) : ""]]></expression>
+                <property name="com.jaspersoft.studio.element.name" value="Skils"/>
+            </element>
+            <element kind="textField" uuid="c3b0f430-31ff-4b1c-8129-7e2aaee78b75" x="490" y="200" width="60" height="30" forecolor="#374240" textAdjust="StretchHeight" underline="true" bold="true" hTextAlign="Center" vTextAlign="Middle">
+                <printWhenExpression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 2 && $P{skillsList}.get(2) != null]]></printWhenExpression>
+                <expression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 2 ? $P{skillsList}.get(2) : ""]]></expression>
+                <property name="com.jaspersoft.studio.element.name" value="Skils"/>
+            </element>
+            <element kind="textField" uuid="ef9ad0fc-7bf5-4ee2-9a01-97fc46967cec" x="330" y="240" width="60" height="30" forecolor="#374240" markup="none" textAdjust="StretchHeight" underline="true" bold="true" hTextAlign="Center" vTextAlign="Middle">
+                <printWhenExpression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 3 && $P{skillsList}.get(3) != null]]></printWhenExpression>
+                <expression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 3 ? $P{skillsList}.get(3) : ""]]></expression>
+                <property name="com.jaspersoft.studio.element.name" value="Skils"/>
+            </element>
+            <element kind="textField" uuid="ad05b183-3b46-45f6-ba34-8091688b2611" x="410" y="240" width="60" height="30" forecolor="#374240" textAdjust="StretchHeight" underline="true" bold="true" hTextAlign="Center" vTextAlign="Middle">
+                <printWhenExpression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 4 && $P{skillsList}.get(4) != null]]></printWhenExpression>
+                <expression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 4 ? $P{skillsList}.get(4) : ""]]></expression>
+                <property name="com.jaspersoft.studio.element.name" value="Skils"/>
+            </element>
+            <element kind="textField" uuid="075111a7-5c0d-4bd7-94a8-129dd4088c98" x="490" y="240" width="60" height="30" forecolor="#374240" textAdjust="StretchHeight" underline="true" bold="true" hTextAlign="Center" vTextAlign="Middle">
+                <printWhenExpression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 5 && $P{skillsList}.get(5) != null]]></printWhenExpression>
+                <expression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 5 ? $P{skillsList}.get(5) : ""]]></expression>
+                <property name="com.jaspersoft.studio.element.name" value="Skils"/>
+            </element>
+            <element kind="textField" uuid="b8640262-27e5-408d-a4b0-ffefad520f55" x="330" y="280" width="60" height="30" forecolor="#374240" textAdjust="StretchHeight" underline="true" bold="true" hTextAlign="Center" vTextAlign="Middle">
+                <printWhenExpression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 6 && $P{skillsList}.get(6) != null]]></printWhenExpression>
+                <expression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 6 ? $P{skillsList}.get(6) : ""]]></expression>
+                <property name="com.jaspersoft.studio.element.name" value="Skils"/>
+            </element>
+            <element kind="textField" uuid="f2b22acb-71dd-408d-bf9f-f30c40790c54" x="330" y="200" width="60" height="30" forecolor="#374240" underline="true" bold="true" hTextAlign="Center" vTextAlign="Middle">
+                <printWhenExpression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 0 && $P{skillsList}.get(0) != null]]></printWhenExpression>
+                <expression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 0 ? $P{skillsList}.get(0) : ""]]></expression>
+                <property name="com.jaspersoft.studio.element.name" value="Skils"/>
+            </element>
+            <element kind="textField" uuid="d5d33b94-2a13-465f-ac44-d6a7ed1031de" x="490" y="280" width="60" height="30" forecolor="#374240" underline="true" bold="true" hTextAlign="Center" vTextAlign="Middle">
+                <printWhenExpression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 8 && $P{skillsList}.get(8) != null]]></printWhenExpression>
+                <expression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 8 ? $P{skillsList}.get(8) : ""]]></expression>
+                <property name="com.jaspersoft.studio.element.name" value="Skils"/>
+            </element>
+            <element kind="textField" uuid="9b8f34fc-4dd7-4229-94df-93b9303208a0" x="410" y="280" width="60" height="30" forecolor="#374240" underline="true" bold="true" hTextAlign="Center" vTextAlign="Middle">
+                <printWhenExpression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 7 && $P{skillsList}.get(7) != null]]></printWhenExpression>
+                <expression><![CDATA[$P{skillsList} != null && $P{skillsList}.size() > 7 ? $P{skillsList}.get(7) : ""]]></expression>
+                <property name="com.jaspersoft.studio.element.name" value="Skils"/>
+            </element>
+            <property name="com.jaspersoft.studio.unit.height" value="px"/>
+        </band>
+    </detail>
+</jasperReport>

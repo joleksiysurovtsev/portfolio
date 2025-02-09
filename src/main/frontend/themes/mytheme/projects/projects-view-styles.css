@@ -7,6 +7,10 @@
     border-radius: 18px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    filter: drop-shadow(2px 8px 16px #183273);
+    flex: 1 1 350px;   /* The card can be compressed to 350px, if there is free space - expand */
+    max-width: 400px;  /* maximum width restriction */
+    margin: 10px;      /* card spacing */
 }
 
 .project-card:hover {
@@ -14,16 +18,53 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.project-title {
-    color: var(--underlining-color);
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 2%;
 }
 
-.project-technologies {
-    color: var(--lumo-secondary-text-color);
+.project-title {
+    color: var(--underlining-color);
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.project-description {
+    width: 100%;
+    height: 120px;
+    font-size: 1em;
+}
+
+.project-description::part(input-field) {
+    border: 0px solid;
+}
+
+.project-technologies-container {
+    display: flex;
+    flex-wrap: wrap; /* Elements move to new line */
+    gap: 0.5rem; /* Spacing between elements */
+    width: 100%;
+}
+
+.project-technologies-link {
+    padding: 0.2rem 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid;
+    line-height: normal;
+    transition: all 0.1s;
+    text-decoration: none;
+    color: inherit;
+    white-space: nowrap; /* Do not allow text to be moved */
+}
+
+.project-technologies-link:hover {
+    color: #a7a7a7;
 }
 
 @media (max-width: 768px) {
     .project-card {
-        width: 100%;
+        max-width: 100%;
     }
 }

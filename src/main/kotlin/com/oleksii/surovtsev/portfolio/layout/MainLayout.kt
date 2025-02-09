@@ -18,12 +18,9 @@ class MainLayout : VerticalLayout(), RouterLayout {
         val header = PortfolioHeader()
         val footer = PortfolioFooter()
 
-        // Container for content
         contentWrapper.apply {
-//            setWidthFull()
             isPadding = false
             isSpacing = false
-//            style["marginTop"] = "var(--header-height)"
         }
 
         // heder
