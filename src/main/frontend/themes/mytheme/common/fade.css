@@ -1,25 +1,91 @@
+
 .fade-in {
-    animation: fadeIn 0.5s ease-in-out;
+    animation: fadeIn 0.5s ease-in-out forwards;
 }
 
 .fade-out {
-    animation: fadeOut 0.5s ease-in-out;
+    animation: fadeOut 0.5s ease-in-out forwards;
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
 @keyframes fadeOut {
     from {
         opacity: 1;
+        transform: translateY(0);
     }
     to {
         opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+
+.slide-in-fade {
+    animation: slideInFade 0.5s ease-in-out forwards;
+}
+
+.fade-out-fade {
+    animation: fadeOutFade 0.5s ease-in-out forwards;
+}
+
+@keyframes slideInFade {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOutFade {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
+
+.blur-in {
+    animation: blurIn 0.5s ease-in-out forwards;
+}
+
+.blur-out {
+    animation: blurOut 0.5s ease-in-out forwards;
+}
+
+@keyframes blurIn {
+    from {
+        opacity: 0;
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0px);
+    }
+}
+
+@keyframes blurOut {
+    from {
+        opacity: 1;
+        filter: blur(0px);
+    }
+    to {
+        opacity: 0;
+        filter: blur(10px);
     }
 }

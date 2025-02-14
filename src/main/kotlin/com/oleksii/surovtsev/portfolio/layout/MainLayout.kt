@@ -10,6 +10,7 @@ import com.vaadin.flow.router.RouterLayout
 
 class MainLayout : VerticalLayout(), RouterLayout {
     private val contentWrapper = VerticalLayout()
+    private var currentContent: HasElement? = null
 
     init {
         isPadding = false
@@ -23,7 +24,6 @@ class MainLayout : VerticalLayout(), RouterLayout {
             isSpacing = false
         }
 
-        // heder
         header.apply {
             setWidthFull()
             className = "l-header"
@@ -32,15 +32,29 @@ class MainLayout : VerticalLayout(), RouterLayout {
     }
 
     override fun showRouterLayoutContent(content: HasElement) {
+        if (currentContent != null) {
+            currentContent!!.element.classList.add("blur-out")
+
+            contentWrapper.element.executeJs(
+                """
+                    setTimeout(() => {
+                        $0.remove();
+                    }, 5000);
+                    """,
+                currentContent!!.element
+            )
+        }
+
+        currentContent = content
         contentWrapper.element.appendChild(content.element)
+        content.element.classList.add("blur-in")
     }
 
     override fun onAttach(attachEvent: AttachEvent) {
         super.onAttach(attachEvent)
-        super.addClassName("fade-in")
         attachEvent.ui.page.executeJs("""
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('theme', savedTheme);
-    """)
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('theme', savedTheme);
+        """)
     }
 }
