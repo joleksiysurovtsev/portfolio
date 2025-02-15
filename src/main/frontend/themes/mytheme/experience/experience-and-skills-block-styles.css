@@ -7,19 +7,6 @@
     margin-right: 5%;
 }
 
-.experience-text h1 {
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    color: var(--lumo-header-text-color);
-}
-
-.experience-text div {
-    font-size: 1.1rem;
-    line-height: 1.5;
-    color: var(--lumo-menu-text-color);
-    font-family: "Roboto", sans-serif;
-}
-
 .timeline-section {
     position: relative;
     z-index: 1;

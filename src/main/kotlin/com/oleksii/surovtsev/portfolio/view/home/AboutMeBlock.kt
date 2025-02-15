@@ -10,39 +10,26 @@ import com.vaadin.flow.component.orderedlayout.FlexLayout
 
 class AboutMeBlock : FlexLayout() {
 
-    companion object {
-        private const val ABOUT_ME_TEXT_FILE_NAME = "greeting.txt"
-        private const val IMAGE_SRC = "img/my-photo-r.png"
-        private const val IMAGE_ALT = "My Photo"
-
-        //STYLES
-        private const val ABOUT_CONTAINER_STYLE = "about-container"
-        private const val ABOUT_PHOTO_STYLE = "about-photo"
-        private const val ABOUT_TEXT_STYLE = "about-text"
-    }
-
     init {
         setWidthFull()
         flexDirection = FlexDirection.ROW
         justifyContentMode = FlexComponent.JustifyContentMode.CENTER
         alignItems = Alignment.CENTER
-        addClassName(ABOUT_CONTAINER_STYLE)
+        addClassName("about-container")
 
         val photoLayout = Div().apply {
-            val photo = Image(IMAGE_SRC, IMAGE_ALT)
+            val photo = Image("img/my-photo-r.png", "My Photo")
             add(photo)
-            className = ABOUT_PHOTO_STYLE
+            addClassName("about-photo")
         }
 
         val textLayout = Div().apply {
-            val textLines = UtilFileManager.getTextFromFile(ABOUT_ME_TEXT_FILE_NAME)
+            val textLines = UtilFileManager.getTextFromFile("greeting.txt")
             val title = H1(textLines[0])
             val description: Div = Div().apply { text = textLines.drop(1).joinToString("\n") }
             add(title, description)
-            className = ABOUT_TEXT_STYLE
+            addClassName("about-text")
         }
-
         add(photoLayout, textLayout)
     }
-
 }
