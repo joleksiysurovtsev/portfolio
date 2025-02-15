@@ -23,31 +23,47 @@
 @import url('projects/projects-view-styles.css');
 
 :root {
+    --lumo-header-text-color: #111827;
+    --lumo-base-color: #ffffff; /*background-color*/
+
     --header-height: 3rem;
     --font-semi: 600;
     --underlining-color: #0f5780;
-    --lumo-header-text-color: #4a4a4a;
-    --lumo-base-color: #ffffff;
+
     --lumo-shadow-color: rgba(146, 161, 176, 0.15);
     --lumo-menu-background-color: #e0e0e0;
-    --lumo-menu-text-color: #333333;
+    --lumo-menu-text-color: #111827;
     --contact-button-gradient: linear-gradient(135deg, #011c2a, #87CEEB);
     --send-maill-button: #87ceeb;
     --contact-button-hover-gradient: linear-gradient(135deg, #87ceeb, #011c2a);
 }
 
 [theme~="dark"] {
+    --lumo-header-text-color: #F9FAFB;
+    --lumo-base-color: #232732; /*background-color*/
+
     --underlining-color: #FF714AFF;
-    --lumo-base-color: #191919;
-    --lumo-header-text-color: #a7a7a7;
     --lumo-shadow-color: rgba(0, 0, 0, 0.5);
     --lumo-menu-background-color: #292929;
-    --lumo-menu-text-color: #ffffff;
+    --lumo-menu-text-color: #f9fafb;
     --contact-button-gradient: linear-gradient(135deg, #FF714AFF, #FF947B);
     --send-maill-button: #dd6f50;
     --contact-button-hover-gradient: linear-gradient(135deg, #FF947B, #FF714AFF);
 }
 
+h1 {
+    margin-bottom: 1rem;
+    color: var(--lumo-header-text-color);
+}
+
 h3{
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
+    color: var(--lumo-menu-text-color);
+}
+
+div {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: var(--lumo-menu-text-color);
+    font-family: "Roboto", sans-serif;
 }
