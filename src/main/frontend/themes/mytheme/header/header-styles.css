@@ -1,3 +1,13 @@
+/* ================================================
+   Global Styles
+   ================================================ */
+* {
+    box-sizing: border-box;
+}
+
+/* ================================================
+   Header Styles
+   ================================================ */
 .header {
     background-color: var(--lumo-base-color);
     padding: 2rem 1rem;
@@ -13,6 +23,9 @@
     color: var(--lumo-header-text-color);
 }
 
+/* ================================================
+   Navigation Container
+   ================================================ */
 .nav {
     height: var(--header-height);
     display: flex;
@@ -24,60 +37,24 @@
     padding: 0 1rem;
 }
 
+/* -----------------------------------------------
+   Nav Toggle
+   ----------------------------------------------- */
 .nav-toggle {
-    color: var(--lumo-header-text-color);
+    background: var(--underlining-color);
+    color: #F9FAFBFF;
+    text-align: center;
+    border-radius: 10%;
     font-size: 1.5rem;
     cursor: pointer;
     transition: color 0.3s ease;
+    width: 32px;
+    height: 32px;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-@media screen and (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        top: var(--header-height);
-        right: -100%;
-        width: 50%;
-        height: 100%;
-        padding: 2rem;
-        background-color: var(--lumo-menu-background-color);
-        color: var(--lumo-menu-text-color);
-        transition: right 0.5s ease, background-color 0.3s ease, color 0.3s ease;
-        z-index: 100;
-    }
-
-    .show {
-        right: 0;
-    }
-}
-
-@media screen and (min-width: 769px) {
-    .nav {
-        height: calc(var(--header-height) + 1rem);
-    }
-
-    .nav-list {
-        display: flex;
-        padding-top: 0;
-    }
-
-    .nav-item {
-        margin-left: 3rem;
-        margin-bottom: 0;
-    }
-
-    .nav-toggle {
-        display: none;
-    }
-
-    .nav-link {
-        color: var(--lumo-header-text-color);
-    }
-}
-
+/* -----------------------------------------------
+   Nav Buttons
+   ----------------------------------------------- */
 .nav-button {
     background-color: transparent;
     border: none;
@@ -99,9 +76,83 @@
     outline: none;
 }
 
+/* ================================================
+   Media Queries for Small Screens (max-width: 768px)
+   ================================================ */
 @media screen and (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: var(--header-height);
+        right: -100%;
+        width: 60%;
+        height: 90%;
+        padding: 1rem;
+        background: var(--nav-menu-background-color);
+        backdrop-filter: blur(10px);
+        color: var(--lumo-menu-text-color);
+        transition: transform 0.5s ease, background 0.3s ease, color 0.3s ease;
+        z-index: 100;
+        border-radius: 10px 0 0 10px;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        transform: translateX(100%);
+    }
+
+    .show {
+        right: 0;
+        transform: translateX(0);
+    }
+
     .nav-button {
         font-size: 1.2rem;
         margin-bottom: 1rem;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideOut {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+    }
+}
+
+/* ================================================
+   Media Queries for Larger Screens (min-width: 769px)
+   ================================================ */
+@media screen and (min-width: 769px) {
+    .nav {
+        height: calc(var(--header-height) + 1rem);
+    }
+
+    .nav-list {
+        display: flex;
+        padding-top: 0;
+    }
+
+    .nav-item {
+        margin-left: 3rem;
+        margin-bottom: 0;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav-link {
+        color: var(--lumo-header-text-color);
     }
 }
