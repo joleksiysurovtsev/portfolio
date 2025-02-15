@@ -25,6 +25,7 @@
 :root {
     --lumo-header-text-color: #111827;
     --lumo-base-color: #ffffff; /*background-color*/
+    --nav-menu-background-color: rgba(255, 255, 255, 0.85);
 
     --header-height: 3rem;
     --font-semi: 600;
@@ -41,6 +42,7 @@
 [theme~="dark"] {
     --lumo-header-text-color: #F9FAFB;
     --lumo-base-color: #232732; /*background-color*/
+    --nav-menu-background-color: rgba(35, 39, 50, 0.9);
 
     --underlining-color: #FF714AFF;
     --lumo-shadow-color: rgba(0, 0, 0, 0.5);
