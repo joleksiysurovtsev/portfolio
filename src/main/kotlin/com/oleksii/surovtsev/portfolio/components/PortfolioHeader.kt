@@ -1,6 +1,7 @@
 package com.oleksii.surovtsev.portfolio.components
 
 import com.oleksii.surovtsev.portfolio.util.UtilFileManager
+import com.vaadin.flow.component.Html
 import com.vaadin.flow.component.UI
 import com.vaadin.flow.component.button.Button
 import com.vaadin.flow.component.dependency.JsModule
@@ -48,7 +49,7 @@ class NavList : Div() {
             Button("Home", Icon(VaadinIcon.HOME)).apply { setId(" ") },
             Button("Experience", Icon(VaadinIcon.USER)).apply { setId("experience") },
             Button("Projects", Icon(VaadinIcon.AUTOMATION)).apply { setId("projects") },
-            Button("Blog", Icon(VaadinIcon.PENCIL)).apply { setId("blog") },
+//            Button("Blog", Icon(VaadinIcon.PENCIL)).apply { setId("blog") },
             Button("Contact", Icon(VaadinIcon.CONNECT)).apply { setId("contact") }
         )
 
@@ -77,6 +78,10 @@ class Navigation : Nav() {
 class HeaderLogo : HorizontalLayout() {
     init {
         alignItems = FlexComponent.Alignment.CENTER
+        // Загружаем содержимое SVG (без outer <svg> с фиксированными значениями fill)
+        val svgContent = UtilFileManager.loadSvg("sur.svg")
+        // Оборачиваем SVG в контейнер с нужным классом для стилизации
+        val logoSvg = Html("<div class='logo-icon'>$svgContent</div>")
         add(SwitchThemeButton(), HeaderAnchor())
     }
 }
