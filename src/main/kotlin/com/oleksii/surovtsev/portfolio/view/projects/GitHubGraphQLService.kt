@@ -3,7 +3,7 @@ package com.oleksii.surovtsev.portfolio.view.projects
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.github.benmanes.caffeine.cache.Cache
 import com.github.benmanes.caffeine.cache.Caffeine
-import com.oleksii.surovtsev.portfolio.config.GitProperties
+import com.oleksii.surovtsev.portfolio.config.GitCredentials
 import com.oleksii.surovtsev.portfolio.view.projects.domain.GitHubRepoInfo
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -40,7 +40,7 @@ object GitHubGraphQLService {
      * @return A [GitHubRepoInfo] object containing the repository details.
      * @throws IOException if an HTTP error occurs or if the repository is not found in the response.
      */
-    fun getRepoInfo(properties: GitProperties, repo: String): GitHubRepoInfo =
+    fun getRepoInfo(properties: GitCredentials, repo: String): GitHubRepoInfo =
         cache.get(repo) { _ ->
 
             val queryJson = """

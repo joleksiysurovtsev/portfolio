@@ -1,3 +1,7 @@
+import pl.allegro.tech.build.axion.release.domain.hooks.HookContext
+import pl.allegro.tech.build.axion.release.domain.properties.TagProperties
+import pl.allegro.tech.build.axion.release.domain.scm.ScmPosition
+
 plugins {
     kotlin("jvm") version "1.9.25"
     kotlin("plugin.spring") version "1.9.25"
@@ -5,7 +9,8 @@ plugins {
     id("com.github.node-gradle.node") version "3.6.0"
     id("io.spring.dependency-management") version "1.1.7"
     id("com.vaadin") version "24.5.10"
-
+    id("pl.allegro.tech.build.axion-release") version "1.18.16"
+    id("com.gorylenko.gradle-git-properties") version "2.4.2"
 }
 
 
@@ -20,7 +25,52 @@ node {
 }
 
 group = "com.oleksii.surovtsev.portfolio"
-version = "0.0.1-SNAPSHOT"
+version = scmVersion.version
+
+
+gitProperties {
+    failOnNoGitDirectory = false
+    keys = mutableListOf(
+        "git.commit.id",
+        "git.commit.time",
+        "git.branch",
+        "git.build.version",
+        "git.commit.message.full",
+        "git.commit.user.name",
+        "git.commit.id.abbrev"
+    )
+}
+
+scmVersion {
+    useHighestVersion.set(true)
+    branchVersionIncrementer.set(
+        mapOf(
+            "develop.*" to "incrementPatch",
+            "release.*" to "incrementMinor",
+            "hotfix.*" to listOf("incrementPrerelease", mapOf("initialPreReleaseIfNotOnPrerelease" to "fx.1")),
+        )
+    )
+
+    branchVersionCreator.set(
+        mapOf(
+            "master" to KotlinClosure2({ v: String, s: ScmPosition -> "${v}" }),
+            ".*" to KotlinClosure2({ v: String, s: ScmPosition -> "$v-${s.branch}" }),
+        )
+    )
+
+    snapshotCreator.set { versionFromTag: String, scmPosition: ScmPosition -> "-${scmPosition.shortRevision}" }
+    tag.initialVersion.set { tagProperties: TagProperties, _: ScmPosition -> "4.0.0" }
+    tag.prefix.set("v")
+    tag.versionSeparator.set("")
+
+    // release hook for debugging purposes, please do not remove  
+    hooks {
+        post { hookContext: HookContext ->
+            println("scmVersion previousVersion: ${hookContext.previousVersion}")
+            println("scmVersion  releaseVersion: ${hookContext.releaseVersion}")
+        }
+    }
+}
 
 java {
     toolchain {
@@ -29,6 +79,7 @@ java {
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
     maven {
         name = "Vaadin Directory"

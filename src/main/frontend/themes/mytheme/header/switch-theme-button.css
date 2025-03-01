@@ -4,20 +4,14 @@
 }
 
 .sun-moon {
-    width: 48px;
-    height: 48px;
+    width: 3rem;
+    height: 3rem;
     border: 0;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
     background-color: transparent;
     color: var(--underlining-color);
     transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
     box-shadow: none;
-    flex-shrink: 0;
-    flex-wrap: nowrap;
 }
 
 @keyframes wave {

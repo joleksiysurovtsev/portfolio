@@ -16,7 +16,7 @@ data class EmailProperties(
 
 @Component
 @ConfigurationProperties(prefix = "github")
-data class GitProperties(
+data class GitCredentials(
     var githubToken: String = "",
     var githubOwner: String = ""
 )
