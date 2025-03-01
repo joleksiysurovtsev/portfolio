@@ -8,6 +8,7 @@ import com.vaadin.flow.component.UI
 import com.vaadin.flow.component.button.Button
 import com.vaadin.flow.component.orderedlayout.FlexComponent
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment
+import com.vaadin.flow.component.orderedlayout.FlexLayout
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 import com.vaadin.flow.router.Route
 
@@ -24,7 +25,7 @@ class HomeView : VerticalLayout() {
             CustomDividerH2("ABOUT ME"),
             AboutMeBlock(),
             CustomDivider(),
-            ScrollButton(),
+            ScrollLayount(),
             CurrentTechStackBlock(),
             CustomDivider(),
             TechStackBlock()
@@ -32,10 +33,18 @@ class HomeView : VerticalLayout() {
     }
 }
 
+class ScrollLayount : FlexLayout() {
+    init {
+        setWidthFull()
+        justifyContentMode = FlexComponent.JustifyContentMode.START
+        addClassName("scroll-container")
+        add(ScrollButton())
+    }
+}
+
 class ScrollButton : Button() {
     init {
         addClassName("scroll-button")
-        setWidthFull()
         text = "Scroll For More"
 
         val lottieIcon = LottieComponent("lottie/scroll-down-dark2.lottie", true, true, "3rem", "3rem")
