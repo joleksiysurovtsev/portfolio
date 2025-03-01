@@ -1,21 +1,12 @@
 /* ================================================
-   Global Styles
-   ================================================ */
-* {
-    box-sizing: border-box;
-}
-
-/* ================================================
    Header Styles
    ================================================ */
 .header {
     background-color: var(--lumo-base-color);
-    padding: 2rem 1rem;
-    width: 100%;
-    box-shadow: 0 1px 4px var(--lumo-shadow-color);
+    padding: 2rem 1rem; /* top & bottom by default 1rem = 16px */
+    width: var(--header-width);
+    height: var(--header-height);
     position: fixed;
-    top: 0;
-    left: 0;
     z-index: 100;
 }
 
@@ -27,14 +18,13 @@
    Navigation Container
    ================================================ */
 .nav {
-    height: var(--header-height);
+    max-height: 100%;
+    max-width: 80%;
+    align-items: center;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     font-weight: var(--font-semi);
-    max-width: 1024px;
     margin: 0 auto;
-    padding: 0 1rem;
 }
 
 /* -----------------------------------------------
@@ -48,22 +38,22 @@
     font-size: 1.5rem;
     cursor: pointer;
     transition: color 0.3s ease;
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
 }
 
 /* -----------------------------------------------
    Nav Buttons
    ----------------------------------------------- */
 .nav-button {
-    background-color: transparent;
-    border: none;
-    color: var(--lumo-header-text-color);
-    font-size: 1rem;
-    font-weight: var(--font-semi);
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    background-color: transparent;
+    border: none;
+    color: var(--lumo-header-text-color);
+    font-size: 1.2rem;
+    font-weight: var(--font-semi);
     transition: color 0.3s ease;
     cursor: pointer;
 }
@@ -87,7 +77,7 @@
         width: 60%;
         height: 90%;
         padding: 1rem;
-        background: var(--nav-menu-background-color);
+        background: var(--header-nav-menu-background-color);
         backdrop-filter: blur(10px);
         color: var(--lumo-menu-text-color);
         transition: transform 0.5s ease, background 0.3s ease, color 0.3s ease;

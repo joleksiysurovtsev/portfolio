@@ -18,7 +18,6 @@ class PortfolioHeader : Header() {
     init {
         addClassName("header")
         val nav = Navigation()
-        val headerLogoDiv = HeaderLogo()
 
         val menuDiv = Div().apply {
             setId("nav-menu")
@@ -33,7 +32,7 @@ class PortfolioHeader : Header() {
             add(toggleIcon)
         }
 
-        nav.add(headerLogoDiv, menuDiv, toggleDiv)
+        nav.add(HeaderLogoDiv(), menuDiv, toggleDiv)
         add(nav)
     }
 }
@@ -75,12 +74,10 @@ class Navigation : Nav() {
     }
 }
 
-class HeaderLogo : HorizontalLayout() {
+class HeaderLogoDiv : HorizontalLayout() {
     init {
         alignItems = FlexComponent.Alignment.CENTER
-        // Загружаем содержимое SVG (без outer <svg> с фиксированными значениями fill)
         val svgContent = UtilFileManager.loadSvg("sur.svg")
-        // Оборачиваем SVG в контейнер с нужным классом для стилизации
         val logoSvg = Html("<div class='logo-icon'>$svgContent</div>")
         add(SwitchThemeButton(), HeaderAnchor())
     }
@@ -88,9 +85,9 @@ class HeaderLogo : HorizontalLayout() {
 
 class HeaderAnchor : Anchor() {
     init {
+        addClassName("header-logo")
         href = "#"
         text = "Oleksii"
-        addClassName("header-logo")
     }
 }
 
