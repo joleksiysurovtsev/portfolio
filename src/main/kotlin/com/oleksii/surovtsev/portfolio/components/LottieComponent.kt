@@ -3,11 +3,14 @@ package com.oleksii.surovtsev.portfolio.components
 import com.vaadin.flow.component.ClickNotifier
 import com.vaadin.flow.component.Component
 import com.vaadin.flow.component.HasSize
+import com.vaadin.flow.component.Tag
+import com.vaadin.flow.component.dependency.JsModule
+import com.vaadin.flow.component.dependency.NpmPackage
 
 
-//@Tag("dotlottie-wc")
-//@NpmPackage(value = "@lottiefiles/dotlottie-wc", version = "0.2.21")
-//@JsModule("@lottiefiles/dotlottie-wc/dist/index.js")
+@Tag("dotlottie-wc")
+@NpmPackage(value = "@lottiefiles/dotlottie-wc", version = "0.2.21")
+@JsModule("@lottiefiles/dotlottie-wc/dist/index.js")
 class LottieComponent(animationPath: String?, autoplay: Boolean, loop: Boolean, width: String?, height: String?) :
     Component(), ClickNotifier<LottieComponent?>, HasSize {
     // Constructor to initialize the animation
