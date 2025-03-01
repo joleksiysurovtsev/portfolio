@@ -5,10 +5,9 @@ import com.oleksii.surovtsev.portfolio.components.CustomDividerH2
 import com.oleksii.surovtsev.portfolio.components.LottieComponent
 import com.oleksii.surovtsev.portfolio.layout.MainLayout
 import com.vaadin.flow.component.UI
-import com.vaadin.flow.component.html.Div
+import com.vaadin.flow.component.button.Button
 import com.vaadin.flow.component.orderedlayout.FlexComponent
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 import com.vaadin.flow.router.Route
 
@@ -33,24 +32,17 @@ class HomeView : VerticalLayout() {
     }
 }
 
-class ScrollButton : HorizontalLayout() {
+class ScrollButton : Button() {
     init {
         addClassName("scroll-button")
-        isSpacing = false
-        isPadding = true
         setWidthFull()
-        defaultVerticalComponentAlignment = Alignment.CENTER
-        justifyContentMode = FlexComponent.JustifyContentMode.START
+        text = "Scroll For More"
 
-        val text = Div().apply {
-            text = "Scroll For More"
-            style["textAlign"] = "center"
-        }
         val lottieIcon = LottieComponent("lottie/scroll-down-dark2.lottie", true, true, "3rem", "3rem")
+        setIcon(lottieIcon)
+        isIconAfterText = true
 
-        add(text, lottieIcon)
-
-        element.addEventListener("click") {
+        addClickListener {
             UI.getCurrent().page.executeJs("window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });")
         }
     }
