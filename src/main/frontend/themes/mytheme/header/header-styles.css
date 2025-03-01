@@ -3,7 +3,7 @@
    ================================================ */
 .header {
     background-color: var(--lumo-base-color);
-    padding: 2rem 1rem; /* top & bottom by default 1rem = 16px */
+    padding: min(2em, 8%); /* top & bottom by default 1rem = 16px */
     width: var(--header-width);
     height: var(--header-height);
     position: fixed;
@@ -52,7 +52,7 @@
     background-color: transparent;
     border: none;
     color: var(--lumo-header-text-color);
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: var(--font-semi);
     transition: color 0.3s ease;
     cursor: pointer;
