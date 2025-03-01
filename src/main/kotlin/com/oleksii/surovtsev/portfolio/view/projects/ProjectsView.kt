@@ -1,7 +1,7 @@
 package com.oleksii.surovtsev.portfolio.view.projects
 
 import com.oleksii.surovtsev.portfolio.components.CustomDividerH2
-import com.oleksii.surovtsev.portfolio.config.GitProperties
+import com.oleksii.surovtsev.portfolio.config.GitCredentials
 import com.oleksii.surovtsev.portfolio.layout.MainLayout
 import com.oleksii.surovtsev.portfolio.util.UtilFileManager
 import com.vaadin.flow.component.orderedlayout.FlexComponent
@@ -11,7 +11,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout
 import com.vaadin.flow.router.Route
 
 @Route(value = "/projects", layout = MainLayout::class)
-class ProjectsView(val gitProperties: GitProperties) : VerticalLayout() {
+class ProjectsView(val gitCredentials: GitCredentials) : VerticalLayout() {
 
     init {
         setWidthFull()
@@ -35,7 +35,7 @@ class ProjectsView(val gitProperties: GitProperties) : VerticalLayout() {
         val gitRepositories: List<String> = UtilFileManager.getDataFromJson("git-repo.json")
         gitRepositories.forEach { repoName ->
             try {
-                val projectCard = GitHubGraphQLService.getRepoInfo(gitProperties, repoName).toProjectCard()
+                val projectCard = GitHubGraphQLService.getRepoInfo(gitCredentials, repoName).toProjectCard()
 
                 projectsLayout.add(projectCard)
             } catch (e: Exception) {
