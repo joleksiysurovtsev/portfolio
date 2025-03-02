@@ -53,6 +53,7 @@
 .scroll-container{
     padding-left: 15vw;
 }
+
 .scroll-button {
     background-color: transparent;
     color: var(--lumo-header-text-color);
@@ -64,7 +65,6 @@
     align-items: center;
     justify-content: center;
 }
-
 
 @media (max-width: 600px) {
     .scroll-container {

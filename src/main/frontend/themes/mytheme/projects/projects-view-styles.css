@@ -68,3 +68,36 @@
         max-width: 100%;
     }
 }
+
+.git-button {
+    /*border: 1px solid #0f5780;*/
+    background-color: transparent;
+    color: var(--lumo-header-text-color);
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border-radius: 8px; /* Закруглення кутів */
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* When you see the "help" message start */
+.git-button:hover {
+    transform: scale(1.05);
+    animation: glow 1.5s infinite;
+}
+
+/* Key of the Film and "glow" */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #0f5780;
+    }
+    50% {
+        box-shadow: 0 0 20px #0f5780;
+    }
+    100% {
+        box-shadow: 0 0 5px #0f5780;
+    }
+}

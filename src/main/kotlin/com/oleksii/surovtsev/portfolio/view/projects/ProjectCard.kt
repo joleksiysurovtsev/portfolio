@@ -1,5 +1,6 @@
 package com.oleksii.surovtsev.portfolio.view.projects
 
+import com.oleksii.surovtsev.portfolio.components.LinkButton
 import com.vaadin.flow.component.button.Button
 import com.vaadin.flow.component.html.Image
 import com.vaadin.flow.component.html.Span
@@ -52,11 +53,13 @@ class ProjectCard(
         }
 
         repositoryUrl?.let { url ->
-            val repoButton = Button("Repository", Icon(VaadinIcon.CODE)).apply {
-                addClickListener {
-                    getUI().ifPresent { ui -> ui.page.executeJs("window.open('$url', '_blank')") }
-                }
-            }
+            val repoButton = LinkButton(
+                animationPath = "lottie/git-lottie-blue.lottie",
+                style = "git-button",
+                buttonText = "GitHub",
+                iconSize = 2.0 to 2.0,
+                url = url
+            )
             buttonsLayout.add(repoButton)
         }
 
