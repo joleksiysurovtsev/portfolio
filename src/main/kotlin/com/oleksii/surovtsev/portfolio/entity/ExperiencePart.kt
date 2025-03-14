@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty
 data class ExperiencePart @JsonCreator constructor(
     @JsonProperty("title") val title: String,
     @JsonProperty("period") val period: ExperiencePeriod,
+    @JsonProperty("project") val projectName: String? = "",
+    @JsonProperty("description") val description: String? = "",
     @JsonProperty("experienceDescription") val experienceDescription: ExperienceDescription,
 )
 

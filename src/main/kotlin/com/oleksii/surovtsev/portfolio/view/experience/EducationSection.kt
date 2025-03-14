@@ -8,10 +8,10 @@ import com.vaadin.flow.component.html.H4
 import com.vaadin.flow.component.html.Paragraph
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 
-class ExperienceSection() : VerticalLayout() {
+class EducationSection() : VerticalLayout() {
     init {
-        add (CustomDividerH2("EXPERIENCE"))
-        val experienceItems: List<ExperiencePart> = UtilFileManager.getDataFromJson("experience-parts.json")
+        add (CustomDividerH2("EDUCATION"))
+        val experienceItems: List<ExperiencePart> = UtilFileManager.getDataFromJson("education-parts.json")
         setId("timeline")
         addClassName("timeline-section")
         isSpacing = true
