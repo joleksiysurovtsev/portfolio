@@ -1,24 +1,22 @@
 [
   {
-    "title": "SPD Technology Java Developer (Full-time)",
+    "title": "SPD-Technology: Middle Kotlin Developer (Full-time)",
     "period": {
       "start": "2021-05-01",
       "end": "2025-01-22"
     },
+    "project": "Project: floLIVE",
+    "description": "Participated in developing a cloud-based platform for managing global IoT networks and mobile telecommunication systems, integrating with worldwide mobile operators. The system is built on a microservices architecture, ensuring high performance, flexibility, scalability, and reliability. Key functionalities include customer management, SIM management, billing operations, traffic routing, data analytics, and automation of IoT-device interactions.",
     "experienceDescription": {
+      "experienceDescriptionHeader": "My responsibilities:",
       "listDescription": [
-        "Develop and maintain scalable, high-performance Java-based applications using modern technologies.",
-        "Utilize a reactive programming approach with WebFlux to build efficient, non-blocking web services.",
-        "Leverage JPA for robust data persistence and management.",
-        "Design and implement custom libraries, including a Hibernate rollback SDK and a Gradle plugin, to streamline development processes.",
-        "Develop and integrate Jasper Reports and custom XML-based reports into a complex billing system.",
-        "Architect and implement microservices tailored to specific business needs, ensuring scalability and reliability.",
-        "Integrate seamlessly with third-party systems such as Jira API for automation and data synchronization.",
-        "Set up and manage Kubernetes environments, including the creation and configuration of Helm charts for deploying applications.",
-        "Conduct technical demos for client teams, showcasing progress, explaining features, and gathering feedback.",
-        "Collaborate with cross-functional teams to design and implement solutions aligned with business goals.",
-        "Optimize and refactor existing codebases to improve maintainability and performance.",
-        "Actively participate in code reviews, ensuring high-quality standards and best practices."
+        "Microservices Development: Built scalable, fault-tolerant microservices in Kotlin with Spring Boot and related frameworks (WebFlux, Spring Data, Security), handling billing, invoicing, and reporting. JasperSoft Studio Integration: Implemented dynamic invoice generation and reporting services integrated with JasperSoft Studio",
+        "Reactive Programming: Developed asynchronous, non-blocking microservices using Spring WebFlux, significantly enhancing system performance.",
+        "REST API Development: Designed and developed REST APIs, closely collaborating with frontend teams for seamless integration.",
+        "Messaging with Apache Kafka: Integrated microservices using Kafka, ensuring reliable, scalable communication within an event-driven architecture.",
+        "Testing & QA: Created unit and integration tests, ensuring high-quality and reliable code.",
+        "CI/CD Automation: Automated build and deployment processes using Docker, Gradle, and Jenkins, optimizing CI/CD pipelines.",
+        "Kubernetes & Helm: Gained practical experience deploying microservices on Kubernetes, including creating and managing Helm Charts."
       ],
       "badges": [
         {
@@ -30,19 +28,31 @@
           "icon": null
         },
         {
+          "text": "Spring WebFlux",
+          "icon": null
+        },
+        {
+          "text": "Spring Data",
+          "icon": null
+        },
+        {
+          "text": "Spring Security",
+          "icon": null
+        },
+        {
           "text": "Postgres",
           "icon": null
         },
         {
-          "text": "Hibernate",
+          "text": "JPA/Hibernate",
           "icon": null
         },
         {
-          "text": "WebFlux",
+          "text": "Apache Kafka",
           "icon": null
         },
         {
-          "text": "Gradle",
+          "text": "REST API",
           "icon": null
         },
         {
@@ -50,11 +60,23 @@
           "icon": null
         },
         {
-          "text": "Microservices",
+          "text": "Gradle",
           "icon": null
         },
         {
-          "text": "JPA",
+          "text": "Docker",
+          "icon": null
+        },
+        {
+          "text": "Jenkins",
+          "icon": null
+        },
+        {
+          "text": "Kubernetes",
+          "icon": null
+        },
+        {
+          "text": "Helm Charts",
           "icon": null
         },
         {
@@ -66,35 +88,35 @@
           "icon": null
         },
         {
-          "text": "Reactive Programming",
+          "text": "JUnit",
           "icon": null
         },
         {
-          "text": "Kubernetes",
+          "text": "Mockito",
           "icon": null
         },
         {
-          "text": "Helm Charts",
+          "text": "Testcontainers",
           "icon": null
         }
       ]
     }
   },
   {
-    "title": "Java Internship at SPD",
+    "title": "Internship SPD-Technology: Junior Java Developer",
     "period": {
       "start": "2021-02-01",
       "end": "2021-04-15"
     },
+    "project": "Project: IoT-Security",
+    "description": "An internal IoT security platform at SPD Technology, designed to provide real-time insights from IoT devices and enable data visualization for end-users. The solution leveraged modern technologies and followed Agile methodologies, ensuring scalability, reliability, and seamless integration between backend services and the UI.",
     "experienceDescription": {
+      "experienceDescriptionHeader": "My responsibilities:",
       "listDescription": [
-        "Participated in an intensive Java Internship program at SPD.",
-        "Gained in-depth knowledge of Spring Boot, focusing on developing robust and scalable backends.",
-        "Worked on a real-world IoT project as part of a 6-member team, contributing to the backend architecture and functionality.",
-        "Collaborated closely with the QA team to ensure quality and reliability of the software through rigorous testing.",
-        "Engaged in tight coordination with the frontend team, ensuring seamless integration between backend services and UI components.",
-        "Applied Agile methodologies, learning best practices for software development, task management, and teamwork.",
-        "Enhanced coding, problem-solving, and communication skills while delivering value in a collaborative environment."
+        "Backend Development:  Contributed to backend architecture and functionality development using Java and Spring Boot, within a 6-member Agile team.",
+        "Cross-team Collaboration:  Closely coordinated with QA engineers to ensure software quality through rigorous testing and collaborated with frontend developers to achieve seamless integration between backend services and UI components.",
+        "Testing & Quality Assurance:  Developed unit and integration tests to validate functionality, reliability, and overall quality of the solution.",
+        "Agile Methodology:  Worked actively using SCRUM methodologies, including sprint planning, daily stand-ups, and iterative improvements."
       ],
       "badges": [
         {
@@ -102,90 +124,27 @@
           "icon": null
         },
         {
-          "text": "Git-Lab",
-          "icon": null
-        },
-        {
           "text": "Spring-Boot",
           "icon": null
         },
         {
-          "text": "Teamwork",
+          "text": "Git-Lab",
+          "icon": null
+        },
+        {
+          "text": "REST API",
+          "icon": null
+        },
+        {
+          "text": "JUnit",
+          "icon": null
+        },
+        {
+          "text": "Agile/SCRUM",
           "icon": null
         },
         {
           "text": "Web Development",
-          "icon": null
-        },
-        {
-          "text": "SCRUM",
-          "icon": null
-        }
-      ]
-    }
-  },
-  {
-    "title": "SPD-University",
-    "period": {
-      "start": "2020-10-01",
-      "end": "2021-01-31"
-    },
-    "experienceDescription": {
-      "listDescription": [
-        "Professional Programming Courses, focused on Java for Web Development.",
-        "Studied Java Core, including streams, multithreading, and reflection, while mastering fundamental concepts.",
-        "Worked extensively with databases, gaining experience in designing schemas and performing migrations.",
-        "Learned to build and integrate REST APIs using servlets and modern Java technologies.",
-        "Practiced Test-Driven Development (TDD), enhancing skills in writing clean, maintainable, and testable code.",
-        "Acquired practical knowledge for developing scalable web applications with a focus on performance and reliability."
-      ],
-      "badges": [
-        {
-          "text": "Java Core",
-          "icon": null
-        },
-        {
-          "text": "Algorithms",
-          "icon": null
-        },
-        {
-          "text": "Testing",
-          "icon": null
-        },
-        {
-          "text": "Multithreading",
-          "icon": null
-        },
-        {
-          "text": "Scalable Applications",
-          "icon": null
-        }
-      ]
-    }
-  },
-  {
-    "title": "Kyiv National University of Technology and Design",
-    "period": {
-      "start": "2013-01-01",
-      "end": "2017-01-01"
-    },
-    "experienceDescription": {
-      "listDescription": [
-        "Pursued a Specialist degree in Computer System Programming.",
-        "Focused on advanced technologies and software development.",
-        "Gained foundational and advanced skills in programming and systems design."
-      ],
-      "badges": [
-        {
-          "text": "Computer Science",
-          "icon": null
-        },
-        {
-          "text": "Programming",
-          "icon": null
-        },
-        {
-          "text": "Software Development",
           "icon": null
         }
       ]

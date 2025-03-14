@@ -8,6 +8,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout
 class ExperienceAndSkillsBlock : VerticalLayout() {
 
     init {
+
         val textLayout = VerticalLayout().apply {
             addClassName("experience-text")
             add(H5("4 Years of Experience"))
@@ -24,11 +25,13 @@ class ExperienceAndSkillsBlock : VerticalLayout() {
                 addClassName("experience-section")
             }
 
-            val skillsSection = SkillsSelection().apply {
-                addClassName("skills-section")
+            val educationSection = EducationSection().apply {
+                addClassName("experience-section")
             }
 
-            add(experienceSection, skillsSection)
+
+
+            add(experienceSection, educationSection)
         }
         add(textLayout, experienceSectionAndSkillsSection)
     }

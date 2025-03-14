@@ -1,0 +1,69 @@
+[
+  {
+    "title": "SPD-University",
+    "period": {
+      "start": "2020-10-01",
+      "end": "2021-01-31"
+    },
+    "experienceDescription": {
+      "listDescription": [
+        "Professional Programming Courses, focused on Java for Web Development.",
+        "Studied Java Core, including streams, multithreading, and reflection, while mastering fundamental concepts.",
+        "Worked extensively with databases, gaining experience in designing schemas and performing migrations.",
+        "Learned to build and integrate REST APIs using servlets and modern Java technologies.",
+        "Practiced Test-Driven Development (TDD), enhancing skills in writing clean, maintainable, and testable code.",
+        "Acquired practical knowledge for developing scalable web applications with a focus on performance and reliability."
+      ],
+      "badges": [
+        {
+          "text": "Java Core",
+          "icon": null
+        },
+        {
+          "text": "Algorithms",
+          "icon": null
+        },
+        {
+          "text": "Testing",
+          "icon": null
+        },
+        {
+          "text": "Multithreading",
+          "icon": null
+        },
+        {
+          "text": "Scalable Applications",
+          "icon": null
+        }
+      ]
+    }
+  },
+  {
+    "title": "Kyiv National University of Technology and Design",
+    "period": {
+      "start": "2013-01-01",
+      "end": "2017-01-01"
+    },
+    "experienceDescription": {
+      "listDescription": [
+        "Pursued a Specialist degree in Computer System Programming.",
+        "Focused on advanced technologies and software development.",
+        "Gained foundational and advanced skills in programming and systems design."
+      ],
+      "badges": [
+        {
+          "text": "Computer Science",
+          "icon": null
+        },
+        {
+          "text": "Programming",
+          "icon": null
+        },
+        {
+          "text": "Software Development",
+          "icon": null
+        }
+      ]
+    }
+  }
+]

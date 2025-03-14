@@ -1,6 +1,2 @@
 I'm Oleksii
-A passionate Java/Kotlin Developer with over 4 years of experience in creating scalable enterprise applications. I specialize in building efficient backend solutions, integrating microservices, and working with cloud technologies.
-
-For me, programming is not just a job but a way to solve complex problems, find elegant solutions, and create software that truly makes an impact. My goal is to build reliable, clean, and scalable solutions that help businesses grow and simplify users’ lives.
-
-I constantly strive for excellence: improving processes, learning new technologies, and applying them in practice. Collaboration, knowledge sharing, and growth are what inspire me every day.
+Kotlin/Java Developer with 4+ years of experience in designing and developing scalable, high-performance enterprise applications using microservices architecture. Adept at leveraging modern backend technologies to deliver robust, secure, and efficient solutions. Passionate about continuous learning, process optimization, and knowledge sharing within dynamic development teams.
