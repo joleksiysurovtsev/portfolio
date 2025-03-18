@@ -1,5 +1,3 @@
-Here’s the translated README.md file in English:
-
 # Personal Portfolio
 
 This is a personal web project built using Spring Boot, Kotlin, and Vaadin, designed to showcase my experience, projects, and skills. It features an interactive user interface, highlights achievements, and integrates with external services. The website follows a minimalist design, focusing on simplicity and usability.
