@@ -7,9 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-@PWA(name = "Project Base for Vaadin with Spring", shortName = "O.Surovtsev Site", iconPath = "icons/icon.png")
+@PWA(name = "Project Base for Vaadin with Spring", shortName = "O.Surovtsev Site")
 @Theme(value = "mytheme")
-class PortfolioApplication: AppShellConfigurator
+open class PortfolioApplication: AppShellConfigurator
 
 fun main(args: Array<String>) {
     runApplication<PortfolioApplication>(*args)
