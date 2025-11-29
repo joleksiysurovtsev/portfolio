@@ -66,7 +66,7 @@ class ProjectCard(
         demoUrl?.let { url ->
             val demoButton = Button("Demo", Icon(VaadinIcon.EXTERNAL_LINK)).apply {
                 addClickListener {
-                    getUI().ifPresent { ui -> ui.page.executeJs("window.open('$url', '_blank')") }
+                    getUI().ifPresent { ui -> ui.page.open(url, "_blank") }
                 }
             }
             buttonsLayout.add(demoButton)

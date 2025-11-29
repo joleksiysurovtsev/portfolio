@@ -6,6 +6,7 @@ import com.oleksii.surovtsev.portfolio.components.CustomDivider
 import com.oleksii.surovtsev.portfolio.components.CustomDividerH2
 import com.oleksii.surovtsev.portfolio.layout.MainLayout
 import com.oleksii.surovtsev.portfolio.util.UtilFileManager
+import com.vaadin.flow.component.UI
 import com.vaadin.flow.component.button.Button
 import com.vaadin.flow.component.html.Div
 import com.vaadin.flow.component.html.Span
@@ -16,9 +17,10 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment
 import com.vaadin.flow.component.orderedlayout.FlexLayout
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 import com.vaadin.flow.router.Route
+import org.slf4j.LoggerFactory
 
 @Route(value = "/contact", layout = MainLayout::class)
-class ContactView(emailSender: EmailSender) : VerticalLayout() {
+class ContactView(emailService: EmailService) : VerticalLayout() {
     init {
         setWidthFull()
         justifyContentMode = FlexComponent.JustifyContentMode.START
@@ -28,9 +30,16 @@ class ContactView(emailSender: EmailSender) : VerticalLayout() {
                 CustomDividerH2("CONTACT"),
                 ContactIconBlock(),
                 CustomDivider(),
-                SendMailForm(emailSender)
+                SendMailForm(emailService)
         )
     }
+}
+
+enum class ContactActionType {
+    EMAIL,
+    PHONE,
+    MAP,
+    TELEGRAM
 }
 
 data class ContactIconData
@@ -38,10 +47,14 @@ data class ContactIconData
 constructor(
         @JsonProperty("label") val label: String,
         @JsonProperty("icon") val icon: VaadinIcon,
-        @JsonProperty("action") val action: String
+        @JsonProperty("actionType") val actionType: ContactActionType,
+        @JsonProperty("actionValue") val actionValue: String
 )
 
 class ContactIconBlock : FlexLayout() {
+
+    private val logger = LoggerFactory.getLogger(ContactIconBlock::class.java)
+
     init {
         setWidthFull()
         addClassName("contact-icon-container")
@@ -52,9 +65,33 @@ class ContactIconBlock : FlexLayout() {
         contactIcons.forEach { iconData ->
             add(
                     createIconButton(iconData.label, iconData.icon) {
-                        getUI().ifPresent { ui -> ui.page.executeJs(iconData.action) }
+                        executeAction(iconData.actionType, iconData.actionValue)
                     }
             )
+        }
+    }
+
+    private fun executeAction(actionType: ContactActionType, value: String) {
+        getUI().ifPresent { ui ->
+            try {
+                when (actionType) {
+                    ContactActionType.EMAIL -> {
+                        ui.page.executeJs("window.location.href = 'mailto:' + $0", value)
+                    }
+                    ContactActionType.PHONE -> {
+                        ui.page.executeJs("window.location.href = 'tel:' + $0", value)
+                    }
+                    ContactActionType.MAP -> {
+                        ui.page.open(value, "_blank")
+                    }
+                    ContactActionType.TELEGRAM -> {
+                        ui.page.open(value, "_blank")
+                    }
+                }
+                logger.debug("Executed contact action: {} with value: {}", actionType, value)
+            } catch (e: Exception) {
+                logger.error("Failed to execute contact action: {}", actionType, e)
+            }
         }
     }
 

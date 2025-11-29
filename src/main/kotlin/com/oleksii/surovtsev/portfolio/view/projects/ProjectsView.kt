@@ -9,9 +9,13 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment
 import com.vaadin.flow.component.orderedlayout.FlexLayout
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 import com.vaadin.flow.router.Route
+import org.slf4j.LoggerFactory
+import java.io.IOException
 
 @Route(value = "/projects", layout = MainLayout::class)
 class ProjectsView(val gitCredentials: GitCredentials) : VerticalLayout() {
+
+    private val logger = LoggerFactory.getLogger(ProjectsView::class.java)
 
     init {
         setWidthFull()
@@ -36,12 +40,23 @@ class ProjectsView(val gitCredentials: GitCredentials) : VerticalLayout() {
         gitRepositories.forEach { repoName ->
             try {
                 val projectCard = GitHubGraphQLService.getRepoInfo(gitCredentials, repoName).toProjectCard()
-
                 projectsLayout.add(projectCard)
+                logger.debug("Successfully loaded project: {}", repoName)
+            } catch (e: IOException) {
+                logger.warn("Failed to fetch repository info for: {}. Network error: {}", repoName, e.message)
+            } catch (e: IllegalStateException) {
+                logger.warn("Failed to create project card for: {}. Invalid data: {}", repoName, e.message)
             } catch (e: Exception) {
-                println("Error while retrieving information: ${e.message}")
+                logger.error("Unexpected error fetching repository: {}", repoName, e)
             }
         }
+
+        if (projectsLayout.componentCount == 0) {
+            logger.warn("No projects were loaded successfully")
+        } else {
+            logger.info("Loaded {} projects out of {}", projectsLayout.componentCount, gitRepositories.size)
+        }
+
         return projectsLayout
     }
 }

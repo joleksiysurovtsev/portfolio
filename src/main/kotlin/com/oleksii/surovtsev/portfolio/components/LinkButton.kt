@@ -2,6 +2,7 @@ package com.oleksii.surovtsev.portfolio.components
 
 import com.vaadin.flow.component.UI
 import com.vaadin.flow.component.button.Button
+import org.slf4j.LoggerFactory
 
 class LinkButton(
     animationPath: String,
@@ -13,6 +14,9 @@ class LinkButton(
     animationLoop: Boolean = true,
     positionIconAfterText: Boolean = true,
 ) : Button() {
+
+    private val logger = LoggerFactory.getLogger(LinkButton::class.java)
+
     init {
         addClassName(style)
         text = buttonText
@@ -20,8 +24,14 @@ class LinkButton(
         setIcon(lottieIcon)
         isIconAfterText = positionIconAfterText
 
-        addClickListener {
-            UI.getCurrent().page.executeJs("window.open('$url', '_blank')")
+        url?.let { safeUrl ->
+            addClickListener {
+                try {
+                    UI.getCurrent().page.open(safeUrl, "_blank")
+                } catch (e: Exception) {
+                    logger.error("Failed to open URL: {}", safeUrl, e)
+                }
+            }
         }
     }
 }

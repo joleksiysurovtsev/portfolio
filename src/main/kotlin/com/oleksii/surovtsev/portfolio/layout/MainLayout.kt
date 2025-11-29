@@ -6,9 +6,16 @@ import com.vaadin.flow.component.AttachEvent
 import com.vaadin.flow.component.HasElement
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 import com.vaadin.flow.router.RouterLayout
+import com.vaadin.flow.spring.annotation.SpringComponent
+import com.vaadin.flow.spring.annotation.UIScope
+import org.springframework.beans.factory.annotation.Autowired
 
 
-class MainLayout : VerticalLayout(), RouterLayout {
+@SpringComponent
+@UIScope
+class MainLayout @Autowired constructor(
+    private val header: PortfolioHeader
+) : VerticalLayout(), RouterLayout {
     private val contentWrapper = VerticalLayout()
     private var currentContent: HasElement? = null
 
@@ -16,7 +23,6 @@ class MainLayout : VerticalLayout(), RouterLayout {
         isPadding = false
         isSpacing = false
 
-        val header = PortfolioHeader()
         val footer = PortfolioFooter()
 
         contentWrapper.apply {
@@ -32,8 +38,8 @@ class MainLayout : VerticalLayout(), RouterLayout {
     }
 
     override fun showRouterLayoutContent(content: HasElement) {
-        if (currentContent != null) {
-            currentContent!!.element.classList.add("blur-out")
+        currentContent?.let { previousContent ->
+            previousContent.element.classList.add("blur-out")
 
             contentWrapper.element.executeJs(
                 """
@@ -41,7 +47,7 @@ class MainLayout : VerticalLayout(), RouterLayout {
                         $0.remove();
                     }, 5000);
                     """,
-                currentContent!!.element
+                previousContent.element
             )
         }
 

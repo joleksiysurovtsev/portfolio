@@ -20,7 +20,7 @@ spring:
     defer-datasource-initialization: true
 
 vaadin:
-  productionMode: true
+  productionMode: false
   theme:
     name: mytheme
 

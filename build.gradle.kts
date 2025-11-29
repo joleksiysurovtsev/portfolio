@@ -15,7 +15,7 @@ plugins {
 
 
 vaadin {
-    productionMode = true
+    productionMode = false
 }
 
 node {
@@ -110,7 +110,7 @@ dependencies {
 
     implementation("io.netty:netty-resolver-dns-native-macos:4.1.68.Final:osx-aarch_64")
 
-    implementation("com.sendgrid:sendgrid-java:5.0.0-rc.1")
+    implementation("com.sendgrid:sendgrid-java:4.10.2")
 
     implementation("net.sf.jasperreports:jasperreports:7.0.1")
     implementation("net.sf.jasperreports:jasperreports-fonts:7.0.1")

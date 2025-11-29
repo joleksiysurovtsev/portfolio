@@ -1,6 +1,6 @@
 package com.oleksii.surovtsev.portfolio.components
 
-import com.oleksii.surovtsev.portfolio.util.UtilFileManager
+import com.oleksii.surovtsev.portfolio.util.SvgResourceLoader
 import com.vaadin.flow.component.Html
 import com.vaadin.flow.component.UI
 import com.vaadin.flow.component.button.Button
@@ -10,10 +10,17 @@ import com.vaadin.flow.component.icon.Icon
 import com.vaadin.flow.component.icon.VaadinIcon
 import com.vaadin.flow.component.orderedlayout.FlexComponent
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout
+import com.vaadin.flow.spring.annotation.SpringComponent
+import com.vaadin.flow.spring.annotation.UIScope
+import org.springframework.beans.factory.annotation.Autowired
 
 
 @JsModule("./elements/menu-toggle.js")
-class PortfolioHeader : Header() {
+@SpringComponent
+@UIScope
+class PortfolioHeader @Autowired constructor(
+    private val svgLoader: SvgResourceLoader
+) : Header() {
 
     init {
         addClassName("header")
@@ -32,7 +39,7 @@ class PortfolioHeader : Header() {
             add(toggleIcon)
         }
 
-        nav.add(HeaderLogoDiv(), menuDiv, toggleDiv)
+        nav.add(HeaderLogoDiv(svgLoader), menuDiv, toggleDiv)
         add(nav)
     }
 }
@@ -74,12 +81,12 @@ class Navigation : Nav() {
     }
 }
 
-class HeaderLogoDiv : HorizontalLayout() {
+class HeaderLogoDiv(private val svgLoader: SvgResourceLoader) : HorizontalLayout() {
     init {
         alignItems = FlexComponent.Alignment.CENTER
-        val svgContent = UtilFileManager.loadSvg("sur.svg")
+        val svgContent = svgLoader.loadSvg("sur.svg")
         val logoSvg = Html("<div class='logo-icon'>$svgContent</div>")
-        add(SwitchThemeButton(), HeaderAnchor())
+        add(SwitchThemeButton(svgLoader), HeaderAnchor())
     }
 }
 
@@ -93,17 +100,17 @@ class HeaderAnchor : Anchor() {
 
 
 @JsModule("./elements/switch-theme-toggle.js")
-class SwitchThemeButton : Div() {
+class SwitchThemeButton(private val svgLoader: SvgResourceLoader) : Div() {
     init {
         addClassName("theme-button-container")
         val button = Button().apply {
             addClassName("sun-moon")
-            element.setProperty("innerHTML", UtilFileManager.loadSvg("sun-icon.svg"))
+            element.setProperty("innerHTML", svgLoader.loadSvg("sun-icon.svg"))
             addClickListener {
                 ui.get().page.executeJs("return window.toggleTheme()").then { result ->
                     val newTheme = result.asString()
                     val newIcon = if (newTheme == "dark") "sun-icon.svg" else "moon-icon.svg"
-                    element.setProperty("innerHTML", UtilFileManager.loadSvg(newIcon))
+                    element.setProperty("innerHTML", svgLoader.loadSvg(newIcon))
                 }
 
                 // Animation

@@ -39,4 +39,8 @@ out/
 ### Kotlin ###
 .kotlin
 node_modules
-node_modules
+
+### Environment Variables ###
+.env
+.env.local
+.env.*.local
