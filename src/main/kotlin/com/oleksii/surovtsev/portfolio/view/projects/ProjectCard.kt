@@ -2,6 +2,7 @@ package com.oleksii.surovtsev.portfolio.view.projects
 
 import com.oleksii.surovtsev.portfolio.components.LinkButton
 import com.vaadin.flow.component.button.Button
+import com.vaadin.flow.component.button.ButtonVariant
 import com.vaadin.flow.component.html.Image
 import com.vaadin.flow.component.html.Span
 import com.vaadin.flow.component.icon.Icon
@@ -10,6 +11,8 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 import com.vaadin.flow.component.textfield.TextArea
+import com.vaadin.flow.router.RouteConfiguration
+import com.vaadin.flow.server.VaadinService
 
 class ProjectCard(
     title: String,
@@ -18,6 +21,7 @@ class ProjectCard(
     repositoryUrl: String? = null,
     demoUrl: String? = null,
     imageUrl: String? = null,
+    documentationUrl: String? = null,
 ) : VerticalLayout() {
     init {
         addClassName("project-card")
@@ -61,6 +65,19 @@ class ProjectCard(
                 url = url
             )
             buttonsLayout.add(repoButton)
+        }
+
+        documentationUrl?.let { docUrl ->
+            val docsButton = Button("📖 Documentation", Icon(VaadinIcon.BOOK)).apply {
+                addThemeVariants(ButtonVariant.LUMO_PRIMARY)
+                addClickListener {
+                    // Navigate to documentation page
+                    ui.ifPresent { ui ->
+                        ui.navigate(docUrl)
+                    }
+                }
+            }
+            buttonsLayout.add(docsButton)
         }
 
         demoUrl?.let { url ->

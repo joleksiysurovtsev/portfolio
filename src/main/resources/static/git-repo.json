@@ -1,5 +1,6 @@
 [
   "gradle-version-catalog-example",
   "portfolio",
-  "SPD_Project_LMS"
+  "SPD_Project_LMS",
+  "gradle-claude-code-review-plugin"
 ]

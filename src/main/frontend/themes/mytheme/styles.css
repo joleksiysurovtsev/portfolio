@@ -21,6 +21,7 @@
 @import url('contact/mail-foarm-styles.css');
 
 @import url('projects/projects-view-styles.css');
+@import url('docs/plugin-docs.css');
 
 :root {
     --lumo-header-text-color: #111827;

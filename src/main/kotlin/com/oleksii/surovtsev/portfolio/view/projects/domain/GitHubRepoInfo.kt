@@ -22,12 +22,21 @@ data class GitHubRepoInfo(
         require(name.isNotBlank()) { "Repository name cannot be blank" }
         requireNotNull(url) { "Repository URL is required but was null for repository: $name" }
 
+        // Check if this is the Claude Review Plugin project
+        val documentationUrl = when {
+            name.contains("claude-review-plugin", ignoreCase = true) ||
+            name.contains("gradle-claude-code-review-plugin", ignoreCase = true) ->
+                "projects/claude-review-plugin"
+            else -> null
+        }
+
         return ProjectCard(
             title = name.trim(),
             description = description?.trim()?.takeIf { it.isNotBlank() } ?: "No description available",
             technologies = repositoryTopics?.nodes?.mapNotNull { it.topic?.name?.trim() }?.filter { it.isNotBlank() } ?: emptyList(),
             repositoryUrl = url,
-            imageUrl = openGraphImageUrl?.takeIf { it.isNotBlank() }
+            imageUrl = openGraphImageUrl?.takeIf { it.isNotBlank() },
+            documentationUrl = documentationUrl
         )
     }
 }
