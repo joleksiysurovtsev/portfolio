@@ -125,9 +125,21 @@ class TableOfContents(
      * Set up scroll spy to highlight current section
      */
     fun setupScrollSpy() {
+        // Collect all section IDs including subsections
+        val allSectionIds = mutableListOf<String>()
+        sections.forEach { section ->
+            allSectionIds.add(section.id)
+            section.subSections.forEach { subSection ->
+                allSectionIds.add(subSection.id)
+            }
+        }
+
+        // Convert section IDs to a JSON array string
+        val sectionIds = allSectionIds.joinToString(separator = ",") { "\"$it\"" }
+
         element.executeJs(
             """
-            const sections = $0;
+            const sectionIds = [$sectionIds];
             const tocElement = this;
 
             const observerOptions = {
@@ -138,21 +150,20 @@ class TableOfContents(
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const sectionId = entry.target.id;
-                        tocElement.${'$'}server.setActiveSection(sectionId);
+                        tocElement.${'$'}server.setActiveSectionFromClient(sectionId);
                     }
                 });
             };
 
             const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-            sections.forEach(sectionId => {
+            sectionIds.forEach(sectionId => {
                 const element = document.getElementById(sectionId);
                 if (element) {
                     observer.observe(element);
                 }
             });
-            """,
-            sections.map { it.id }.toTypedArray()
+            """
         )
     }
 
