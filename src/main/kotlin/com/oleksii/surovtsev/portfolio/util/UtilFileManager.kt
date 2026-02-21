@@ -1,6 +1,5 @@
 package com.oleksii.surovtsev.portfolio.util
 
-import com.fasterxml.jackson.core.type.TypeReference
 import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.SerializationFeature
@@ -22,16 +21,16 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 )
 object UtilFileManager {
 
-    val textLoader = TextResourceLoader()
-    val jsonLoader = JsonResourceLoader()
-    val svgLoader = SvgResourceLoader()
-
-    val objectMapper: ObjectMapper = ObjectMapper().apply {
+    private val objectMapper: ObjectMapper = ObjectMapper().apply {
         registerModule(JavaTimeModule())
         configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
         configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
         configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
     }
+
+    val textLoader = TextResourceLoader()
+    val jsonLoader = JsonResourceLoader(objectMapper)
+    val svgLoader = SvgResourceLoader()
 
     /**
      * @deprecated Use [TextResourceLoader.loadTextLines] instead

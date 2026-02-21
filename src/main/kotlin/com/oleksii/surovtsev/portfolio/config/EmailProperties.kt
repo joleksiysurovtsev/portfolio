@@ -12,14 +12,38 @@ data class EmailProperties(
     var sender: String = "",
     var recipient: String = "",
     var apiKey: String = ""
-)
+) {
+    override fun toString(): String {
+        return "EmailProperties(sender='$sender', recipient='$recipient', apiKey='${maskApiKey(apiKey)}')"
+    }
+
+    private fun maskApiKey(key: String): String {
+        return if (key.length > 8) {
+            "${key.take(4)}****${key.takeLast(4)}"
+        } else {
+            "****"
+        }
+    }
+}
 
 @Component
 @ConfigurationProperties(prefix = "github")
 data class GitCredentials(
     var githubToken: String = "",
     var githubOwner: String = ""
-)
+) {
+    override fun toString(): String {
+        return "GitCredentials(githubOwner='$githubOwner', githubToken='${maskToken(githubToken)}')"
+    }
+
+    private fun maskToken(token: String): String {
+        return if (token.length > 8) {
+            "${token.take(4)}****${token.takeLast(4)}"
+        } else {
+            "****"
+        }
+    }
+}
 
 @Configuration
 class EmailSenderConfig {

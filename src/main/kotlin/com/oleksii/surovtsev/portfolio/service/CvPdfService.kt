@@ -13,6 +13,10 @@ class CvPdfService {
 
     private val logger = LoggerFactory.getLogger(CvPdfService::class.java)
 
+    companion object {
+        private const val TEMPLATE_PATH = "templates/cv_template.jrxml"
+    }
+
     /**
      * Generates a PDF CV from provided data.
      *
@@ -23,46 +27,14 @@ class CvPdfService {
     fun generateCvPdf(cvData: CvData): ByteArray {
         logger.debug("Starting CV PDF generation for: {}", cvData.fullName)
 
-        val templatePath = "templates/cv_template.jrxml"
-        val templateStream = this::class.java.classLoader.getResourceAsStream(templatePath)
-            ?: throw JRException("Jasper template not found: $templatePath")
+        val jasperPrint = prepareJasperPrint(cvData)
+        val outputStream = ByteArrayOutputStream()
 
-        return templateStream.use { stream ->
-            val jasperReport = JasperCompileManager.compileReport(stream)
+        JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream)
+        val pdfBytes = outputStream.toByteArray()
 
-            val experienceDataSources = cvData.experience.map { experience ->
-                mapOf(
-                    "companyName" to experience.companyName,
-                    "position" to experience.position,
-                    "period" to experience.period,
-                    "description" to experience.description,
-                    "technologiesList" to experience.technologies
-                )
-            }
-
-            val parameters = mapOf(
-                "fullName" to cvData.fullName,
-                "position" to cvData.position,
-                "location" to cvData.contactInfo.location,
-                "phone" to cvData.contactInfo.phone,
-                "email" to cvData.contactInfo.email,
-                "linkedin" to cvData.contactInfo.linkedin,
-                "gitHub" to cvData.contactInfo.gitHub,
-                "site" to cvData.contactInfo.site,
-                "experienceList" to JRBeanCollectionDataSource(experienceDataSources),
-                "skillsList" to cvData.skills,
-                "educationList" to JRBeanCollectionDataSource(cvData.education)
-            )
-
-            val jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, JREmptyDataSource())
-            val outputStream = ByteArrayOutputStream()
-
-            JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream)
-            val pdfBytes = outputStream.toByteArray()
-
-            logger.info("CV PDF generated successfully for: {}, size: {} bytes", cvData.fullName, pdfBytes.size)
-            pdfBytes
-        }
+        logger.info("CV PDF generated successfully for: {}, size: {} bytes", cvData.fullName, pdfBytes.size)
+        return pdfBytes
     }
 
     /**
@@ -76,42 +48,80 @@ class CvPdfService {
     fun generateCvPdfStream(cvData: CvData, outputStream: OutputStream) {
         logger.debug("Starting streaming CV PDF generation for: {}", cvData.fullName)
 
-        val templatePath = "templates/cv_template.jrxml"
-        val templateStream = this::class.java.classLoader.getResourceAsStream(templatePath)
-            ?: throw JRException("Jasper template not found: $templatePath")
+        val jasperPrint = prepareJasperPrint(cvData)
+        JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream)
 
-        templateStream.use { stream ->
-            val jasperReport = JasperCompileManager.compileReport(stream)
+        logger.info("CV PDF streamed successfully for: {}", cvData.fullName)
+    }
 
-            val experienceDataSources = cvData.experience.map { experience ->
-                mapOf(
-                    "companyName" to experience.companyName,
-                    "position" to experience.position,
-                    "period" to experience.period,
-                    "description" to experience.description,
-                    "technologiesList" to experience.technologies
-                )
-            }
+    /**
+     * Loads and compiles the Jasper report template.
+     *
+     * @return Compiled JasperReport
+     * @throws JRException if template is not found or compilation fails
+     */
+    private fun loadAndCompileTemplate(): JasperReport {
+        val templateStream = this::class.java.classLoader.getResourceAsStream(TEMPLATE_PATH)
+            ?: throw JRException("Jasper template not found: $TEMPLATE_PATH")
 
-            val parameters = mapOf(
-                "fullName" to cvData.fullName,
-                "position" to cvData.position,
-                "location" to cvData.contactInfo.location,
-                "phone" to cvData.contactInfo.phone,
-                "email" to cvData.contactInfo.email,
-                "linkedin" to cvData.contactInfo.linkedin,
-                "gitHub" to cvData.contactInfo.gitHub,
-                "site" to cvData.contactInfo.site,
-                "experienceList" to JRBeanCollectionDataSource(experienceDataSources),
-                "skillsList" to cvData.skills,
-                "educationList" to JRBeanCollectionDataSource(cvData.education)
-            )
-
-            val jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, JREmptyDataSource())
-            JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream)
-
-            logger.info("CV PDF streamed successfully for: {}", cvData.fullName)
+        return templateStream.use { stream ->
+            JasperCompileManager.compileReport(stream)
         }
+    }
+
+    /**
+     * Prepares experience data for the Jasper report.
+     *
+     * @param cvData The CV data
+     * @return List of experience maps for Jasper
+     */
+    private fun prepareExperienceData(cvData: CvData): List<Map<String, Any?>> {
+        return cvData.experience.map { experience ->
+            mapOf(
+                "companyName" to experience.companyName,
+                "position" to experience.position,
+                "period" to experience.period,
+                "description" to experience.description,
+                "technologiesList" to experience.technologies
+            )
+        }
+    }
+
+    /**
+     * Prepares parameters for the Jasper report.
+     *
+     * @param cvData The CV data
+     * @return Map of parameters for Jasper
+     */
+    private fun prepareReportParameters(cvData: CvData): Map<String, Any?> {
+        val experienceDataSources = prepareExperienceData(cvData)
+
+        return mapOf(
+            "fullName" to cvData.fullName,
+            "position" to cvData.position,
+            "location" to cvData.contactInfo.location,
+            "phone" to cvData.contactInfo.phone,
+            "email" to cvData.contactInfo.email,
+            "linkedin" to cvData.contactInfo.linkedin,
+            "gitHub" to cvData.contactInfo.gitHub,
+            "site" to cvData.contactInfo.site,
+            "experienceList" to JRBeanCollectionDataSource(experienceDataSources),
+            "skillsList" to cvData.skills,
+            "educationList" to JRBeanCollectionDataSource(cvData.education)
+        )
+    }
+
+    /**
+     * Prepares the JasperPrint object with filled report data.
+     *
+     * @param cvData The CV data
+     * @return Filled JasperPrint object
+     * @throws JRException if report preparation fails
+     */
+    private fun prepareJasperPrint(cvData: CvData): JasperPrint {
+        val jasperReport = loadAndCompileTemplate()
+        val parameters = prepareReportParameters(cvData)
+        return JasperFillManager.fillReport(jasperReport, parameters, JREmptyDataSource())
     }
 }
 

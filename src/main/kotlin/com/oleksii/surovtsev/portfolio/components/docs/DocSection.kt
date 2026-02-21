@@ -8,7 +8,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout
 /**
  * Component for documentation sections with consistent styling
  */
-class DocSection(
+open class DocSection(
     title: String,
     sectionId: String? = null,
     isSubSection: Boolean = false

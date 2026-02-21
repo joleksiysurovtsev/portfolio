@@ -1,11 +1,14 @@
 package com.oleksii.surovtsev.portfolio.view.experience
 
+import com.oleksii.surovtsev.portfolio.service.ResourceLoaderService
 import com.vaadin.flow.component.html.H5
 import com.vaadin.flow.component.orderedlayout.FlexComponent
 import com.vaadin.flow.component.orderedlayout.FlexLayout
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 
-class ExperienceAndSkillsBlock : VerticalLayout() {
+class ExperienceAndSkillsBlock(
+    private val resourceLoaderService: ResourceLoaderService
+) : VerticalLayout() {
 
     init {
 
@@ -21,11 +24,11 @@ class ExperienceAndSkillsBlock : VerticalLayout() {
             alignItems = FlexComponent.Alignment.START
             addClassName("experience-skills-container")
 
-            val experienceSection = ExperienceSection().apply {
+            val experienceSection = ExperienceSection(resourceLoaderService).apply {
                 addClassName("experience-section")
             }
 
-            val educationSection = EducationSection().apply {
+            val educationSection = EducationSection(resourceLoaderService).apply {
                 addClassName("experience-section")
             }
 

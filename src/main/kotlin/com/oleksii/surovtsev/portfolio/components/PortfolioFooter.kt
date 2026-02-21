@@ -1,7 +1,8 @@
 package com.oleksii.surovtsev.portfolio.components
 
 import com.oleksii.surovtsev.portfolio.entity.SocialIcon
-import com.oleksii.surovtsev.portfolio.util.UtilFileManager
+import com.oleksii.surovtsev.portfolio.service.ResourceLoaderService
+import com.oleksii.surovtsev.portfolio.util.load
 import com.vaadin.flow.component.dependency.JsModule
 import com.vaadin.flow.component.html.*
 import com.vaadin.flow.component.orderedlayout.FlexComponent
@@ -9,14 +10,16 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 import com.vaadin.flow.server.VaadinSession
 
-class PortfolioFooter : Footer() {
+class PortfolioFooter(
+    private val resourceLoaderService: ResourceLoaderService
+) : Footer() {
     init {
         addClassName("footer")
 
         val vaadinLogo = VaadinLogo()
         val copyright = CopywriterDisclaimer()
         val portfolioDescription = PortfolioDescription()
-        val socialButtons = SocialButtonsLayout()
+        val socialButtons = SocialButtonsLayout(resourceLoaderService)
 
         val footerContent = HorizontalLayout(
             socialButtons,
@@ -74,7 +77,9 @@ class PortfolioDescription : Div() {
 }
 
 @JsModule("./elements/social-buttons.js")
-class SocialButtonsLayout : Div() {
+class SocialButtonsLayout(
+    private val resourceLoaderService: ResourceLoaderService
+) : Div() {
     private val buttonsDiv: Div = Div()
 
     init {
@@ -89,7 +94,7 @@ class SocialButtonsLayout : Div() {
         openButtonImage.addClassName("social-icon")
         openButton.add(openButtonImage)
 
-        val socialIcons = UtilFileManager.getDataFromJson<SocialIcon>("social-icons.json")
+        val socialIcons: List<SocialIcon> = resourceLoaderService.json.load("social-icons.json")
         socialIcons.forEachIndexed { index, socialIcon ->
             val socialButton = Div()
             socialButton.addClassNames("social-btn", "social-btn-${index + 1}")

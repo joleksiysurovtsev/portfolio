@@ -2,8 +2,10 @@ package com.oleksii.surovtsev.portfolio.view.projects
 
 import com.oleksii.surovtsev.portfolio.components.CustomDividerH2
 import com.oleksii.surovtsev.portfolio.config.GitCredentials
+import com.oleksii.surovtsev.portfolio.config.RoutesConfig
 import com.oleksii.surovtsev.portfolio.layout.MainLayout
-import com.oleksii.surovtsev.portfolio.util.UtilFileManager
+import com.oleksii.surovtsev.portfolio.service.ResourceLoaderService
+import com.oleksii.surovtsev.portfolio.util.load
 import com.vaadin.flow.component.orderedlayout.FlexComponent
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment
 import com.vaadin.flow.component.orderedlayout.FlexLayout
@@ -12,8 +14,12 @@ import com.vaadin.flow.router.Route
 import org.slf4j.LoggerFactory
 import java.io.IOException
 
-@Route(value = "/projects", layout = MainLayout::class)
-class ProjectsView(val gitCredentials: GitCredentials) : VerticalLayout() {
+@Route(value = RoutesConfig.Main.PROJECTS, layout = MainLayout::class)
+class ProjectsView(
+    val gitCredentials: GitCredentials,
+    private val resourceLoaderService: ResourceLoaderService,
+    private val gitHubGraphQLService: GitHubGraphQLService
+) : VerticalLayout() {
 
     private val logger = LoggerFactory.getLogger(ProjectsView::class.java)
 
@@ -36,10 +42,11 @@ class ProjectsView(val gitCredentials: GitCredentials) : VerticalLayout() {
             alignItems = Alignment.CENTER
         }
 
-        val gitRepositories: List<String> = UtilFileManager.getDataFromJson("git-repo.json")
+        val gitRepositories: List<String> = resourceLoaderService.json.load("git-repo.json")
         gitRepositories.forEach { repoName ->
             try {
-                val projectCard = GitHubGraphQLService.getRepoInfo(gitCredentials, repoName).toProjectCard()
+                val repoInfo = gitHubGraphQLService.getRepoInfo(gitCredentials, repoName)
+                val projectCard = repoInfo.toProjectCard()
                 projectsLayout.add(projectCard)
                 logger.debug("Successfully loaded project: {}", repoName)
             } catch (e: IOException) {

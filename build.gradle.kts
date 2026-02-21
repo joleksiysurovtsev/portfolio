@@ -103,7 +103,6 @@ dependencies {
     implementation("com.vaadin:vaadin:24.5.10")
     implementation("com.vaadin:vaadin-core:24.5.10")
     implementation("com.vaadin:vaadin-lumo-theme:24.5.10")
-
     implementation("org.parttio:line-awesome:2.1.0")
 
     implementation("com.flowingcode.addons.carousel:carousel-addon:2.1.2")
@@ -111,6 +110,14 @@ dependencies {
     implementation("io.netty:netty-resolver-dns-native-macos:4.1.68.Final:osx-aarch_64")
 
     implementation("com.sendgrid:sendgrid-java:4.10.2")
+
+    // OWASP HTML Sanitizer for secure input handling
+    implementation("com.googlecode.owasp-java-html-sanitizer:owasp-java-html-sanitizer:20240325.1")
+
+    // Resilience4j for retry logic and circuit breakers
+    implementation("io.github.resilience4j:resilience4j-spring-boot3:2.2.0")
+    implementation("io.github.resilience4j:resilience4j-kotlin:2.2.0")
+    implementation("org.springframework.boot:spring-boot-starter-aop")
 
     implementation("net.sf.jasperreports:jasperreports:7.0.1")
     implementation("net.sf.jasperreports:jasperreports-fonts:7.0.1")

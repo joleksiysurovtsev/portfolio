@@ -1,6 +1,6 @@
 package com.oleksii.surovtsev.portfolio.view.home
 
-import com.oleksii.surovtsev.portfolio.util.UtilFileManager
+import com.oleksii.surovtsev.portfolio.service.ResourceLoaderService
 import com.vaadin.flow.component.html.Div
 import com.vaadin.flow.component.html.H1
 import com.vaadin.flow.component.html.Image
@@ -8,7 +8,9 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent
 import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment
 import com.vaadin.flow.component.orderedlayout.FlexLayout
 
-class AboutMeBlock : FlexLayout() {
+class AboutMeBlock(
+    private val resourceLoaderService: ResourceLoaderService
+) : FlexLayout() {
 
     init {
         setWidthFull()
@@ -24,7 +26,7 @@ class AboutMeBlock : FlexLayout() {
         }
 
         val textLayout = Div().apply {
-            val textLines = UtilFileManager.getTextFromFile("greeting.txt")
+            val textLines = resourceLoaderService.text.loadTextLines("greeting.txt")
             val title = H1(textLines[0])
             val description: Div = Div().apply { text = textLines.drop(1).joinToString("\n") }
             add(title, description)

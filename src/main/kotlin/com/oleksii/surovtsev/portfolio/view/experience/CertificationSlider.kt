@@ -3,14 +3,17 @@ package com.oleksii.surovtsev.portfolio.view.experience
 import com.flowingcode.vaadin.addons.carousel.Carousel
 import com.flowingcode.vaadin.addons.carousel.Slide
 import com.oleksii.surovtsev.portfolio.entity.Certification
-import com.oleksii.surovtsev.portfolio.util.UtilFileManager
+import com.oleksii.surovtsev.portfolio.service.ResourceLoaderService
+import com.oleksii.surovtsev.portfolio.util.load
 import com.vaadin.flow.component.html.Image
 import com.vaadin.flow.component.orderedlayout.FlexComponent
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 
-class CertificationSlider : VerticalLayout() {
+class CertificationSlider(
+    private val resourceLoaderService: ResourceLoaderService
+) : VerticalLayout() {
     init {
-        val certifications: List<Certification> = UtilFileManager.getDataFromJson("certification.json")
+        val certifications: List<Certification> = resourceLoaderService.json.load("certification.json")
 
         val slides = certifications.map { certification ->
             Slide(

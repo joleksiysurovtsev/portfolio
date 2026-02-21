@@ -2,16 +2,19 @@ package com.oleksii.surovtsev.portfolio.view.experience
 
 import com.oleksii.surovtsev.portfolio.components.CustomDividerH2
 import com.oleksii.surovtsev.portfolio.entity.ExperiencePart
-import com.oleksii.surovtsev.portfolio.util.UtilFileManager
+import com.oleksii.surovtsev.portfolio.service.ResourceLoaderService
+import com.oleksii.surovtsev.portfolio.util.load
 import com.vaadin.flow.component.html.H3
 import com.vaadin.flow.component.html.H4
 import com.vaadin.flow.component.html.Paragraph
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 
-class ExperienceSection() : VerticalLayout() {
+class ExperienceSection(
+    private val resourceLoaderService: ResourceLoaderService
+) : VerticalLayout() {
     init {
         add (CustomDividerH2("EXPERIENCE"))
-        val experienceItems: List<ExperiencePart> = UtilFileManager.getDataFromJson("experience-parts.json")
+        val experienceItems: List<ExperiencePart> = resourceLoaderService.json.load("experience-parts.json")
         setId("timeline")
         addClassName("timeline-section")
         isSpacing = true

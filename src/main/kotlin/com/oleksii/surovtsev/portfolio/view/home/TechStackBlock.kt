@@ -2,7 +2,8 @@ package com.oleksii.surovtsev.portfolio.view.home
 
 import com.oleksii.surovtsev.portfolio.entity.TechCardData
 import com.oleksii.surovtsev.portfolio.entity.enums.TechCardType
-import com.oleksii.surovtsev.portfolio.util.UtilFileManager
+import com.oleksii.surovtsev.portfolio.service.ResourceLoaderService
+import com.oleksii.surovtsev.portfolio.util.load
 import com.oleksii.surovtsev.portfolio.view.home.element.TechCard
 import com.vaadin.flow.component.html.Div
 import com.vaadin.flow.component.html.H1
@@ -10,7 +11,9 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
 
-class TechStackBlock: VerticalLayout() {
+class TechStackBlock(
+    private val resourceLoaderService: ResourceLoaderService
+): VerticalLayout() {
     init {
         addClassName("general-tech-stack-container")
         defaultHorizontalComponentAlignment = FlexComponent.Alignment.CENTER
@@ -32,7 +35,7 @@ class TechStackBlock: VerticalLayout() {
             isSpacing = true
 
             // We read JSON and create cards
-            val techCards: List<TechCardData> = UtilFileManager.getDataFromJson("tech-stack.json")
+            val techCards: List<TechCardData> = resourceLoaderService.json.load("tech-stack.json")
             techCards.map { TechCard.fromData(it, TechCardType.SMALL) }.forEach { add(it) }
         }
 

@@ -2,6 +2,7 @@ package com.oleksii.surovtsev.portfolio.layout
 
 import com.oleksii.surovtsev.portfolio.components.PortfolioFooter
 import com.oleksii.surovtsev.portfolio.components.PortfolioHeader
+import com.oleksii.surovtsev.portfolio.service.ResourceLoaderService
 import com.vaadin.flow.component.AttachEvent
 import com.vaadin.flow.component.HasElement
 import com.vaadin.flow.component.orderedlayout.VerticalLayout
@@ -14,7 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired
 @SpringComponent
 @UIScope
 class MainLayout @Autowired constructor(
-    private val header: PortfolioHeader
+    private val header: PortfolioHeader,
+    private val resourceLoaderService: ResourceLoaderService
 ) : VerticalLayout(), RouterLayout {
     private val contentWrapper = VerticalLayout()
     private var currentContent: HasElement? = null
@@ -23,7 +25,7 @@ class MainLayout @Autowired constructor(
         isPadding = false
         isSpacing = false
 
-        val footer = PortfolioFooter()
+        val footer = PortfolioFooter(resourceLoaderService)
 
         contentWrapper.apply {
             isPadding = false

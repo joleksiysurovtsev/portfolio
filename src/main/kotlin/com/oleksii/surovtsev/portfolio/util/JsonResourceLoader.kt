@@ -1,27 +1,20 @@
 package com.oleksii.surovtsev.portfolio.util
 
 import com.fasterxml.jackson.core.type.TypeReference
-import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.databind.SerializationFeature
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.stereotype.Component
 
 /**
  * Loader for JSON file resources.
  */
 @Component
-class JsonResourceLoader {
+class JsonResourceLoader(
+    @Qualifier("resourceObjectMapper") private val objectMapper: ObjectMapper
+) {
 
     private val logger = LoggerFactory.getLogger(JsonResourceLoader::class.java)
-
-    val objectMapper: ObjectMapper = ObjectMapper().apply {
-        registerModule(JavaTimeModule())
-        configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
-        configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-        configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, false)
-    }
 
     /**
      * Loads and deserializes a JSON file into a list of objects.

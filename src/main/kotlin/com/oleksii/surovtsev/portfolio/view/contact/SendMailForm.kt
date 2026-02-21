@@ -1,5 +1,6 @@
 package com.oleksii.surovtsev.portfolio.view.contact
 
+import com.oleksii.surovtsev.portfolio.util.InputSanitizer
 import com.vaadin.flow.component.button.Button
 import com.vaadin.flow.component.icon.Icon
 import com.vaadin.flow.component.icon.VaadinIcon
@@ -12,7 +13,10 @@ import com.vaadin.flow.component.textfield.TextArea
 import com.vaadin.flow.component.textfield.TextField
 import org.slf4j.LoggerFactory
 
-class SendMailForm(private val emailService: EmailService) : VerticalLayout() {
+class SendMailForm(
+    private val emailService: EmailService,
+    private val inputSanitizer: InputSanitizer
+) : VerticalLayout() {
 
     private val logger = LoggerFactory.getLogger(SendMailForm::class.java)
 
@@ -83,19 +87,47 @@ class SendMailForm(private val emailService: EmailService) : VerticalLayout() {
                 }
 
                 try {
-                    val sanitizedMessage = sanitizeInput(message)
-                    emailService.sendEmail(name, email, sanitizedMessage)
+                    // Sanitize all inputs using OWASP sanitizer
+                    val sanitizedName = inputSanitizer.sanitizeName(name, MAX_NAME_LENGTH)
+                    val sanitizedEmail = inputSanitizer.sanitizeEmail(email)
+                    val sanitizedMessage = inputSanitizer.sanitizeMessage(message, MAX_MESSAGE_LENGTH)
+
+                    emailService.sendEmail(sanitizedName, sanitizedEmail, sanitizedMessage)
                     Notification.show("Message sent successfully!", 3000, Notification.Position.MIDDLE)
-                    logger.info("Contact form submitted successfully from: {}", email)
+                    logger.info("Contact form submitted successfully from: {}", sanitizedEmail)
                     nameField.clear()
                     emailField.clear()
                     messageField.clear()
+                } catch (e: IllegalArgumentException) {
+                    logger.warn("Invalid input in contact form: {}", e.message)
+                    Notification.show(e.message ?: "Invalid input", 3000, Notification.Position.MIDDLE)
+                } catch (e: com.oleksii.surovtsev.portfolio.exception.EmailValidationException) {
+                    logger.warn("Email validation failed: {}", e.message)
+                    Notification.show(e.message ?: "Invalid input", 3000, Notification.Position.MIDDLE)
+                } catch (e: com.oleksii.surovtsev.portfolio.exception.EmailRateLimitException) {
+                    logger.warn("Email rate limit exceeded")
+                    val retryMessage = if (e.retryAfterSeconds != null) {
+                        "Too many messages sent. Please try again in ${e.retryAfterSeconds} seconds."
+                    } else {
+                        e.message ?: "Too many messages sent. Please try again later."
+                    }
+                    Notification.show(retryMessage, 5000, Notification.Position.MIDDLE)
+                } catch (e: com.oleksii.surovtsev.portfolio.exception.EmailNetworkException) {
+                    logger.error("Network error sending email", e)
+                    Notification.show("Network error. Please check your connection and try again.", 4000, Notification.Position.MIDDLE)
+                } catch (e: com.oleksii.surovtsev.portfolio.exception.EmailConfigurationException) {
+                    logger.error("Email configuration error", e)
+                    Notification.show("Email service is not configured properly. Please contact support.", 5000, Notification.Position.MIDDLE)
+                } catch (e: com.oleksii.surovtsev.portfolio.exception.EmailException) {
+                    logger.error("Failed to send contact form email", e)
+                    Notification.show(e.message ?: "Failed to send message. Please try again later.", 4000, Notification.Position.MIDDLE)
                 } catch (e: EmailSendingException) {
-                    logger.error("Failed to send contact form email from: {}", email, e)
-                    Notification.show("Failed to send message. Please try again later.", 3000, Notification.Position.MIDDLE)
+                    // Legacy exception for backward compatibility
+                    logger.error("Failed to send contact form email", e)
+                    Notification.show("Failed to send message. Please try again later.", 4000, Notification.Position.MIDDLE)
                 } catch (e: Exception) {
-                    logger.error("Unexpected error in contact form from: {}", email, e)
-                    Notification.show("An error occurred. Please try again later.", 3000, Notification.Position.MIDDLE)
+                    logger.error("Unexpected error in contact form", e)
+                    Notification.show("An unexpected error occurred. Please try again later.", 4000, Notification.Position.MIDDLE)
                 }
             }
         }
@@ -106,14 +138,5 @@ class SendMailForm(private val emailService: EmailService) : VerticalLayout() {
         }
 
         add(topRow, messageField, buttonWrapper)
-    }
-
-    private fun sanitizeInput(input: String): String {
-        return input
-            .replace("<", "&lt;")
-            .replace(">", "&gt;")
-            .replace("&", "&amp;")
-            .replace("\"", "&quot;")
-            .replace("'", "&#x27;")
     }
 }
