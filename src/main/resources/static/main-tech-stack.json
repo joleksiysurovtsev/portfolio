@@ -12,6 +12,24 @@
     "link": "url"
   },
   {
+    "cardName": "Coroutines",
+    "cardIcon": "icons/tech/coroutines.svg",
+    "description": "Kotlin Coroutines are my go-to for asynchronous, non-blocking code written in a clear, sequential style. I use structured concurrency to build high-throughput reactive services without the complexity of callback-based code.",
+    "link": "url"
+  },
+  {
+    "cardName": "WebFlux",
+    "cardIcon": "icons/tech/WebFlux.svg",
+    "description": "Spring WebFlux is the reactive web stack I use to build non-blocking, event-driven microservices. Combined with Project Reactor and Kotlin Coroutines, it lets me handle high concurrency with efficient resource usage.",
+    "link": "url"
+  },
+  {
+    "cardName": "R2DBC",
+    "cardIcon": "icons/tech/R2DBC.svg",
+    "description": "R2DBC gives me fully reactive, non-blocking access to relational databases. I pair it with Spring WebFlux and Coroutines to keep the entire request path reactive, from the HTTP layer down to PostgreSQL.",
+    "link": "url"
+  },
+  {
     "cardName": "Kafka",
     "cardIcon": "icons/tech/kafka.svg",
     "description": "Kafka is a distributed event-streaming platform I use for real-time data processing and reliable communication between services. Its ability to handle large volumes of data with low latency makes it an ideal choice for building event-driven architectures in my projects.",
@@ -36,9 +54,9 @@
     "link": "url"
   },
   {
-    "cardName": "Elasticsearch",
-    "cardIcon": "icons/tech/elasticsearch.svg",
-    "description": "Elasticsearch is my choice for implementing powerful search functionality and analyzing large datasets. Its speed and scalability make it ideal for log analytics and search-intensive applications in my projects.",
+    "cardName": "OpenSearch",
+    "cardIcon": "icons/tech/opensearch.svg",
+    "description": "OpenSearch is my choice for implementing powerful search functionality and analyzing large datasets. Its speed and scalability make it ideal for log analytics and search-intensive applications in my projects.",
     "link": "url"
   },
   {
@@ -81,6 +99,12 @@
     "cardName": "PostgreSQL",
     "cardIcon": "icons/tech/postgresSQL.svg",
     "description": "PostgreSQL is the relational database I rely on for managing structured data securely and efficiently. Its advanced features, like JSON support and indexing, enable me to handle complex queries and large datasets.",
+    "link": "url"
+  },
+  {
+    "cardName": "ClickHouse",
+    "cardIcon": "icons/tech/clickhouse.svg",
+    "description": "ClickHouse is the column-oriented database I use for high-volume analytics and reporting. Its speed on massive datasets makes it ideal for aggregations and time-series workloads on telecom and IoT platforms.",
     "link": "url"
   },
   {

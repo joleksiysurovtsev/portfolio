@@ -6,5 +6,5 @@ import java.time.LocalDate
 
 data class ExperiencePeriod @JsonCreator constructor(
     @JsonProperty("start") val start: LocalDate,
-    @JsonProperty("end") val end: LocalDate,
+    @JsonProperty("end") val end: LocalDate? = null,
 )

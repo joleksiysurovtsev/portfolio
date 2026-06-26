@@ -1,5 +1,20 @@
 [
   {
+    "title": "Claude Code in Action",
+    "description": "Anthropic's hands-on course on agentic, AI-assisted software development with Claude Code — covering multi-agent development workflows, the Model Context Protocol (MCP), effective prompt engineering, and LLM-assisted code review.",
+    "imageUrl": "img/claude_code_in_action.png"
+  },
+  {
+    "title": "Certified Vaadin 24 Developer",
+    "description": "Official Vaadin certification validating proficiency in building production web applications with Vaadin 24 (Flow) — components, layouts, data binding, routing, and server-side UI architecture.",
+    "imageUrl": "img/certified_vaadin_24_developer.png"
+  },
+  {
+    "title": "Generative AI: Prompt Engineering Basics",
+    "description": "IBM course on generative AI fundamentals and prompt-engineering techniques — prompt design patterns, best practices, and approaches for getting reliable results from large language models.",
+    "imageUrl": "img/generative_ai_prompt_engineering_basics.png"
+  },
+  {
     "title": "SPD-University",
     "description": "Successfully completed a Java course with a total duration of 115 hours. The program included modules such as Java Core, Java EE, databases, multithreading, application engineering, and soft skills. Received a certificate for demonstrated experience, knowledge, and performance in team development of a web application from scratch to production using a modern Java stack (100 hours).",
     "imageUrl": "img/spd-university.jpeg"

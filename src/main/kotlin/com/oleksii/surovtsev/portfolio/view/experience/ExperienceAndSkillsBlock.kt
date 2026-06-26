@@ -14,7 +14,7 @@ class ExperienceAndSkillsBlock(
 
         val textLayout = VerticalLayout().apply {
             addClassName("experience-text")
-            add(H5("4 Years of Experience"))
+            add(H5("5+ Years of Experience"))
         }
 
         val experienceSectionAndSkillsSection = FlexLayout().apply {

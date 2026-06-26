@@ -8,6 +8,6 @@ class TimeLinePeriod(period: ExperiencePeriod): VerticalLayout() {
     init {
         isSpacing = false
         isPadding = false
-        add(H5("${period.start} - ${period.end}"))
+        add(H5("${period.start} - ${period.end ?: "Present"}"))
     }
 }
